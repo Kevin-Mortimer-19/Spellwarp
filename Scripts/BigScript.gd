@@ -20,6 +20,8 @@ var water_count = 0
 
 enum RESOURCES {NULL, AIR, EARTH, FIRE, WATER, LIGHT}
 
+var rng = RandomNumberGenerator.new()
+
 var count: int = 0 setget set_count, get_count
 
 var clicker_add: int = 1
@@ -28,9 +30,13 @@ var bean_farmer_count := 0
 
 var bean_farm = resource_creator.new(10, 1, 1.0)
 
-var start_dimension = dim.new(1,2,4,5)
+var current_dim = dim.new(1,1,1,1)
+
 
 func _ready():
+	rng.randomize()
+	new_dimension()
+	
 	bean_count.text = "bean count: %s" % count
 	bean_farmer_label.text = "bean farmer count: %s" % bean_farmer_count
 	bean_farmer_timer.wait_time = bean_farm.get_time()
@@ -40,8 +46,8 @@ func _ready():
 	fire_label.text = "Fire: %s" % fire_count
 	water_label.text = "Water: %s" % water_count
 	
-	print(start_dimension.get_resource_1())
-	print(start_dimension.get_resource_2())
+	#print(start_dimension.get_resource_1())
+	#print(start_dimension.get_resource_2())
 
 
 
@@ -96,9 +102,35 @@ func add_water(amount):
 	water_count += amount
 	water_label.text = "Water: %s" % water_count
 
+func new_dimension():
+	current_dim = dim.new(rng.randi_range(1,5),rng.randi_range(1,5),rng.randi_range(1,5),rng.randi_range(1,5))
+	display_resources(current_dim.get_resource_1(), current_dim.get_resource_2())
+
+func display_resources(r1, r2):
+	print("The resources available are as follows:")
+	match r1:
+		0:
+			print("AIR")
+		1:
+			print("EARTH")
+		2:
+			print ("FIRE")
+		3:
+			print("WATER")
+	match r2:
+		0:
+			print("AIR")
+		1:
+			print("EARTH")
+		2:
+			print ("FIRE")
+		3:
+			print("WATER")
+
 func _on_bean_farmer_timer_timeout():
 	set_count(bean_farmer_count * bean_farm.get_output())
 
 
 func _on_warp_button_pressed():
 	print("Warp!")
+	new_dimension()

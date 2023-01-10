@@ -22,10 +22,7 @@ func _init(a, e, f, w):
 		var arr = [a, e, f, w]
 		var tempmax = 0
 		var max_1_location = 0
-		#var index = -1
-		#for r in arr:
 		for i in range(arr.size()):
-			#index += 1
 			if arr[i] > tempmax:
 				tempmax = arr[i]
 				max_1_location = i
@@ -33,10 +30,7 @@ func _init(a, e, f, w):
 		
 		var max_2_location = 1
 		tempmax = 0
-		#index = -1
-		#for r in arr:
 		for i in range(arr.size()):
-			#index += 1
 			if arr[i] > tempmax && i != max_1_location:
 				tempmax = arr[i]
 				max_2_location = i
