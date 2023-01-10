@@ -1,5 +1,5 @@
 extends Control
-var resource_creator = load("res://ResourceCreator.gd")
+var resource_creator = load("res://Scripts/ResourceCreator.gd")
 
 onready var bean_count: Label = $VBoxContainer/Label1
 
@@ -90,3 +90,7 @@ func add_water(amount):
 
 func _on_bean_farmer_timer_timeout():
 	set_count(bean_farmer_count * bean_farm.get_output())
+
+
+func _on_warp_button_pressed():
+	print("Warp!")

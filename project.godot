@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "ResourceCreator",
 "language": "GDScript",
-"path": "res://ResourceCreator.gd"
+"path": "res://Scripts/ResourceCreator.gd"
 } ]
 _global_script_class_icons={
 "ResourceCreator": ""
