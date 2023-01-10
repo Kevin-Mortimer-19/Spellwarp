@@ -18,7 +18,7 @@ var earth_count = 0
 var fire_count = 0
 var water_count = 0
 
-enum RESOURCES {NULL, AIR, EARTH, FIRE, WATER, LIGHT}
+enum RESOURCES {AIR, EARTH, FIRE, WATER, LIGHT, NULL}
 
 var rng = RandomNumberGenerator.new()
 
@@ -45,11 +45,6 @@ func _ready():
 	earth_label.text = "Earth: %s" % earth_count
 	fire_label.text = "Fire: %s" % fire_count
 	water_label.text = "Water: %s" % water_count
-	
-	#print(start_dimension.get_resource_1())
-	#print(start_dimension.get_resource_2())
-
-
 
 func _process(delta):
 	bean_farmer_button.disabled = get_count() < bean_farm.get_cost()
@@ -129,7 +124,6 @@ func display_resources(r1, r2):
 
 func _on_bean_farmer_timer_timeout():
 	set_count(bean_farmer_count * bean_farm.get_output())
-
 
 func _on_warp_button_pressed():
 	print("Warp!")
