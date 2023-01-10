@@ -99,31 +99,67 @@ func add_water(amount):
 
 func new_dimension():
 	current_dim = dim.new(rng.randi_range(1,5),rng.randi_range(1,5),rng.randi_range(1,5),rng.randi_range(1,5))
-	display_resources(current_dim.get_resource_1(), current_dim.get_resource_2())
+	resources(current_dim.get_resource_1(), current_dim.get_resource_2())
 
-func display_resources(r1, r2):
+func resources(r1, r2):
+	disable_groups()
+	
 	print("The resources available are as follows:")
 	match r1:
 		0:
 			print("AIR")
+			air_resource()
 		1:
 			print("EARTH")
+			earth_resource()
 		2:
 			print ("FIRE")
+			fire_resource()
 		3:
 			print("WATER")
+			water_resource()
 	match r2:
 		0:
 			print("AIR")
+			air_resource()
 		1:
 			print("EARTH")
+			earth_resource()
 		2:
 			print ("FIRE")
+			fire_resource()
 		3:
 			print("WATER")
+			water_resource()
 
 func _on_bean_farmer_timer_timeout():
 	set_count(bean_farmer_count * bean_farm.get_output())
+
+func air_resource():
+	for r in get_tree().get_nodes_in_group("air"):
+		r.visible = true
+
+func earth_resource():
+	for r in get_tree().get_nodes_in_group("earth"):
+		r.visible = true
+
+func fire_resource():
+	for r in get_tree().get_nodes_in_group("fire"):
+		r.visible = true
+
+func water_resource():
+	for r in get_tree().get_nodes_in_group("water"):
+		r.visible = true
+
+func disable_groups():
+	for r in get_tree().get_nodes_in_group("air"):
+		r.visible = false
+	for r in get_tree().get_nodes_in_group("earth"):
+		r.visible = false
+	for r in get_tree().get_nodes_in_group("fire"):
+		r.visible = false
+	for r in get_tree().get_nodes_in_group("water"):
+		r.visible = false
 
 func _on_warp_button_pressed():
 	print("Warp!")
