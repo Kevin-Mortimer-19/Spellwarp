@@ -1,5 +1,6 @@
 extends Control
 var resource_creator = load("res://Scripts/ResourceCreator.gd")
+var dim = load("res://Scripts/Dimension.gd")
 
 onready var bean_count: Label = $VBoxContainer/Label1
 
@@ -17,6 +18,7 @@ var earth_count = 0
 var fire_count = 0
 var water_count = 0
 
+enum RESOURCES {NULL, AIR, EARTH, FIRE, WATER, LIGHT}
 
 var count: int = 0 setget set_count, get_count
 
@@ -25,6 +27,8 @@ var clicker_add: int = 1
 var bean_farmer_count := 0
 
 var bean_farm = resource_creator.new(10, 1, 1.0)
+
+var start_dimension = dim.new(1,2,4,5)
 
 func _ready():
 	bean_count.text = "bean count: %s" % count
@@ -36,7 +40,11 @@ func _ready():
 	fire_label.text = "Fire: %s" % fire_count
 	water_label.text = "Water: %s" % water_count
 	
-	
+	print(start_dimension.get_resource_1())
+	print(start_dimension.get_resource_2())
+
+
+
 func _process(delta):
 	bean_farmer_button.disabled = get_count() < bean_farm.get_cost()
 	
