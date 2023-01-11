@@ -8,15 +8,27 @@ onready var bean_farmer_label: Label = $VBoxContainer/Label2
 onready var bean_farmer_button = $VBoxContainer/Button2
 onready var bean_farmer_timer: Timer = $VBoxContainer/Timer1
 
-onready var air_label: Label = $BaseElements/AirLabel
-onready var earth_label: Label = $BaseElements/EarthLabel
-onready var fire_label: Label = $BaseElements/FireLabel
-onready var water_label: Label = $BaseElements/WaterLabel
+onready var air_label: Label = $Elements/Air/Count
+onready var earth_label: Label = $Elements/Earth/Count
+onready var fire_label: Label = $Elements/Fire/Count
+onready var water_label: Label = $Elements/Water/Count
+
+onready var Resource_Controller = $Resource_Controller
 
 var air_count = 0
 var earth_count = 0
 var fire_count = 0
 var water_count = 0
+
+var air_clicker = 1
+var earth_clicker = 1
+var fire_clicker = 1
+var water_clicker = 1
+
+var air_sub_count = 0
+var earth_sub_count = 0
+var fire_sub_count = 0
+var water_sub_count = 0
 
 enum RESOURCES {AIR, EARTH, FIRE, WATER, LIGHT, NULL}
 
@@ -70,96 +82,43 @@ func _on_buy_bean_farmer_button_pressed():
 	bean_farmer_label.text = "bean farmer count: %s" % bean_farmer_count
 
 func _on_air_button_pressed():
-	add_air(clicker_add)
+	add_air(air_clicker)
 
 func add_air(amount):
 	air_count += amount
 	air_label.text = "Air: %s" % air_count
 
 func _on_earth_button_pressed():
-	add_earth(clicker_add)
+	add_earth(earth_clicker)
 
 func add_earth(amount):
 	earth_count += amount
 	earth_label.text = "Earth: %s" % earth_count
 
 func _on_fire_button_pressed():
-	add_fire(clicker_add)
+	add_fire(fire_clicker)
 
 func add_fire(amount):
 	fire_count += amount
 	fire_label.text = "Fire: %s" % fire_count
 
 func _on_water_button_pressed():
-	add_water(clicker_add)
+	add_water(water_clicker)
 
 func add_water(amount):
 	water_count += amount
 	water_label.text = "Water: %s" % water_count
 
 func new_dimension():
-	current_dim = dim.new(rng.randi_range(1,5),rng.randi_range(1,5),rng.randi_range(1,5),rng.randi_range(1,5))
-	resources(current_dim.get_resource_1(), current_dim.get_resource_2())
-
-func resources(r1, r2):
-	disable_groups()
-	
-	print("The resources available are as follows:")
-	match r1:
-		0:
-			print("AIR")
-			air_resource()
-		1:
-			print("EARTH")
-			earth_resource()
-		2:
-			print ("FIRE")
-			fire_resource()
-		3:
-			print("WATER")
-			water_resource()
-	match r2:
-		0:
-			print("AIR")
-			air_resource()
-		1:
-			print("EARTH")
-			earth_resource()
-		2:
-			print ("FIRE")
-			fire_resource()
-		3:
-			print("WATER")
-			water_resource()
+	air_clicker = rng.randi_range(1,5)
+	earth_clicker = rng.randi_range(1,5)
+	fire_clicker = rng.randi_range(1,5)
+	water_clicker = rng.randi_range(1,5)
+	current_dim = dim.new(air_clicker, earth_clicker, fire_clicker, water_clicker)
+	Resource_Controller.resources(current_dim.get_resource_1(), current_dim.get_resource_2())
 
 func _on_bean_farmer_timer_timeout():
 	set_count(bean_farmer_count * bean_farm.get_output())
-
-func air_resource():
-	for r in get_tree().get_nodes_in_group("air"):
-		r.visible = true
-
-func earth_resource():
-	for r in get_tree().get_nodes_in_group("earth"):
-		r.visible = true
-
-func fire_resource():
-	for r in get_tree().get_nodes_in_group("fire"):
-		r.visible = true
-
-func water_resource():
-	for r in get_tree().get_nodes_in_group("water"):
-		r.visible = true
-
-func disable_groups():
-	for r in get_tree().get_nodes_in_group("air"):
-		r.visible = false
-	for r in get_tree().get_nodes_in_group("earth"):
-		r.visible = false
-	for r in get_tree().get_nodes_in_group("fire"):
-		r.visible = false
-	for r in get_tree().get_nodes_in_group("water"):
-		r.visible = false
 
 func _on_warp_button_pressed():
 	print("Warp!")

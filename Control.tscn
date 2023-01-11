@@ -1,68 +1,100 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/BigScript.gd" type="Script" id=1]
+[ext_resource path="res://ResourceController.gd" type="Script" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
-[node name="BaseElements" type="HBoxContainer" parent="."]
+[node name="Elements" type="HBoxContainer" parent="."]
 editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1.0
-margin_bottom = -550.0
+margin_left = 20.0
+margin_top = 40.0
+margin_right = -20.0
+margin_bottom = -480.0
+custom_constants/separation = 50
 
-[node name="AirLabel" type="Label" parent="BaseElements"]
-margin_top = 18.0
-margin_right = 22.0
-margin_bottom = 32.0
+[node name="Air" type="VBoxContainer" parent="Elements"]
+margin_right = 75.0
+margin_bottom = 80.0
+custom_constants/separation = 10
+
+[node name="Count" type="Label" parent="Elements/Air"]
+margin_right = 75.0
+margin_bottom = 14.0
 text = "Air:"
 
-[node name="BlankSpaceLabel1" type="Label" parent="BaseElements"]
-margin_left = 26.0
-margin_top = 18.0
-margin_right = 58.0
-margin_bottom = 32.0
-text = "        "
+[node name="Subresource" type="Label" parent="Elements/Air" groups=[
+"air",
+]]
+margin_top = 24.0
+margin_right = 75.0
+margin_bottom = 38.0
+text = "Cloud Puffs:"
 
-[node name="EarthLabel" type="Label" parent="BaseElements"]
-margin_left = 62.0
-margin_top = 18.0
-margin_right = 98.0
-margin_bottom = 32.0
+[node name="Earth" type="VBoxContainer" parent="Elements"]
+margin_left = 125.0
+margin_right = 236.0
+margin_bottom = 80.0
+custom_constants/separation = 10
+
+[node name="Count" type="Label" parent="Elements/Earth"]
+margin_right = 111.0
+margin_bottom = 14.0
 text = "Earth:"
 
-[node name="BlankSpaceLabel2" type="Label" parent="BaseElements"]
-margin_left = 102.0
-margin_top = 18.0
-margin_right = 134.0
-margin_bottom = 32.0
-text = "        "
+[node name="Subresource" type="Label" parent="Elements/Earth" groups=[
+"earth",
+]]
+margin_top = 24.0
+margin_right = 111.0
+margin_bottom = 38.0
+text = "Obsidian Chunks:"
 
-[node name="FireLabel" type="Label" parent="BaseElements"]
-margin_left = 138.0
-margin_top = 18.0
-margin_right = 166.0
-margin_bottom = 32.0
+[node name="Fire" type="VBoxContainer" parent="Elements"]
+margin_left = 286.0
+margin_right = 383.0
+margin_bottom = 80.0
+custom_constants/separation = 10
+
+[node name="Count" type="Label" parent="Elements/Fire"]
+margin_right = 97.0
+margin_bottom = 14.0
 text = "Fire:"
 
-[node name="BlankSpaceLabel3" type="Label" parent="BaseElements"]
-margin_left = 170.0
-margin_top = 18.0
-margin_right = 202.0
-margin_bottom = 32.0
-text = "        "
+[node name="Subresource" type="Label" parent="Elements/Fire" groups=[
+"fire",
+]]
+margin_top = 24.0
+margin_right = 97.0
+margin_bottom = 38.0
+text = "Glowing Roses:"
 
-[node name="WaterLabel" type="Label" parent="BaseElements"]
-margin_left = 206.0
-margin_top = 18.0
-margin_right = 248.0
-margin_bottom = 32.0
+[node name="Water" type="VBoxContainer" parent="Elements"]
+margin_left = 433.0
+margin_right = 523.0
+margin_bottom = 80.0
+custom_constants/separation = 10
+
+[node name="Count" type="Label" parent="Elements/Water"]
+margin_right = 90.0
+margin_bottom = 14.0
 text = "Water:"
 
+[node name="Subresource" type="Label" parent="Elements/Water" groups=[
+"water",
+]]
+margin_top = 24.0
+margin_right = 90.0
+margin_bottom = 38.0
+text = "Coral Crystals:"
+
 [node name="LightHBox" type="HBoxContainer" parent="."]
+editor/display_folded = true
 margin_right = 1023.0
 margin_bottom = 50.0
 alignment = 2
@@ -206,10 +238,17 @@ margin_top = 548.0
 margin_right = 982.0
 margin_bottom = 568.0
 text = "WARP SPEED"
+
+[node name="Resource_Controller" type="Node" parent="."]
+script = ExtResource( 2 )
 [connection signal="pressed" from="TabContainer/Air/Button1" to="." method="_on_air_button_pressed"]
+[connection signal="pressed" from="TabContainer/Air/Gather" to="Resource_Controller" method="_on_air_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Earth/Button1" to="." method="_on_earth_button_pressed"]
+[connection signal="pressed" from="TabContainer/Earth/Gather" to="Resource_Controller" method="_on_earth_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Fire/Button1" to="." method="_on_fire_button_pressed"]
+[connection signal="pressed" from="TabContainer/Fire/Gather" to="Resource_Controller" method="_on_fire_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Water/Button1" to="." method="_on_water_button_pressed"]
+[connection signal="pressed" from="TabContainer/Water/Gather" to="Resource_Controller" method="_on_water_sub_gather_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button1" to="." method="_on_check_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_buy_bean_farmer_button_pressed"]
 [connection signal="timeout" from="VBoxContainer/Timer1" to="." method="_on_bean_farmer_timer_timeout"]
