@@ -1,16 +1,31 @@
 class_name ResourceCreator extends Node
 
-# The current cost of the resource creator, accounting for how many have been purchased already
-var cost: int = 0
+# The cost of the first resource creator bought
+var base_cost: int = 1
+# The cost of the next resource creator, accounting for how many have been purchased already
+var cost: int = 1
 # The amount of resources created by each instance
 var output: int = 0
 # The time it takes for each instance to create resources
 var time: float = 0.0
+# Amount of building currently owned
+var amount: int = 0
+# The resource creator's name
+var r_name: String
 
-func _init(c, o, t):
-	cost = c
+
+var button: Button
+var timer: Timer
+
+func _init(c, o, t, b, t2, n):
+	base_cost = c
+	cost = base_cost
 	output = o
 	time = t
+	button = b
+	timer = t2
+	timer.wait_time = time
+	r_name = n
 
 func get_cost() -> int:
 	return cost
@@ -23,3 +38,27 @@ func get_output() -> int:
 
 func get_time() -> float:
 	return time
+
+func get_button() -> Button:
+	return button
+
+func get_amount() -> int:
+	return amount
+
+func get_timer() -> Timer:
+	return timer
+
+func get_name() -> String:
+	return r_name
+
+func b_active():
+	button.disabled = false
+
+func b_inactive():
+	button.disabled = true
+
+func buy() -> int:
+	amount += 1
+	var current_cost = cost
+	cost += base_cost * amount
+	return current_cost

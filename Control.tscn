@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/BigScript.gd" type="Script" id=1]
-[ext_resource path="res://ResourceController.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/ResourceController.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/PassiveController.gd" type="Script" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -114,6 +115,7 @@ margin_right = 780.105
 margin_bottom = 518.579
 
 [node name="Air" type="VBoxContainer" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -134,6 +136,24 @@ margin_right = 513.0
 margin_bottom = 44.0
 text = "Gather Resources"
 
+[node name="Passive1" type="Button" parent="TabContainer/Air" groups=[
+"passive_button",
+]]
+margin_top = 48.0
+margin_right = 513.0
+margin_bottom = 68.0
+text = "Nimbus Farm"
+
+[node name="Timer" type="Timer" parent="TabContainer/Air/Passive1"]
+
+[node name="Passive2" type="Button" parent="TabContainer/Air"]
+margin_top = 72.0
+margin_right = 513.0
+margin_bottom = 92.0
+text = "Gravity Well"
+
+[node name="Timer" type="Timer" parent="TabContainer/Air/Passive2"]
+
 [node name="Earth" type="VBoxContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -144,20 +164,33 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Button1" type="Button" parent="TabContainer/Earth"]
-margin_right = 317.0
+margin_right = 513.0
 margin_bottom = 20.0
 text = "Channel Earth"
 
 [node name="Gather" type="Button" parent="TabContainer/Earth" groups=[
 "earth",
 ]]
-margin_top = 42.0
-margin_right = 317.0
-margin_bottom = 62.0
+margin_top = 24.0
+margin_right = 513.0
+margin_bottom = 44.0
 text = "Gather Resources"
 
+[node name="Passive1" type="Button" parent="TabContainer/Earth"]
+margin_top = 48.0
+margin_right = 513.0
+margin_bottom = 68.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Earth/Passive1"]
+
+[node name="Passive2" type="Button" parent="TabContainer/Earth"]
+margin_top = 72.0
+margin_right = 513.0
+margin_bottom = 92.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Earth/Passive2"]
+
 [node name="Fire" type="VBoxContainer" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -166,19 +199,27 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Button1" type="Button" parent="TabContainer/Fire"]
-margin_right = 317.0
+margin_right = 513.0
 margin_bottom = 20.0
 text = "Channel Fire"
 
 [node name="Gather" type="Button" parent="TabContainer/Fire" groups=[
 "fire",
 ]]
-margin_top = 42.0
-margin_right = 317.0
-margin_bottom = 62.0
+margin_top = 24.0
+margin_right = 513.0
+margin_bottom = 44.0
 text = "Gather Resources"
 
+[node name="Passive1" type="Button" parent="TabContainer/Fire"]
+margin_top = 48.0
+margin_right = 513.0
+margin_bottom = 68.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Fire/Passive1"]
+
 [node name="Water" type="VBoxContainer" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -198,6 +239,12 @@ margin_top = 24.0
 margin_right = 513.0
 margin_bottom = 44.0
 text = "Gather Resources"
+
+[node name="Passive1" type="Button" parent="TabContainer/Water"]
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Water/Passive1"]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 editor/display_folded = true
@@ -241,15 +288,28 @@ text = "WARP SPEED"
 
 [node name="Resource_Controller" type="Node" parent="."]
 script = ExtResource( 2 )
+
+[node name="PassiveController" type="Node" parent="."]
+script = ExtResource( 3 )
 [connection signal="pressed" from="TabContainer/Air/Button1" to="." method="_on_air_button_pressed"]
 [connection signal="pressed" from="TabContainer/Air/Gather" to="Resource_Controller" method="_on_air_sub_gather_button_pressed"]
+[connection signal="pressed" from="TabContainer/Air/Passive1" to="PassiveController" method="_on_air_passive1_pressed"]
+[connection signal="timeout" from="TabContainer/Air/Passive1/Timer" to="PassiveController" method="_on_air_passive1_timeout"]
+[connection signal="pressed" from="TabContainer/Air/Passive2" to="PassiveController" method="_on_air_passive2_pressed"]
+[connection signal="timeout" from="TabContainer/Air/Passive2/Timer" to="PassiveController" method="_on_air_passive2_timeout"]
 [connection signal="pressed" from="TabContainer/Earth/Button1" to="." method="_on_earth_button_pressed"]
 [connection signal="pressed" from="TabContainer/Earth/Gather" to="Resource_Controller" method="_on_earth_sub_gather_button_pressed"]
+[connection signal="pressed" from="TabContainer/Earth/Passive1" to="PassiveController" method="_on_earth_passive1_pressed"]
+[connection signal="timeout" from="TabContainer/Earth/Passive1/Timer" to="PassiveController" method="_on_earth_passive1_timeout"]
+[connection signal="pressed" from="TabContainer/Earth/Passive2" to="PassiveController" method="_on_earth_passive2_pressed"]
+[connection signal="timeout" from="TabContainer/Earth/Passive2/Timer" to="PassiveController" method="_on_earth_passive2_timeout"]
 [connection signal="pressed" from="TabContainer/Fire/Button1" to="." method="_on_fire_button_pressed"]
 [connection signal="pressed" from="TabContainer/Fire/Gather" to="Resource_Controller" method="_on_fire_sub_gather_button_pressed"]
+[connection signal="pressed" from="TabContainer/Fire/Passive1" to="PassiveController" method="_on_fire_passive1_pressed"]
+[connection signal="timeout" from="TabContainer/Fire/Passive1/Timer" to="PassiveController" method="_on_fire_passive1_timeout"]
 [connection signal="pressed" from="TabContainer/Water/Button1" to="." method="_on_water_button_pressed"]
 [connection signal="pressed" from="TabContainer/Water/Gather" to="Resource_Controller" method="_on_water_sub_gather_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button1" to="." method="_on_check_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_buy_bean_farmer_button_pressed"]
+[connection signal="pressed" from="TabContainer/Water/Passive1" to="PassiveController" method="_on_water_passive1_pressed"]
+[connection signal="timeout" from="TabContainer/Water/Passive1/Timer" to="PassiveController" method="_on_water_passive1_timeout"]
 [connection signal="timeout" from="VBoxContainer/Timer1" to="." method="_on_bean_farmer_timer_timeout"]
 [connection signal="pressed" from="WARP SPEED" to="." method="_on_warp_button_pressed"]

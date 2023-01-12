@@ -9,17 +9,23 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "CreatorInfo",
+"language": "GDScript",
+"path": "res://Scripts/CreatorInfo.gd"
+}, {
 "base": "Node",
 "class": "Dimension",
 "language": "GDScript",
 "path": "res://Scripts/Dimension.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "ResourceCreator",
 "language": "GDScript",
 "path": "res://Scripts/ResourceCreator.gd"
 } ]
 _global_script_class_icons={
+"CreatorInfo": "",
 "Dimension": "",
 "ResourceCreator": ""
 }
@@ -29,6 +35,10 @@ _global_script_class_icons={
 config/name="clicker jam"
 run/main_scene="res://Control.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+ResourceCreator="*res://Scripts/ResourceCreator.gd"
 
 [rendering]
 
