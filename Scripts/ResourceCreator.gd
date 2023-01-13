@@ -19,8 +19,9 @@ var r_name: String
 
 var button: Button
 var timer: Timer
+var label: Label
 
-func _init(c, o, t, b, t2, n, r):
+func _init(c, o, t, b, t2, l, n, r):
 	base_cost = c
 	cost = base_cost
 	output = o
@@ -28,6 +29,7 @@ func _init(c, o, t, b, t2, n, r):
 	button = b
 	timer = t2
 	timer.wait_time = time
+	label = l
 	r_name = n
 	res = r
 
@@ -52,17 +54,14 @@ func get_amount() -> int:
 func get_timer() -> Timer:
 	return timer
 
+func get_label() -> Label:
+	return label
+
 func get_name() -> String:
 	return r_name
 
 func get_element() -> int:
 	return res
-
-func b_active():
-	button.disabled = false
-
-func b_inactive():
-	button.disabled = true
 
 func buy() -> int:
 	amount += 1

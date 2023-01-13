@@ -10,25 +10,31 @@ onready var res = get_node("../Resource_Controller")
 
 onready var air_button_1 = get_node("../TabContainer/Air/Passive1")
 onready var air_timer_1 = get_node("../TabContainer/Air/Passive1/Timer")
+onready var air_label_1 = get_node("../TabContainer/Air/Label1")
 onready var air_button_2 = get_node("../TabContainer/Air/Passive2")
 onready var air_timer_2 = get_node("../TabContainer/Air/Passive2/Timer")
-#onready var air_button_3 = get_node("../TabContainer/Air/Passive3")
-#onready var air_timer_3 = get_node("../TabContainer/Air/Passive3/Timer")
+onready var air_label_2 = get_node("../TabContainer/Air/Label2")
 
 onready var earth_button_1 = get_node("../TabContainer/Earth/Passive1")
 onready var earth_timer_1 = get_node("../TabContainer/Earth/Passive1/Timer")
+onready var earth_label_1 = get_node("../TabContainer/Earth/Label1")
 onready var earth_button_2 = get_node("../TabContainer/Earth/Passive2")
 onready var earth_timer_2 = get_node("../TabContainer/Earth/Passive2/Timer")
+onready var earth_label_2 = get_node("../TabContainer/Earth/Label2")
 
 onready var fire_button_1 = get_node("../TabContainer/Fire/Passive1")
 onready var fire_timer_1 = get_node("../TabContainer/Fire/Passive1/Timer")
+onready var fire_label_1 = get_node("../TabContainer/Fire/Label1")
 onready var fire_button_2 = get_node("../TabContainer/Fire/Passive2")
 onready var fire_timer_2 = get_node("../TabContainer/Fire/Passive2/Timer")
+onready var fire_label_2 = get_node("../TabContainer/Fire/Label2")
 
 onready var water_button_1 = get_node("../TabContainer/Water/Passive1")
 onready var water_timer_1 = get_node("../TabContainer/Water/Passive1/Timer")
+onready var water_label_1 = get_node("../TabContainer/Water/Label1")
 onready var water_button_2 = get_node("../TabContainer/Water/Passive2")
 onready var water_timer_2 = get_node("../TabContainer/Water/Passive2/Timer")
+onready var water_label_2 = get_node("../TabContainer/Water/Label2")
 
 # Passive income objects and the arrays in which they are contained are declared here
 
@@ -36,7 +42,6 @@ var all_passives = []
 
 var air_passive_1: ResourceCreator
 var air_passive_2 :ResourceCreator
-#var air_passive_3 :ResourceCreator
 
 var earth_passive_1: ResourceCreator
 var earth_passive_2: ResourceCreator
@@ -56,33 +61,28 @@ func _ready():
 	# Base cost of the object
 	# Amount paid out every time the timer activates
 	# Length of the timer (in seconds)
-	# Button and Timer reference variables
+	# Button, Timer, and Label reference variables
 	# Object's name
+	# Type of resource produced
 	#
-	
-	#air_passive_1 = resource_creator.new(10, 1, 1, air_button_1, air_timer_1, "Nimbus Farm", list.RES.AIR)
-	#air_passive_2 = resource_creator.new(100, 20, 2, air_button_2, air_timer_2, "Gravity Well", list.RES.AIR)
-	#air_passive_3 = resource_creator.new(10, 1, 1, air_button_3, air_timer_3, "Puff Condenser", list.RES.SUBAIR)
-	
-	air_passive_1 = resource_creator.new(25, 10, 10, air_button_1, air_timer_1, "Wing Gremlins", list.RES.SUBAIR)
-	air_passive_2 = resource_creator.new(50, 1, 1, air_button_2, air_timer_2, "Puff Condenser", list.RES.AIR)
+	air_passive_1 = resource_creator.new(25, 10, 10, air_button_1, air_timer_1, air_label_1, "Wing Gremlins", list.RES.SUBAIR)
+	air_passive_2 = resource_creator.new(50, 1, 1, air_button_2, air_timer_2, air_label_2, "Puff Condenser", list.RES.AIR)
 	
 	all_passives.append(air_passive_1)
 	all_passives.append(air_passive_2)
-	#all_passives.append(air_passive_3)
 	
-	earth_passive_1 = resource_creator.new(25, 10, 10, earth_button_1, earth_timer_1, "Mine Gremlins", list.RES.SUBEARTH)
-	earth_passive_2 = resource_creator.new(50, 1, 1, earth_button_2, earth_timer_2, "Chunk Breaker", list.RES.EARTH)
+	earth_passive_1 = resource_creator.new(25, 10, 10, earth_button_1, earth_timer_1, earth_label_1, "Mine Gremlins", list.RES.SUBEARTH)
+	earth_passive_2 = resource_creator.new(50, 1, 1, earth_button_2, earth_timer_2, earth_label_2, "Chunk Breaker", list.RES.EARTH)
 	all_passives.append(earth_passive_1)
 	all_passives.append(earth_passive_2)
 	
-	fire_passive_1 = resource_creator.new(25, 10, 10, fire_button_1, fire_timer_1, "Fireproof Gremlins", list.RES.SUBFIRE)
-	fire_passive_2 = resource_creator.new(50, 1, 1, fire_button_2, fire_timer_2, "Rose Mixer", list.RES.FIRE)
+	fire_passive_1 = resource_creator.new(25, 10, 10, fire_button_1, fire_timer_1, fire_label_1,  "Fireproof Gremlins", list.RES.SUBFIRE)
+	fire_passive_2 = resource_creator.new(50, 1, 1, fire_button_2, fire_timer_2, fire_label_2, "Rose Mixer", list.RES.FIRE)
 	all_passives.append(fire_passive_1)
 	all_passives.append(fire_passive_2)
 	
-	water_passive_1 = resource_creator.new(25, 10, 10, water_button_1, water_timer_1, "Amphibious Gremlins", list.RES.SUBWATER)
-	water_passive_2 = resource_creator.new(50, 1, 1, water_button_2, water_timer_2, "Crystal Crushers", list.RES.WATER)
+	water_passive_1 = resource_creator.new(25, 10, 10, water_button_1, water_timer_1, water_label_1, "Amphibious Gremlins", list.RES.SUBWATER)
+	water_passive_2 = resource_creator.new(50, 1, 1, water_button_2, water_timer_2, water_label_2, "Crystal Crushers", list.RES.WATER)
 	all_passives.append(water_passive_1)
 	all_passives.append(water_passive_2)
 	
@@ -116,12 +116,6 @@ func _on_air_passive2_pressed():
 
 func _on_air_passive2_timeout():
 	extraction(payout(air_passive_2), list.RES.SUBAIR)
-
-#func _on_air_passive3_pressed():
-#	buy_creator(air_passive_3)
-
-#func _on_air_passive3_timeout():
-#	extraction(payout(air_passive_3), list.RES.SUBAIR)
 
 # Earth
 
@@ -183,3 +177,6 @@ func payout(creator) -> int:
 func text_update(creator):
 	var template = creator.get_name() + cost_label
 	creator.get_button().text = template % creator.get_cost()
+	if creator.amount > 0:
+		template = "You own %s, which produce %s per second."
+		creator.get_label().text = template % [creator.get_amount(), payout(creator) / creator.get_time()]

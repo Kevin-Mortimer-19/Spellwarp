@@ -137,25 +137,35 @@ margin_bottom = 44.0
 text = "Gather Resources"
 
 [node name="Passive1" type="Button" parent="TabContainer/Air" groups=[
-"air",
 "passive_button",
+"air",
 ]]
 margin_top = 48.0
 margin_right = 513.0
 margin_bottom = 68.0
-text = "Nimbus Farm"
 
 [node name="Timer" type="Timer" parent="TabContainer/Air/Passive1"]
+
+[node name="Label1" type="Label" parent="TabContainer/Air"]
+margin_top = 72.0
+margin_right = 513.0
+margin_bottom = 86.0
+align = 1
 
 [node name="Passive2" type="Button" parent="TabContainer/Air" groups=[
 "air",
 ]]
-margin_top = 72.0
+margin_top = 90.0
 margin_right = 513.0
-margin_bottom = 92.0
-text = "Gravity Well"
+margin_bottom = 110.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Air/Passive2"]
+
+[node name="Label2" type="Label" parent="TabContainer/Air"]
+margin_top = 114.0
+margin_right = 513.0
+margin_bottom = 128.0
+align = 1
 
 [node name="Earth" type="VBoxContainer" parent="TabContainer"]
 visible = false
@@ -188,6 +198,11 @@ margin_bottom = 68.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Earth/Passive1"]
 
+[node name="Label1" type="Label" parent="TabContainer/Earth"]
+margin_right = 40.0
+margin_bottom = 14.0
+align = 1
+
 [node name="Passive2" type="Button" parent="TabContainer/Earth" groups=[
 "earth",
 ]]
@@ -196,6 +211,11 @@ margin_right = 513.0
 margin_bottom = 92.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Earth/Passive2"]
+
+[node name="Label2" type="Label" parent="TabContainer/Earth"]
+margin_right = 40.0
+margin_bottom = 14.0
+align = 1
 
 [node name="Fire" type="VBoxContainer" parent="TabContainer"]
 visible = false
@@ -228,13 +248,24 @@ margin_bottom = 68.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Fire/Passive1"]
 
+[node name="Label1" type="Label" parent="TabContainer/Fire"]
+margin_right = 40.0
+margin_bottom = 14.0
+align = 1
+
 [node name="Passive2" type="Button" parent="TabContainer/Fire" groups=[
 "fire",
 ]]
-margin_right = 12.0
-margin_bottom = 20.0
+margin_top = 72.0
+margin_right = 513.0
+margin_bottom = 92.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Fire/Passive2"]
+
+[node name="Label2" type="Label" parent="TabContainer/Fire"]
+margin_right = 40.0
+margin_bottom = 14.0
+align = 1
 
 [node name="Water" type="VBoxContainer" parent="TabContainer"]
 visible = false
@@ -261,18 +292,30 @@ text = "Gather Resources"
 [node name="Passive1" type="Button" parent="TabContainer/Water" groups=[
 "fire",
 ]]
-margin_right = 12.0
-margin_bottom = 20.0
+margin_top = 48.0
+margin_right = 513.0
+margin_bottom = 68.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Water/Passive1"]
+
+[node name="Label1" type="Label" parent="TabContainer/Water"]
+margin_right = 40.0
+margin_bottom = 14.0
+align = 1
 
 [node name="Passive2" type="Button" parent="TabContainer/Water" groups=[
 "fire",
 ]]
-margin_right = 12.0
-margin_bottom = 20.0
+margin_top = 72.0
+margin_right = 513.0
+margin_bottom = 92.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Water/Passive2"]
+
+[node name="Label2" type="Label" parent="TabContainer/Water"]
+margin_right = 40.0
+margin_bottom = 14.0
+align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 editor/display_folded = true
