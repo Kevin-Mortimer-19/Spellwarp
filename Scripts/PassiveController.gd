@@ -107,12 +107,14 @@ func active_buttons(arr):
 
 func _on_air_passive1_pressed():
 	buy_creator(air_passive_1)
+	SoundPlayer.play_category(SoundPlayer.GREMLINSOUNDS)
 
 func _on_air_passive1_timeout():
 	res.add_sub_element(payout(air_passive_1), list.RES.SUBAIR)
 
 func _on_air_passive2_pressed():
 	buy_creator(air_passive_2)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
 
 func _on_air_passive2_timeout():
 	extraction(payout(air_passive_2), list.RES.SUBAIR)
@@ -121,12 +123,14 @@ func _on_air_passive2_timeout():
 
 func _on_earth_passive1_pressed():
 	buy_creator(earth_passive_1)
+	SoundPlayer.play_category(SoundPlayer.GREMLINSOUNDS)
 
 func _on_earth_passive1_timeout():
 	res.add_sub_element(payout(earth_passive_1), list.RES.SUBEARTH)
 
 func _on_earth_passive2_pressed():
 	buy_creator(earth_passive_2)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
 
 func _on_earth_passive2_timeout():
 	extraction(payout(earth_passive_2), list.RES.SUBEARTH)
@@ -135,12 +139,14 @@ func _on_earth_passive2_timeout():
 
 func _on_fire_passive1_pressed():
 	buy_creator(fire_passive_1)
+	SoundPlayer.play_category(SoundPlayer.GREMLINSOUNDS)
 
 func _on_fire_passive1_timeout():
 	res.add_sub_element(payout(fire_passive_1), list.RES.SUBFIRE)
 
 func _on_fire_passive2_pressed():
 	buy_creator(fire_passive_2)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
 
 func _on_fire_passive2_timeout():
 	extraction(payout(fire_passive_2), list.RES.SUBFIRE)
@@ -149,12 +155,14 @@ func _on_fire_passive2_timeout():
 
 func _on_water_passive1_pressed():
 	buy_creator(water_passive_1)
+	SoundPlayer.play_category(SoundPlayer.GREMLINSOUNDS)
 
 func _on_water_passive1_timeout():
 	res.add_sub_element(payout(water_passive_1), list.RES.SUBWATER)
 
 func _on_water_passive2_pressed():
 	buy_creator(water_passive_2)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
 
 func _on_water_passive2_timeout():
 	extraction(payout(water_passive_2), list.RES.SUBWATER)

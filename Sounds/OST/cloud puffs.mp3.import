@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cloud puffs.mp3-1e941d599734add0ed6c577f942c3ab9.mp3str"
+
+[deps]
+
+source_file="res://Sounds/OST/cloud puffs.mp3"
+dest_files=[ "res://.import/cloud puffs.mp3-1e941d599734add0ed6c577f942c3ab9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

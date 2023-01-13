@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gremlin4.wav-52e546a688ea5ba396a54ff1289bcc6f.sample"
+
+[deps]
+
+source_file="res://Sounds/SFX/gremlin4.wav"
+dest_files=[ "res://.import/gremlin4.wav-52e546a688ea5ba396a54ff1289bcc6f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
