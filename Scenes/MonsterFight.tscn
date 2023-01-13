@@ -1,0 +1,51 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 68.0187
+margin_top = 120.123
+margin_right = 919.019
+margin_bottom = 472.123
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 145.0
+margin_right = 851.0
+margin_bottom = 159.0
+text = "The Monster attacks, breathing a jet of smoldering fire towards you!"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 163.0
+margin_right = 851.0
+margin_bottom = 183.0
+alignment = 1
+
+[node name="FightButton1" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 237.0
+margin_right = 406.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 70, 20 )
+text = "Block it with your hands!"
+
+[node name="FightButton2" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 410.0
+margin_right = 614.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 70, 20 )
+text = "Block it with a shield of water!"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 187.0
+margin_right = 851.0
+margin_bottom = 207.0
+alignment = 1
+
+[node name="WarpButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 387.0
+margin_right = 464.0
+margin_bottom = 20.0
+text = "Run Away!"

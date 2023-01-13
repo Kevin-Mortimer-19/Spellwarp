@@ -352,3 +352,4 @@ margin_bottom = 257.0
 [connection signal="timeout" from="TabContainer/Water/Passive2/Timer" to="PassiveController" method="_on_water_passive2_timeout"]
 [connection signal="pressed" from="TabContainer/Light/Button" to="." method="_on_light_button_pressed"]
 [connection signal="pressed" from="WARP SPEED" to="." method="_on_warp_button_pressed"]
+[connection signal="timeout" from="TimeUntilTheEnd" to="TimeUntilTheEnd" method="_time_is_up"]
