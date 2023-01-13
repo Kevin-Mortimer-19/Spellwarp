@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/BigScript.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/ResourceController.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/PassiveController.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/TimeLimit.gd" type="Script" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -290,7 +291,7 @@ margin_bottom = 44.0
 text = "Gather Resources"
 
 [node name="Passive1" type="Button" parent="TabContainer/Water" groups=[
-"fire",
+"water",
 ]]
 margin_top = 48.0
 margin_right = 513.0
@@ -304,7 +305,7 @@ margin_bottom = 14.0
 align = 1
 
 [node name="Passive2" type="Button" parent="TabContainer/Water" groups=[
-"fire",
+"water",
 ]]
 margin_top = 72.0
 margin_right = 513.0
@@ -317,38 +318,19 @@ margin_right = 40.0
 margin_bottom = 14.0
 align = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-editor/display_folded = true
+[node name="Light" type="VBoxContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 25.0
-margin_top = 209.0
-margin_right = -842.0
-margin_bottom = -305.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 
-[node name="Button1" type="Button" parent="VBoxContainer"]
-margin_right = 157.0
+[node name="Button" type="Button" parent="TabContainer/Light"]
+margin_right = 12.0
 margin_bottom = 20.0
-text = "Bean"
-
-[node name="Label1" type="Label" parent="VBoxContainer"]
-margin_top = 24.0
-margin_right = 157.0
-margin_bottom = 38.0
-
-[node name="Button2" type="Button" parent="VBoxContainer"]
-margin_top = 42.0
-margin_right = 157.0
-margin_bottom = 62.0
-text = "Bean Farm"
-
-[node name="Label2" type="Label" parent="VBoxContainer"]
-margin_top = 66.0
-margin_right = 157.0
-margin_bottom = 80.0
-
-[node name="Timer1" type="Timer" parent="VBoxContainer"]
+text = "Combine Elements"
 
 [node name="WARP SPEED" type="Button" parent="."]
 margin_left = 917.105
@@ -362,6 +344,15 @@ script = ExtResource( 2 )
 
 [node name="PassiveController" type="Node" parent="."]
 script = ExtResource( 3 )
+
+[node name="TimeUntilTheEnd" type="Timer" parent="."]
+script = ExtResource( 4 )
+
+[node name="Display" type="Label" parent="TimeUntilTheEnd"]
+margin_left = 837.0
+margin_top = 191.0
+margin_right = 955.0
+margin_bottom = 257.0
 [connection signal="pressed" from="TabContainer/Air/Button1" to="." method="_on_air_button_pressed"]
 [connection signal="pressed" from="TabContainer/Air/Gather" to="Resource_Controller" method="_on_air_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Air/Passive1" to="PassiveController" method="_on_air_passive1_pressed"]
@@ -386,5 +377,5 @@ script = ExtResource( 3 )
 [connection signal="timeout" from="TabContainer/Water/Passive1/Timer" to="PassiveController" method="_on_water_passive1_timeout"]
 [connection signal="pressed" from="TabContainer/Water/Passive2" to="PassiveController" method="_on_water_passive2_pressed"]
 [connection signal="timeout" from="TabContainer/Water/Passive2/Timer" to="PassiveController" method="_on_water_passive2_timeout"]
-[connection signal="timeout" from="VBoxContainer/Timer1" to="." method="_on_bean_farmer_timer_timeout"]
+[connection signal="pressed" from="TabContainer/Light/Button" to="." method="_on_light_button_pressed"]
 [connection signal="pressed" from="WARP SPEED" to="." method="_on_warp_button_pressed"]
