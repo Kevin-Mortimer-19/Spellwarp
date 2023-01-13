@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/a light against the darkness.mp3-2ba7f79f7822a48c73e599171a8a21b8.mp3str"
+
+[deps]
+
+source_file="res://Sounds/OST/a light against the darkness.mp3"
+dest_files=[ "res://.import/a light against the darkness.mp3-2ba7f79f7822a48c73e599171a8a21b8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

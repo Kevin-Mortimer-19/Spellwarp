@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/darkness comes.mp3-45c0a44a710db1b6aea09a6e647271ad.mp3str"
+
+[deps]
+
+source_file="res://Sounds/OST/darkness comes.mp3"
+dest_files=[ "res://.import/darkness comes.mp3-45c0a44a710db1b6aea09a6e647271ad.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

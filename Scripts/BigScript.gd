@@ -83,15 +83,19 @@ func get_affinity(element):
 
 func _on_air_button_pressed():
 	add_element(air_clicker, list.RES.AIR)
+	SoundPlayer.play_sound(SoundPlayer.CLICK1)
 
 func _on_earth_button_pressed():
 	add_element(earth_clicker, list.RES.EARTH)
+	SoundPlayer.play_sound(SoundPlayer.CLICK1)
 
 func _on_fire_button_pressed():
 	add_element(fire_clicker, list.RES.FIRE)
+	SoundPlayer.play_sound(SoundPlayer.CLICK1)
 
 func _on_water_button_pressed():
 	add_element(water_clicker, list.RES.WATER)
+	SoundPlayer.play_sound(SoundPlayer.CLICK1)
 
 func _on_light_button_pressed():
 	combine(1)

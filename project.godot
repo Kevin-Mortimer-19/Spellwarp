@@ -39,6 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 ResourceList="*res://Scripts/ResourceList.gd"
+SoundPlayer="*res://SoundPlayer.tscn"
 StoredEnergy="*res://Scripts/StoredEnergy.gd"
 
 [rendering]
