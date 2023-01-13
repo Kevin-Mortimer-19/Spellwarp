@@ -71,9 +71,6 @@ func water_resource():
 	for r in get_tree().get_nodes_in_group("water"):
 		r.visible = true
 
-func _on_air_sub_gather_button_pressed():
-	add_sub_element(r_clicker, list.RES.AIR)
-
 func add_sub_element(amount, element):
 	match element:
 		list.RES.AIR, list.RES.SUBAIR:
@@ -99,6 +96,9 @@ func can_afford(amount, element):
 			return true if fire_sub_count - amount >= 0 else false
 		list.RES.WATER, list.RES.SUBWATER:
 			return true if water_sub_count - amount >= 0 else false
+
+func _on_air_sub_gather_button_pressed():
+	add_sub_element(r_clicker, list.RES.AIR)
 
 func _on_earth_sub_gather_button_pressed():
 	add_sub_element(r_clicker, list.RES.EARTH)
