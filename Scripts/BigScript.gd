@@ -10,6 +10,7 @@ onready var light_label: Label = $LightHBox/LightLabel
 
 onready var Resource_Controller = $Resource_Controller
 onready var Time_Until_End = $TimeUntilTheEnd
+onready var Storage = StoredEnergy
 
 var air_count: int = 0
 var earth_count: int = 0
@@ -104,6 +105,9 @@ func combine(amount):
 
 func can_afford_light(amount):
 	return true if air_count > 0 && earth_count > 0 && fire_count > 0 && water_count > 0 else false
+
+func store_energy():
+	Storage.update(air_count, earth_count, fire_count, water_count, light_count)
 
 func new_dimension():
 	air_clicker = rng.randi_range(1,5)
