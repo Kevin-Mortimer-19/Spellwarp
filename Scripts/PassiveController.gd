@@ -71,7 +71,7 @@ func _ready():
 	all_passives.append(air_passive_1)
 	all_passives.append(air_passive_2)
 	
-	earth_passive_1 = resource_creator.new(25, 10, 10, earth_button_1, earth_timer_1, earth_label_1, "Mine Gremlins", list.RES.SUBEARTH)
+	earth_passive_1 = resource_creator.new(25, 10, 10, earth_button_1, earth_timer_1, earth_label_1, "Crag Gremlins", list.RES.SUBEARTH)
 	earth_passive_2 = resource_creator.new(50, 1, 1, earth_button_2, earth_timer_2, earth_label_2, "Chunk Breaker", list.RES.EARTH)
 	all_passives.append(earth_passive_1)
 	all_passives.append(earth_passive_2)

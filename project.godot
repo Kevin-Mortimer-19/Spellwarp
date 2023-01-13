@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "ResourceCreator",
 "language": "GDScript",
 "path": "res://Scripts/ResourceCreator.gd"
+}, {
+"base": "Node",
+"class": "Stored_Energy",
+"language": "GDScript",
+"path": "res://Scripts/StoredEnergy.gd"
 } ]
 _global_script_class_icons={
 "Dimension": "",
-"ResourceCreator": ""
+"ResourceCreator": "",
+"Stored_Energy": ""
 }
 
 [application]
@@ -34,6 +40,7 @@ config/icon="res://icon.png"
 
 ResourceList="*res://Scripts/ResourceList.gd"
 SoundPlayer="*res://SoundPlayer.tscn"
+StoredEnergy="*res://Scripts/StoredEnergy.gd"
 
 [rendering]
 
