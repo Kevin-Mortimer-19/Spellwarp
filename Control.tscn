@@ -124,7 +124,7 @@ text = "Channel Air"
 margin_top = 24.0
 margin_right = 513.0
 margin_bottom = 44.0
-text = "Gather Resources"
+text = "Mill Cloud Puffs"
 
 [node name="Passive1" type="Button" parent="TabContainer/Air" groups=["air", "passive_button"]]
 margin_top = 48.0
@@ -170,7 +170,7 @@ text = "Channel Earth"
 margin_top = 24.0
 margin_right = 513.0
 margin_bottom = 44.0
-text = "Gather Resources"
+text = "Mine Obsidian Chunks"
 
 [node name="Passive1" type="Button" parent="TabContainer/Earth" groups=["earth"]]
 margin_top = 48.0
@@ -180,20 +180,22 @@ margin_bottom = 68.0
 [node name="Timer" type="Timer" parent="TabContainer/Earth/Passive1"]
 
 [node name="Label1" type="Label" parent="TabContainer/Earth"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_top = 72.0
+margin_right = 513.0
+margin_bottom = 86.0
 align = 1
 
 [node name="Passive2" type="Button" parent="TabContainer/Earth" groups=["earth"]]
-margin_top = 72.0
+margin_top = 90.0
 margin_right = 513.0
-margin_bottom = 92.0
+margin_bottom = 110.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Earth/Passive2"]
 
 [node name="Label2" type="Label" parent="TabContainer/Earth"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_top = 114.0
+margin_right = 513.0
+margin_bottom = 128.0
 align = 1
 
 [node name="Fire" type="VBoxContainer" parent="TabContainer"]
@@ -214,7 +216,7 @@ text = "Channel Fire"
 margin_top = 24.0
 margin_right = 513.0
 margin_bottom = 44.0
-text = "Gather Resources"
+text = "Cut Glowing Roses"
 
 [node name="Passive1" type="Button" parent="TabContainer/Fire" groups=["fire"]]
 margin_top = 48.0
@@ -224,20 +226,22 @@ margin_bottom = 68.0
 [node name="Timer" type="Timer" parent="TabContainer/Fire/Passive1"]
 
 [node name="Label1" type="Label" parent="TabContainer/Fire"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_top = 72.0
+margin_right = 513.0
+margin_bottom = 86.0
 align = 1
 
 [node name="Passive2" type="Button" parent="TabContainer/Fire" groups=["fire"]]
-margin_top = 72.0
+margin_top = 90.0
 margin_right = 513.0
-margin_bottom = 92.0
+margin_bottom = 110.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Fire/Passive2"]
 
 [node name="Label2" type="Label" parent="TabContainer/Fire"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_top = 114.0
+margin_right = 513.0
+margin_bottom = 128.0
 align = 1
 
 [node name="Water" type="VBoxContainer" parent="TabContainer"]
@@ -258,7 +262,7 @@ text = "Channel Water"
 margin_top = 24.0
 margin_right = 513.0
 margin_bottom = 44.0
-text = "Gather Resources"
+text = "Harvest Coral Crystals"
 
 [node name="Passive1" type="Button" parent="TabContainer/Water" groups=["water"]]
 margin_top = 48.0
@@ -268,20 +272,22 @@ margin_bottom = 68.0
 [node name="Timer" type="Timer" parent="TabContainer/Water/Passive1"]
 
 [node name="Label1" type="Label" parent="TabContainer/Water"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_top = 72.0
+margin_right = 513.0
+margin_bottom = 86.0
 align = 1
 
 [node name="Passive2" type="Button" parent="TabContainer/Water" groups=["water"]]
-margin_top = 72.0
+margin_top = 90.0
 margin_right = 513.0
-margin_bottom = 92.0
+margin_bottom = 110.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Water/Passive2"]
 
 [node name="Label2" type="Label" parent="TabContainer/Water"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_top = 114.0
+margin_right = 513.0
+margin_bottom = 128.0
 align = 1
 
 [node name="Light" type="VBoxContainer" parent="TabContainer"]
@@ -294,7 +300,7 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Button" type="Button" parent="TabContainer/Light"]
-margin_right = 12.0
+margin_right = 513.0
 margin_bottom = 20.0
 text = "Combine Elements"
 
