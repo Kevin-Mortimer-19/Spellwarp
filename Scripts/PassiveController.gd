@@ -1,8 +1,10 @@
 extends Node
 
 var resource_creator = load("res://Scripts/ResourceCreator.gd")
+var list = ResourceList
 
 onready var main = get_node("..")
+onready var res = get_node("../Resource_Controller")
 
 # Buttons and Timers are declared and assigned here
 
@@ -10,6 +12,8 @@ onready var air_button_1 = get_node("../TabContainer/Air/Passive1")
 onready var air_timer_1 = get_node("../TabContainer/Air/Passive1/Timer")
 onready var air_button_2 = get_node("../TabContainer/Air/Passive2")
 onready var air_timer_2 = get_node("../TabContainer/Air/Passive2/Timer")
+onready var air_button_3 = get_node("../TabContainer/Air/Passive3")
+onready var air_timer_3 = get_node("../TabContainer/Air/Passive3/Timer")
 
 onready var earth_button_1 = get_node("../TabContainer/Earth/Passive1")
 onready var earth_timer_1 = get_node("../TabContainer/Earth/Passive1/Timer")
@@ -24,18 +28,17 @@ onready var water_timer_1 = get_node("../TabContainer/Water/Passive1/Timer")
 
 # Passive income objects and the arrays in which they are contained are declared here
 
-var air_passives = []
+var all_passives = []
+
 var air_passive_1: ResourceCreator
 var air_passive_2 :ResourceCreator
+var air_passive_3 :ResourceCreator
 
-var earth_passives = []
 var earth_passive_1: ResourceCreator
 var earth_passive_2: ResourceCreator
 
-var fire_passives = []
 var fire_passive_1: ResourceCreator
 
-var water_passives = []
 var water_passive_1: ResourceCreator
 
 var cost_label = " (Cost: %s)"
@@ -50,42 +53,34 @@ func _ready():
 	# Button and Timer reference variables
 	# Object's name
 	#
-	air_passive_1 = resource_creator.new(10, 1, 1, air_button_1, air_timer_1, "Nimbus Farm")
-	air_passive_2 = resource_creator.new(100, 20, 2, air_button_2, air_timer_2, "Gravity Well")
-	air_passives.append(air_passive_1)
-	air_passives.append(air_passive_2)
+	air_passive_1 = resource_creator.new(10, 1, 1, air_button_1, air_timer_1, "Nimbus Farm", list.RES.AIR)
+	air_passive_2 = resource_creator.new(100, 20, 2, air_button_2, air_timer_2, "Gravity Well", list.RES.AIR)
+	air_passive_3 = resource_creator.new(10, 1, 1, air_button_3, air_timer_3, "Puff Condenser", list.RES.SUBAIR)
+	all_passives.append(air_passive_1)
+	all_passives.append(air_passive_2)
+	all_passives.append(air_passive_3)
 	
-	earth_passive_1 = resource_creator.new(10, 1, 1, earth_button_1, earth_timer_1, "Rocky Caves")
-	earth_passives.append(earth_passive_1)
-	earth_passive_2 = resource_creator.new(10, 10, 10, earth_button_2, earth_timer_2, "Hire Gremlins")
-	earth_passives.append(earth_passive_2)
+	earth_passive_1 = resource_creator.new(10, 1, 1, earth_button_1, earth_timer_1, "Rocky Caves", list.RES.EARTH)
+	earth_passive_2 = resource_creator.new(10, 10, 10, earth_button_2, earth_timer_2, "Hire Gremlins", list.RES.EARTH)
+	all_passives.append(earth_passive_1)
+	all_passives.append(earth_passive_2)
 	
-	fire_passive_1 = resource_creator.new(10, 1, 1, fire_button_1, fire_timer_1, "Molten Harvester")
-	fire_passives.append(fire_passive_1)
+	fire_passive_1 = resource_creator.new(10, 1, 1, fire_button_1, fire_timer_1, "Molten Harvester", list.RES.FIRE)
+	all_passives.append(fire_passive_1)
 	
-	water_passive_1 = resource_creator.new(10, 1, 1, water_button_1, water_timer_1, "Water Off the Duck's Back")
-	water_passives.append(water_passive_1)
+	water_passive_1 = resource_creator.new(10, 1, 1, water_button_1, water_timer_1, "Water Off the Duck's Back", list.RES.WATER)
+	all_passives.append(water_passive_1)
 	
 	# Initial button text setup
-	
-	for a in air_passives:
-		text_update(a)
-	for e in earth_passives:
-		text_update(e)
-	for f in fire_passives:
-		text_update(f)
-	for w in water_passives:
-		text_update(w)
+	for x in all_passives:
+		text_update(x)
 
 func _process(delta):
-	active_buttons(air_passives, main.get_air())
-	active_buttons(earth_passives, main.get_earth())
-	active_buttons(fire_passives, main.get_fire())
-	active_buttons(water_passives, main.get_water())
+	active_buttons(all_passives)
 
-func active_buttons(arr, amount):
+func active_buttons(arr):
 	for x in arr:
-		x.get_button().disabled = amount < x.get_cost()
+		x.get_button().disabled = main.get_element(x.get_element()) < x.get_cost()
 		if x.get_amount() > 0:
 			if x.get_timer().is_stopped():
 				x.get_timer().start()
@@ -96,68 +91,64 @@ func active_buttons(arr, amount):
 # Air
 
 func _on_air_passive1_pressed():
-	buy_air(air_passive_1)
+	buy_creator(air_passive_1)
 
 func _on_air_passive1_timeout():
-	main.add_air(payout(air_passive_1))
+	main.add_element(payout(air_passive_1), list.RES.AIR)
 
 func _on_air_passive2_pressed():
-	buy_air(air_passive_2)
+	buy_creator(air_passive_2)
 
 func _on_air_passive2_timeout():
-	main.add_air(payout(air_passive_2))
+	main.add_element(payout(air_passive_2), list.RES.AIR)
+
+func _on_air_passive3_pressed():
+	buy_creator(air_passive_3)
+
+func _on_air_passive3_timeout():
+	extraction(payout(air_passive_3), list.RES.SUBAIR)
 
 # Earth
 
 func _on_earth_passive1_pressed():
-	buy_earth(earth_passive_1)
+	buy_creator(earth_passive_1)
 
 func _on_earth_passive1_timeout():
-	main.add_earth(payout(earth_passive_1))
+	main.add_element(payout(earth_passive_1), list.RES.EARTH)
 
 func _on_earth_passive2_pressed():
-	buy_earth(earth_passive_2)
+	buy_creator(earth_passive_2)
 
 func _on_earth_passive2_timeout():
-	main.add_earth(payout(earth_passive_2))
+	main.add_element(payout(earth_passive_2), list.RES.EARTH)
 
 # Fire
 
 func _on_fire_passive1_pressed():
-	buy_fire(fire_passive_1)
+	buy_creator(fire_passive_1)
 
 func _on_fire_passive1_timeout():
-	main.add_fire(payout(fire_passive_1))
+	main.add_element(payout(fire_passive_1), list.RES.FIRE)
 
 # Water
 
 func _on_water_passive1_pressed():
-	buy_water(water_passive_1)
+	buy_creator(water_passive_1)
 
 func _on_water_passive1_timeout():
-	main.add_water(payout(water_passive_1))
+	main.add_element(payout(water_passive_1), list.RES.WATER)
 
 # Helper functions
 
-func buy_air(creator):
+func buy_creator(creator):
 	var cost = creator.buy()
-	main.add_air(-1 * cost)
+	main.add_element(-1 * cost, creator.get_element())
 	text_update(creator)
 
-func buy_earth(creator):
-	var cost = creator.buy()
-	main.add_earth(-1 * cost)
-	text_update(creator)
-
-func buy_fire(creator):
-	var cost = creator.buy()
-	main.add_fire(-1 * cost)
-	text_update(creator)
-
-func buy_water(creator):
-	var cost = creator.buy()
-	main.add_water(-1 * cost)
-	text_update(creator)
+func extraction(amount, element):
+	if res.can_afford(amount, element):
+		res.add_sub_element(-1 * amount, element)
+		main.add_element(amount * main.get_affinity(element), element)
 
 func payout(creator) -> int:
 	return creator.get_output() * creator.get_amount()

@@ -1,5 +1,9 @@
 class_name ResourceCreator extends Node
 
+var list = ResourceList
+
+# The type of resource created
+var res: int
 # The cost of the first resource creator bought
 var base_cost: int = 1
 # The cost of the next resource creator, accounting for how many have been purchased already
@@ -13,11 +17,10 @@ var amount: int = 0
 # The resource creator's name
 var r_name: String
 
-
 var button: Button
 var timer: Timer
 
-func _init(c, o, t, b, t2, n):
+func _init(c, o, t, b, t2, n, r):
 	base_cost = c
 	cost = base_cost
 	output = o
@@ -26,6 +29,7 @@ func _init(c, o, t, b, t2, n):
 	timer = t2
 	timer.wait_time = time
 	r_name = n
+	res = r
 
 func get_cost() -> int:
 	return cost
@@ -50,6 +54,9 @@ func get_timer() -> Timer:
 
 func get_name() -> String:
 	return r_name
+
+func get_element() -> int:
+	return res
 
 func b_active():
 	button.disabled = false

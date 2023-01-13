@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Resource",
-"class": "CreatorInfo",
-"language": "GDScript",
-"path": "res://Scripts/CreatorInfo.gd"
-}, {
 "base": "Node",
 "class": "Dimension",
 "language": "GDScript",
@@ -25,7 +20,6 @@ _global_script_classes=[ {
 "path": "res://Scripts/ResourceCreator.gd"
 } ]
 _global_script_class_icons={
-"CreatorInfo": "",
 "Dimension": "",
 "ResourceCreator": ""
 }
@@ -38,7 +32,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-ResourceCreator="*res://Scripts/ResourceCreator.gd"
+ResourceList="*res://Scripts/ResourceList.gd"
 
 [rendering]
 

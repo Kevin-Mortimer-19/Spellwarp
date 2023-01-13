@@ -5,7 +5,7 @@ var earth_a = 0
 var fire_a = 0
 var water_a = 0
 
-enum RESOURCES {AIR, EARTH, FIRE, WATER, LIGHT, NULL}
+var list = ResourceList
 
 var resource_1 = -1
 var resource_2 = -1
@@ -16,8 +16,8 @@ func _init(a, e, f, w):
 	fire_a = f
 	water_a = w
 	if a == e && e == f && f == w :
-		resource_1 = RESOURCES.LIGHT
-		resource_2 = RESOURCES.NULL
+		resource_1 = list.RES.LIGHT
+		resource_2 = list.RES.NULL
 	else:
 		var arr = [a, e, f, w]
 		var tempmax = 0

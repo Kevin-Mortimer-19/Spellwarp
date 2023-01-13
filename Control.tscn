@@ -15,13 +15,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
 margin_top = 40.0
-margin_right = -20.0
-margin_bottom = -480.0
+margin_right = -21.0
+margin_bottom = -510.0
 custom_constants/separation = 50
 
 [node name="Air" type="VBoxContainer" parent="Elements"]
 margin_right = 75.0
-margin_bottom = 80.0
+margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Air"]
@@ -40,7 +40,7 @@ text = "Cloud Puffs:"
 [node name="Earth" type="VBoxContainer" parent="Elements"]
 margin_left = 125.0
 margin_right = 236.0
-margin_bottom = 80.0
+margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Earth"]
@@ -59,7 +59,7 @@ text = "Obsidian Chunks:"
 [node name="Fire" type="VBoxContainer" parent="Elements"]
 margin_left = 286.0
 margin_right = 383.0
-margin_bottom = 80.0
+margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Fire"]
@@ -78,7 +78,7 @@ text = "Glowing Roses:"
 [node name="Water" type="VBoxContainer" parent="Elements"]
 margin_left = 433.0
 margin_right = 523.0
-margin_bottom = 80.0
+margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Water"]
@@ -95,15 +95,16 @@ margin_bottom = 38.0
 text = "Coral Crystals:"
 
 [node name="LightHBox" type="HBoxContainer" parent="."]
-editor/display_folded = true
-margin_right = 1023.0
-margin_bottom = 50.0
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 983.0
+margin_bottom = 90.0
 alignment = 2
 
 [node name="LightLabel" type="Label" parent="LightHBox"]
-margin_left = 988.0
+margin_left = 928.0
 margin_top = 18.0
-margin_right = 1023.0
+margin_right = 963.0
 margin_bottom = 32.0
 text = "Light:"
 align = 2
@@ -115,7 +116,6 @@ margin_right = 780.105
 margin_bottom = 518.579
 
 [node name="Air" type="VBoxContainer" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -154,6 +154,13 @@ text = "Gravity Well"
 
 [node name="Timer" type="Timer" parent="TabContainer/Air/Passive2"]
 
+[node name="Passive3" type="Button" parent="TabContainer/Air"]
+margin_top = 96.0
+margin_right = 513.0
+margin_bottom = 116.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Air/Passive3"]
+
 [node name="Earth" type="VBoxContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -191,6 +198,7 @@ margin_bottom = 92.0
 [node name="Timer" type="Timer" parent="TabContainer/Earth/Passive2"]
 
 [node name="Fire" type="VBoxContainer" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -280,10 +288,10 @@ margin_bottom = 80.0
 [node name="Timer1" type="Timer" parent="VBoxContainer"]
 
 [node name="WARP SPEED" type="Button" parent="."]
-margin_left = 895.0
-margin_top = 548.0
-margin_right = 982.0
-margin_bottom = 568.0
+margin_left = 917.105
+margin_top = 122.737
+margin_right = 1010.11
+margin_bottom = 142.737
 text = "WARP SPEED"
 
 [node name="Resource_Controller" type="Node" parent="."]
@@ -297,6 +305,8 @@ script = ExtResource( 3 )
 [connection signal="timeout" from="TabContainer/Air/Passive1/Timer" to="PassiveController" method="_on_air_passive1_timeout"]
 [connection signal="pressed" from="TabContainer/Air/Passive2" to="PassiveController" method="_on_air_passive2_pressed"]
 [connection signal="timeout" from="TabContainer/Air/Passive2/Timer" to="PassiveController" method="_on_air_passive2_timeout"]
+[connection signal="pressed" from="TabContainer/Air/Passive3" to="PassiveController" method="_on_air_passive3_pressed"]
+[connection signal="timeout" from="TabContainer/Air/Passive3/Timer" to="PassiveController" method="_on_air_passive3_timeout"]
 [connection signal="pressed" from="TabContainer/Earth/Button1" to="." method="_on_earth_button_pressed"]
 [connection signal="pressed" from="TabContainer/Earth/Gather" to="Resource_Controller" method="_on_earth_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Earth/Passive1" to="PassiveController" method="_on_earth_passive1_pressed"]

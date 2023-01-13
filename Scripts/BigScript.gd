@@ -9,17 +9,17 @@ onready var water_label: Label = $Elements/Water/Count
 
 onready var Resource_Controller = $Resource_Controller
 
-var air_count: int = 0 setget add_air, get_air
-var earth_count: int = 0 setget add_earth, get_earth
-var fire_count: int = 0 setget add_fire, get_fire
-var water_count: int = 0 setget add_water, get_water
+var air_count: int = 0
+var earth_count: int = 0
+var fire_count: int = 0
+var water_count: int = 0
 
 var air_clicker = 1
 var earth_clicker = 1
 var fire_clicker = 1
 var water_clicker = 1
 
-enum RESOURCES {AIR, EARTH, FIRE, WATER, LIGHT, NULL}
+var list = ResourceList
 
 var rng = RandomNumberGenerator.new()
 
@@ -38,44 +38,53 @@ func _process(delta):
 	pass
 
 func _on_air_button_pressed():
-	add_air(air_clicker)
+	add_element(air_clicker, list.RES.AIR)
 
-func add_air(amount):
-	air_count += amount
-	air_label.text = "Air: %s" % air_count
+func add_element(amount, element):
+	match element:
+		list.RES.AIR, list.RES.SUBAIR:
+			air_count += amount
+			air_label.text = "Air: %s" % air_count
+		list.RES.EARTH, list.RES.SUBEARTH:
+			earth_count += amount
+			earth_label.text = "Earth: %s" % earth_count
+		list.RES.FIRE, list.RES.SUBFIRE:
+			fire_count += amount
+			fire_label.text = "Fire: %s" % fire_count
+		list.RES.WATER, list.RES.SUBWATER:
+			water_count += amount
+			water_label.text = "Water: %s" % water_count
 
-func get_air() -> int:
-	return air_count
+func get_element(element):
+	match element:
+		list.RES.AIR, list.RES.SUBAIR:
+			return air_count
+		list.RES.EARTH, list.RES.SUBEARTH:
+			return earth_count
+		list.RES.FIRE, list.RES.SUBFIRE:
+			return fire_count
+		list.RES.WATER, list.RES.SUBWATER:
+			return water_count
+
+func get_affinity(element):
+	match element:
+		list.RES.AIR, list.RES.SUBAIR:
+			return air_clicker
+		list.RES.EARTH, list.RES.SUBEARTH:
+			return earth_clicker
+		list.RES.FIRE, list.RES.SUBFIRE:
+			return fire_clicker
+		list.RES.WATER, list.RES.SUBWATER:
+			return water_clicker
 
 func _on_earth_button_pressed():
-	add_earth(earth_clicker)
-
-func add_earth(amount):
-	earth_count += amount
-	earth_label.text = "Earth: %s" % earth_count
-
-func get_earth():
-	return earth_count
+	add_element(earth_clicker, list.RES.EARTH)
 
 func _on_fire_button_pressed():
-	add_fire(fire_clicker)
-
-func add_fire(amount):
-	fire_count += amount
-	fire_label.text = "Fire: %s" % fire_count
-
-func get_fire():
-	return fire_count
+	add_element(fire_clicker, list.RES.FIRE)
 
 func _on_water_button_pressed():
-	add_water(water_clicker)
-
-func add_water(amount):
-	water_count += amount
-	water_label.text = "Water: %s" % water_count
-
-func get_water():
-	return water_count
+	add_element(water_clicker, list.RES.WATER)
 
 func new_dimension():
 	air_clicker = rng.randi_range(1,5)
@@ -88,6 +97,3 @@ func new_dimension():
 func _on_warp_button_pressed():
 	print("Warp!")
 	new_dimension()
-
-func _on_air_passive1_pressed():
-	pass

@@ -5,6 +5,8 @@ onready var earth_sub_label: Label = get_node("../Elements/Earth/Subresource")
 onready var fire_sub_label: Label = get_node("../Elements/Fire/Subresource")
 onready var water_sub_label: Label = get_node("../Elements/Water/Subresource")
 
+var list = ResourceList
+
 var air_sub_count = 0
 var earth_sub_count = 0
 var fire_sub_count = 0
@@ -70,29 +72,39 @@ func water_resource():
 		r.visible = true
 
 func _on_air_sub_gather_button_pressed():
-	add_sub_air(r_clicker)
+	add_sub_element(r_clicker, list.RES.AIR)
 
-func add_sub_air(amount):
-	air_sub_count += amount
-	air_sub_label.text = "Cloud Puffs: %s" % air_sub_count
+func add_sub_element(amount, element):
+	match element:
+		list.RES.AIR, list.RES.SUBAIR:
+			air_sub_count += amount
+			air_sub_label.text = "Cloud Puffs: %s" % air_sub_count
+		list.RES.EARTH, list.RES.SUBEARTH:
+			earth_sub_count += amount
+			earth_sub_label.text = "Obsidian Chunks: %s" % earth_sub_count
+		list.RES.FIRE, list.RES.SUBFIRE:
+			fire_sub_count += amount
+			fire_sub_label.text = "Glowing Roses: %s" % fire_sub_count
+		list.RES.WATER, list.RES.SUBWATER:
+			water_sub_count += amount
+			water_sub_label.text = "Coral Crystals %s" % water_sub_count
+
+func can_afford(amount, element):
+	match element:
+		list.RES.AIR, list.RES.SUBAIR:
+			return true if air_sub_count - amount >= 0 else false
+		list.RES.EARTH, list.RES.SUBEARTH:
+			return true if earth_sub_count - amount >= 0 else false
+		list.RES.FIRE, list.RES.SUBFIRE:
+			return true if fire_sub_count - amount >= 0 else false
+		list.RES.WATER, list.RES.SUBWATER:
+			return true if water_sub_count - amount >= 0 else false
 
 func _on_earth_sub_gather_button_pressed():
-	add_sub_earth(r_clicker)
-
-func add_sub_earth(amount):
-	earth_sub_count += amount
-	earth_sub_label.text = "Obsidian Chunks: %s" % earth_sub_count
+	add_sub_element(r_clicker, list.RES.EARTH)
 
 func _on_fire_sub_gather_button_pressed():
-	add_sub_fire(r_clicker)
-
-func add_sub_fire(amount):
-	fire_sub_count += amount
-	fire_sub_label.text = "Glowing Roses: %s" % fire_sub_count
+	add_sub_element(r_clicker, list.RES.FIRE)
 
 func _on_water_sub_gather_button_pressed():
-	add_sub_water(r_clicker)
-
-func add_sub_water(amount):
-	water_sub_count += amount
-	water_sub_label.text = "Coral Crystals %s" % water_sub_count
+	add_sub_element(r_clicker, list.RES.WATER)
