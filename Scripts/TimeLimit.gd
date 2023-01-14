@@ -3,7 +3,7 @@ extends Timer
 onready var main = get_node("..")
 
 # Time (in seconds) until the monster appears
-var start_time = 15
+var start_time = 600
 
 onready var Display = $Display
 

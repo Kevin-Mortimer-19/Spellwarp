@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://SoundPlayer.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/SoundPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/SFX/click1.mp3" type="AudioStream" id=2]
+
 
 [node name="SoundPlayer" type="Node"]
 script = ExtResource( 1 )

@@ -33,13 +33,13 @@ _global_script_class_icons={
 [application]
 
 config/name="clicker jam"
-run/main_scene="res://Control.tscn"
+run/main_scene="res://Scenes/Control.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 ResourceList="*res://Scripts/ResourceList.gd"
-SoundPlayer="*res://SoundPlayer.tscn"
+SoundPlayer="*res://Scenes/SoundPlayer.tscn"
 StoredEnergy="*res://Scripts/StoredEnergy.gd"
 
 [rendering]
