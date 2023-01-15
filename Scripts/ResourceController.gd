@@ -105,3 +105,9 @@ func _on_fire_sub_gather_button_pressed():
 func _on_water_sub_gather_button_pressed():
 	add_sub_element(r_clicker, list.RES.WATER)
 	SoundPlayer.play_category(SoundPlayer.CORALCRYSTALSOUNDS)
+
+func wipe():
+	add_sub_element(-1 * air_sub_count, list.RES.SUBAIR)
+	add_sub_element(-1 * earth_sub_count, list.RES.SUBEARTH)
+	add_sub_element(-1 * fire_sub_count, list.RES.SUBFIRE)
+	add_sub_element(-1 * water_sub_count, list.RES.SUBWATER)

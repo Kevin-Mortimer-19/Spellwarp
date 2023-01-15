@@ -51,6 +51,9 @@ func get_button() -> Button:
 func get_amount() -> int:
 	return amount
 
+func set_amount(a):
+	amount = a
+
 func get_timer() -> Timer:
 	return timer
 

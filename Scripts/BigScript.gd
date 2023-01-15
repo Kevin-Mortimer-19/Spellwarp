@@ -9,6 +9,7 @@ onready var water_label: Label = $Elements/Water/Count
 onready var light_label: Label = $LightHBox/LightLabel
 
 onready var Resource_Controller = $Resource_Controller
+onready var Passive_Controller = $PassiveController
 onready var Time_Until_End = $TimeUntilTheEnd
 onready var Storage = StoredEnergy
 
@@ -123,6 +124,8 @@ func store_energy():
 	Storage.update(air_count, earth_count, fire_count, water_count, light_count)
 
 func new_dimension():
+	Resource_Controller.wipe()
+	Passive_Controller.reset()
 	air_clicker = rng.randi_range(1,5)
 	earth_clicker = rng.randi_range(1,5)
 	fire_clicker = rng.randi_range(1,5)
