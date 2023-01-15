@@ -99,12 +99,16 @@ func can_afford(amount, element):
 
 func _on_air_sub_gather_button_pressed():
 	add_sub_element(r_clicker, list.RES.AIR)
+	SoundPlayer.play_category(SoundPlayer.CLOUDPUFFSOUNDS)
 
 func _on_earth_sub_gather_button_pressed():
 	add_sub_element(r_clicker, list.RES.EARTH)
+	SoundPlayer.play_category(SoundPlayer.OBSIDIANCHUNKSOUNDS)
 
 func _on_fire_sub_gather_button_pressed():
 	add_sub_element(r_clicker, list.RES.FIRE)
+	SoundPlayer.play_category(SoundPlayer.GLOWINGROSESOUNDS)
 
 func _on_water_sub_gather_button_pressed():
 	add_sub_element(r_clicker, list.RES.WATER)
+	SoundPlayer.play_category(SoundPlayer.CORALCRYSTALSOUNDS)
