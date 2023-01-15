@@ -1,14 +1,74 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/ResourceController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/TimeLimit.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/BigScript.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/PassiveController.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/ResearchTree.gd" type="Script" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
+
+[node name="Research" type="VBoxContainer" parent="."]
+margin_left = 812.634
+margin_top = 253.425
+margin_right = 870.634
+margin_bottom = 519.425
+alignment = 1
+script = ExtResource( 5 )
+
+[node name="Title" type="Label" parent="Research"]
+margin_top = 17.0
+margin_right = 58.0
+margin_bottom = 31.0
+text = "Research"
+
+[node name="Warp1" type="Button" parent="Research"]
+margin_top = 35.0
+margin_right = 58.0
+margin_bottom = 55.0
+
+[node name="Warp2" type="Button" parent="Research"]
+margin_top = 59.0
+margin_right = 58.0
+margin_bottom = 79.0
+
+[node name="Warp3" type="Button" parent="Research"]
+margin_top = 83.0
+margin_right = 58.0
+margin_bottom = 103.0
+
+[node name="Spell1" type="Button" parent="Research"]
+margin_top = 107.0
+margin_right = 58.0
+margin_bottom = 127.0
+
+[node name="Spell2" type="Button" parent="Research"]
+margin_top = 131.0
+margin_right = 58.0
+margin_bottom = 151.0
+
+[node name="Spell3" type="Button" parent="Research"]
+margin_top = 155.0
+margin_right = 58.0
+margin_bottom = 175.0
+
+[node name="Production1" type="Button" parent="Research"]
+margin_top = 179.0
+margin_right = 58.0
+margin_bottom = 199.0
+
+[node name="Production2" type="Button" parent="Research"]
+margin_top = 203.0
+margin_right = 58.0
+margin_bottom = 223.0
+
+[node name="Production3" type="Button" parent="Research"]
+margin_top = 227.0
+margin_right = 58.0
+margin_bottom = 247.0
 
 [node name="Elements" type="HBoxContainer" parent="."]
 anchor_right = 1.0
@@ -326,6 +386,15 @@ margin_top = 191.0
 margin_right = 955.0
 margin_bottom = 257.0
 
+[connection signal="pressed" from="Research/Warp1" to="Research" method="_on_warp1_pressed"]
+[connection signal="pressed" from="Research/Warp2" to="Research" method="_on_warp2_pressed"]
+[connection signal="pressed" from="Research/Warp3" to="Research" method="_on_warp3_pressed"]
+[connection signal="pressed" from="Research/Spell1" to="Research" method="_on_spell1_pressed"]
+[connection signal="pressed" from="Research/Spell2" to="Research" method="_on_spell2_pressed"]
+[connection signal="pressed" from="Research/Spell3" to="Research" method="_on_spell3_pressed"]
+[connection signal="pressed" from="Research/Production1" to="Research" method="_on_prod1_pressed"]
+[connection signal="pressed" from="Research/Production2" to="Research" method="_on_prod2_pressed"]
+[connection signal="pressed" from="Research/Production3" to="Research" method="_on_prod3_pressed"]
 [connection signal="pressed" from="TabContainer/Air/Button1" to="." method="_on_air_button_pressed"]
 [connection signal="pressed" from="TabContainer/Air/Gather" to="Resource_Controller" method="_on_air_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Air/Passive1" to="PassiveController" method="_on_air_passive1_pressed"]

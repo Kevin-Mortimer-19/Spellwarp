@@ -70,6 +70,8 @@ func get_element(element):
 			return fire_count
 		list.RES.WATER, list.RES.SUBWATER:
 			return water_count
+		list.RES.LIGHT:
+			return light_count
 
 func get_affinity(element):
 	match element:
@@ -123,5 +125,7 @@ func new_dimension():
 
 func _on_warp_button_pressed():
 	Time_Until_End.reset()
-	print("Warp!")
 	new_dimension()
+
+func _on_warp2_pressed():
+	pass # Replace with function body.

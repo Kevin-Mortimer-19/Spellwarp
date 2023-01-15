@@ -1,10 +1,10 @@
 class_name Stored_Energy extends Node
 
-var air: int
-var earth: int
-var fire: int
-var water: int
-var light: int
+var air: int = 0
+var earth: int = 0
+var fire: int = 0
+var water: int = 0
+var light: int = 0
 
 func update(a, e, f, w, l):
 	air = a
