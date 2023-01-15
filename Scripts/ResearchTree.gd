@@ -100,6 +100,7 @@ func _on_spell3_pressed():
 func _on_prod1_pressed():
 	buy_research(prod1)
 	ResearchDB.set_prod_1()
+	main.unlock_advanced()
 
 func _on_prod2_pressed():
 	buy_research(prod2)
