@@ -14,6 +14,7 @@ onready var Time_Until_End = $TimeUntilTheEnd
 onready var Warp_Button = $WARP_SPEED
 onready var Warp_Timer = $WARP_SPEED/Timer
 onready var Warp_Label = $WARP_SPEED/Label
+onready var LogBox = $LogBox
 onready var Storage = StoredEnergy
 
 var air_count: int = 0
@@ -43,6 +44,18 @@ func _ready():
 	rng.randomize()
 	new_dimension()
 	
+<<<<<<< Updated upstream
+=======
+	#TEMP
+	air_count = 100
+	earth_count = 100
+	fire_count = 100
+	water_count = 100
+	light_count = 100
+	
+	dimension_attributes(current_dim.get_resource_1())
+	
+>>>>>>> Stashed changes
 	air_label.text = "Air: %s" % air_count
 	earth_label.text = "Earth: %s" % earth_count
 	fire_label.text = "Fire: %s" % fire_count
@@ -132,6 +145,22 @@ func combine(amount):
 func can_afford_light(amount):
 	return true if air_count > 0 && earth_count > 0 && fire_count > 0 && water_count > 0 else false
 
+func dimension_attributes(resource):
+	match resource:
+		list.RES.AIR, list.RES.SUBAIR:
+			LogBox.set_text("You land on a world whose winds dance across the skies like children at play.")
+			SoundPlayer.play_ost(SoundPlayer.AIRSONG)
+		list.RES.EARTH, list.RES.SUBEARTH:
+			LogBox.set_text("You land on a world whose mysterious caves hide an ancient and glorious history.")
+			SoundPlayer.play_ost(SoundPlayer.EARTHSONG)
+		list.RES.FIRE, list.RES.SUBFIRE:
+			LogBox.set_text("You land on a world consumed by fire and magma, passion and rage.")
+			SoundPlayer.play_ost(SoundPlayer.FIRESONG)
+		list.RES.WATER, list.RES.SUBWATER:
+			LogBox.set_text("You land in a vast ocean, whose dark depths are at once calming and ominous.")
+			SoundPlayer.play_ost(SoundPlayer.WATERSONG)
+		
+
 func store_energy():
 	Storage.update(air_count, earth_count, fire_count, water_count, light_count)
 
@@ -143,6 +172,7 @@ func new_dimension():
 	fire_clicker = rng.randi_range(1,5)
 	water_clicker = rng.randi_range(1,5)
 	current_dim = dim.new(air_clicker, earth_clicker, fire_clicker, water_clicker)
+	dimension_attributes(current_dim.get_resource_1())
 	Resource_Controller.resources(current_dim.get_resource_1(), current_dim.get_resource_2(), current_dim.get_resource_3())
 	if ResearchDB.warp_1():
 		add_element(-1 * air_count / 2, list.RES.AIR)
@@ -158,13 +188,14 @@ func new_dimension():
 func _on_warp_button_pressed():
 	if light_count >= warp_cost:
 		add_element(-1 * warp_cost, list.RES.LIGHT)
-		warp_cost += 2 * warp_cost
+		#warp_cost += 2 * warp_cost
 		Warp_Label.text = "Cost to warp: %s" % str(warp_cost)
 		Time_Until_End.reset()
 		new_dimension()
-		SoundPlayer.play_random_ost(SoundPlayer.THEOST)
+		#SoundPlayer.play_random_ost(SoundPlayer.THEOST)
 		Warp_Button.disabled = true
-		Warp_Timer.start()
+		if Warp_Timer.is_stopped():
+			Warp_Timer.start()
 
 func _on_warp_timer_timeout():
 	warp_ready = true

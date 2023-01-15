@@ -372,7 +372,7 @@ margin_bottom = 115.767
 text = "WARP SPEED"
 
 [node name="Timer" type="Timer" parent="WARP_SPEED"]
-wait_time = 60.0
+wait_time = 10.0
 
 [node name="Label" type="Label" parent="WARP_SPEED"]
 margin_left = -5.30328
@@ -394,6 +394,14 @@ margin_left = 837.0
 margin_top = 191.0
 margin_right = 955.0
 margin_bottom = 257.0
+
+[node name="LogBox" type="Label" parent="."]
+margin_left = 25.9547
+margin_top = 461.409
+margin_right = 213.955
+margin_bottom = 554.409
+autowrap = true
+clip_text = true
 
 [connection signal="pressed" from="Research/Warp1" to="Research" method="_on_warp1_pressed"]
 [connection signal="pressed" from="Research/Warp2" to="Research" method="_on_warp2_pressed"]
