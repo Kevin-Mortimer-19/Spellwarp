@@ -112,6 +112,9 @@ func combine(amount):
 		for x in range(0,4):
 			add_element(-1 * amount, x)
 		add_element(amount, list.RES.LIGHT)
+		SoundPlayer.play_category(SoundPlayer.LIGHTSOUNDS)
+	else: 
+		SoundPlayer.play_category(SoundPlayer.GREMLINSOUNDS)
 
 func can_afford_light(amount):
 	return true if air_count > 0 && earth_count > 0 && fire_count > 0 && water_count > 0 else false
@@ -140,6 +143,7 @@ func new_dimension():
 func _on_warp_button_pressed():
 	Time_Until_End.reset()
 	new_dimension()
+	SoundPlayer.play_random_ost(SoundPlayer.THEOST)
 
 func unlock_advanced():
 	for r in get_tree().get_nodes_in_group("advanced"):

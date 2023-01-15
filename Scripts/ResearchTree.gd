@@ -75,41 +75,51 @@ func _process(delta):
 
 func _on_warp1_pressed():
 	buy_research(warp1)
+  
 	ResearchDB.set_warp_1()
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_warp2_pressed():
 	buy_research(warp2)
 	ResearchDB.set_warp_2()
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_warp3_pressed():
 	buy_research(warp3)
 	ResearchDB.set_warp_3()
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_spell1_pressed():
 	buy_research(spell1)
 	ResearchDB.set_spell_1()
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_spell2_pressed():
 	buy_research(spell2)
 	ResearchDB.set_spell_2()
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_spell3_pressed():
 	buy_research(spell3)
 	ResearchDB.set_spell_3()
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_prod1_pressed():
 	buy_research(prod1)
 	ResearchDB.set_prod_1()
 	main.unlock_advanced()
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_prod2_pressed():
 	buy_research(prod2)
 	ResearchDB.set_prod_2()
 	passive.better_gremlins()
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_prod3_pressed():
 	buy_research(prod3)
 	ResearchDB.set_prod_3()
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func buy_research(option):
 	main.add_element(-1 * option.buy(), ResourceList.RES.LIGHT)
