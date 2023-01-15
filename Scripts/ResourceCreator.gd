@@ -66,6 +66,9 @@ func get_name() -> String:
 func get_element() -> int:
 	return res
 
+func reset_cost():
+	cost = base_cost
+
 func buy() -> int:
 	amount += 1
 	var current_cost = cost

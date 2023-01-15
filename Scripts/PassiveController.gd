@@ -204,7 +204,11 @@ func text_update(creator):
 	if creator.amount > 0:
 		template = "You own %s, which produce %s per second."
 		creator.get_label().text = template % [creator.get_amount(), payout(creator) / creator.get_time()]
+	else:
+		creator.get_label().text = ""
 
 func reset():
 	for p in all_passives:
 		p.set_amount(0)
+		p.reset_cost()
+		text_update(p)
