@@ -14,7 +14,11 @@ func _ready():
 func _process(delta):
 	var minutes = int(get_time_left()) / 60
 	var seconds = int(get_time_left()) % 60
-	Display.set_text(str(minutes) + ":" + str(seconds))
+	
+	if seconds < 10:
+		Display.set_text(str(minutes) + ":0" + str(seconds))
+	else:
+		Display.set_text(str(minutes) + ":" + str(seconds))
 
 func reset():
 	stop()

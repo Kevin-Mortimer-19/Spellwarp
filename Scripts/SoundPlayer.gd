@@ -20,6 +20,12 @@ const LIGHT2 = preload("res://Sounds/SFX/light2.wav")
 const LIGHT3 = preload("res://Sounds/SFX/light3.wav")
 const UNLOCK1 = preload("res://Sounds/SFX/unlock1.wav")
 const UNLOCK2 = preload("res://Sounds/SFX/unlock2.wav")
+const PAGETURN1 = preload("res://Sounds/SFX/pageturn1.wav")
+const PAGETURN2 = preload("res://Sounds/SFX/pageturn2.wav")
+const PAGETURN3 = preload("res://Sounds/SFX/pageturn3.wav")
+const BOOP1 = preload("res://Sounds/SFX/boop1.wav")
+const BOOP2 = preload("res://Sounds/SFX/boop2.wav")
+const BOOP3 = preload("res://Sounds/SFX/boop3.wav")
 
 # categories
 var GREMLINSOUNDS = [GREMLIN1, GREMLIN2, GREMLIN3, GREMLIN4]
@@ -29,6 +35,8 @@ var GLOWINGROSESOUNDS = [GLOWINGROSES1, GLOWINGROSES2]
 var CORALCRYSTALSOUNDS = [CORALCRYSTALS1, CORALCRYSTALS2]
 var LIGHTSOUNDS = [LIGHT1, LIGHT2, LIGHT3]
 var UNLOCKSOUNDS = [UNLOCK1, UNLOCK2]
+var PAGETURNSOUNDS = [PAGETURN1, PAGETURN2, PAGETURN3]
+var BOOPSOUNDS = [BOOP1, BOOP2, BOOP3]
 
 # ost
 const TITLESONG = preload("res://Sounds/OST/title.mp3")

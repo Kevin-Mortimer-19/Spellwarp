@@ -404,6 +404,7 @@ margin_bottom = 257.0
 [connection signal="pressed" from="Research/Production1" to="Research" method="_on_prod1_pressed"]
 [connection signal="pressed" from="Research/Production2" to="Research" method="_on_prod2_pressed"]
 [connection signal="pressed" from="Research/Production3" to="Research" method="_on_prod3_pressed"]
+[connection signal="tab_changed" from="TabContainer" to="." method="_on_TabContainer_tab_changed"]
 [connection signal="pressed" from="TabContainer/Air/Button1" to="." method="_on_air_button_pressed"]
 [connection signal="pressed" from="TabContainer/Air/Gather" to="Resource_Controller" method="_on_air_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Air/Passive1" to="PassiveController" method="_on_air_passive1_pressed"]
