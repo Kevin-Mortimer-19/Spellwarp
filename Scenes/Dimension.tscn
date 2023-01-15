@@ -168,7 +168,6 @@ margin_right = 780.105
 margin_bottom = 518.579
 
 [node name="Air" type="VBoxContainer" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -214,6 +213,7 @@ margin_bottom = 128.0
 align = 1
 
 [node name="Earth" type="VBoxContainer" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
