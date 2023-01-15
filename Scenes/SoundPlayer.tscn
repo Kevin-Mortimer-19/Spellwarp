@@ -39,3 +39,8 @@ volume_db = -10.488
 [node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="AudioPlayers"]
 stream = ExtResource( 2 )
 volume_db = -10.488
+
+[node name="OSTPlayer" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="OSTPlayer"]
+volume_db = -18.0
