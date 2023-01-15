@@ -364,12 +364,21 @@ margin_right = 513.0
 margin_bottom = 20.0
 text = "Combine Elements"
 
-[node name="WARP SPEED" type="Button" parent="."]
-margin_left = 917.105
-margin_top = 122.737
-margin_right = 1010.11
-margin_bottom = 142.737
+[node name="WARP_SPEED" type="Button" parent="."]
+margin_left = 911.112
+margin_top = 95.7675
+margin_right = 1004.12
+margin_bottom = 115.767
 text = "WARP SPEED"
+
+[node name="Timer" type="Timer" parent="WARP_SPEED"]
+wait_time = 60.0
+
+[node name="Label" type="Label" parent="WARP_SPEED"]
+margin_left = -5.30328
+margin_top = 28.6378
+margin_right = 34.6967
+margin_bottom = 42.6378
 
 [node name="Resource_Controller" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -420,5 +429,6 @@ margin_bottom = 257.0
 [connection signal="pressed" from="TabContainer/Water/Passive2" to="PassiveController" method="_on_water_passive2_pressed"]
 [connection signal="timeout" from="TabContainer/Water/Passive2/Timer" to="PassiveController" method="_on_water_passive2_timeout"]
 [connection signal="pressed" from="TabContainer/Light/Button" to="." method="_on_light_button_pressed"]
-[connection signal="pressed" from="WARP SPEED" to="." method="_on_warp_button_pressed"]
+[connection signal="pressed" from="WARP_SPEED" to="." method="_on_warp_button_pressed"]
+[connection signal="timeout" from="WARP_SPEED/Timer" to="." method="_on_warp_timer_timeout"]
 [connection signal="timeout" from="TimeUntilTheEnd" to="TimeUntilTheEnd" method="_time_is_up"]

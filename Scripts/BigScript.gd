@@ -11,6 +11,9 @@ onready var light_label: Label = $LightHBox/LightLabel
 onready var Resource_Controller = $Resource_Controller
 onready var Passive_Controller = $PassiveController
 onready var Time_Until_End = $TimeUntilTheEnd
+onready var Warp_Button = $WARP_SPEED
+onready var Warp_Timer = $WARP_SPEED/Timer
+onready var Warp_Label = $WARP_SPEED/Label
 onready var Storage = StoredEnergy
 
 var air_count: int = 0
@@ -24,6 +27,9 @@ var earth_clicker = 1
 var fire_clicker = 1
 var water_clicker = 1
 
+var warp_cost = 10
+var warp_ready: bool = false
+
 var list = ResourceList
 
 var rng = RandomNumberGenerator.new()
@@ -31,6 +37,9 @@ var rng = RandomNumberGenerator.new()
 var current_dim = dim.new(1,1,1,1)
 
 func _ready():
+	Warp_Label.text = "Cost to warp: %s" % str(warp_cost)
+	if Warp_Timer.is_stopped():
+		Warp_Timer.start()
 	rng.randomize()
 	new_dimension()
 	
@@ -45,7 +54,10 @@ func _ready():
 			r.visible = true
 
 func _process(delta):
-	pass
+	if light_count < warp_cost || !warp_ready: 
+		Warp_Button.disabled = true
+	else:
+		Warp_Button.disabled = false
 
 func add_element(amount, element):
 	match element:
@@ -144,9 +156,18 @@ func new_dimension():
 		add_element(-1 * water_count, list.RES.WATER)
 
 func _on_warp_button_pressed():
-	Time_Until_End.reset()
-	new_dimension()
-	SoundPlayer.play_random_ost(SoundPlayer.THEOST)
+	if light_count >= warp_cost:
+		add_element(-1 * warp_cost, list.RES.LIGHT)
+		warp_cost += 2 * warp_cost
+		Warp_Label.text = "Cost to warp: %s" % str(warp_cost)
+		Time_Until_End.reset()
+		new_dimension()
+		SoundPlayer.play_random_ost(SoundPlayer.THEOST)
+		Warp_Button.disabled = true
+		Warp_Timer.start()
+
+func _on_warp_timer_timeout():
+	warp_ready = true
 
 func unlock_advanced():
 	for r in get_tree().get_nodes_in_group("advanced"):
