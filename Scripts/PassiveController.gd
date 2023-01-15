@@ -190,7 +190,7 @@ func buy_creator(creator):
 func extraction(amount, element):
 	if res.can_afford(amount, element):
 		res.add_sub_element(-1 * amount, element)
-		if ResearchDB.prod_flag3():
+		if ResearchDB.prod_3():
 			main.add_element(2 * amount * main.get_affinity(element), element)
 		else:
 			main.add_element(amount * main.get_affinity(element), element)
