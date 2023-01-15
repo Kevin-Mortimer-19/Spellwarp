@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 461.703
+margin_top = 265.568
+margin_right = 559.703
+margin_bottom = 294.568
+text = "GAME OVER!"

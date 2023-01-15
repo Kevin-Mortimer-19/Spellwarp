@@ -37,11 +37,22 @@ var rng = RandomNumberGenerator.new()
 var current_dim = dim.new(1,1,1,1)
 
 func _ready():
+	rng.randomize()
+	if !Monster.initialized:
+		monster_stats()
+	
+
 	Warp_Label.text = "Cost to warp: %s" % str(warp_cost)
 	if Warp_Timer.is_stopped():
 		Warp_Timer.start()
-	rng.randomize()
 	new_dimension()
+	
+	#TEMP
+	air_count = 100
+	earth_count = 100
+	fire_count = 100
+	water_count = 100
+	light_count = 100
 	
 	air_label.text = "Air: %s" % air_count
 	earth_label.text = "Earth: %s" % earth_count
@@ -58,6 +69,22 @@ func _process(delta):
 		Warp_Button.disabled = true
 	else:
 		Warp_Button.disabled = false
+
+func monster_stats():
+	var not_affinity = rng.randi_range(0,3)
+	var arr = [list.RES.AIR, list.RES.EARTH, list.RES.FIRE, list.RES.WATER]
+	var affinity_arr = []
+	for a in arr:
+		if a != not_affinity:
+			affinity_arr.append(a)
+	Monster.affinity1 = affinity_arr[0]
+	Monster.affinity2 = affinity_arr[1]
+	Monster.affinity3 = affinity_arr[2]
+	print(Monster.affinity1)
+	print(Monster.affinity2)
+	print(Monster.affinity3)
+	
+	Monster.initialized = true
 
 func add_element(amount, element):
 	match element:
