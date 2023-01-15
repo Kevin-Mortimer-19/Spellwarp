@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://Scripts/Dimension.gd"
 }, {
 "base": "Node",
+"class": "MonsterEvent",
+"language": "GDScript",
+"path": "res://Scripts/MonsterEvent.gd"
+}, {
+"base": "Node",
 "class": "ResearchOption",
 "language": "GDScript",
 "path": "res://Scripts/ResearchOption.gd"
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Dimension": "",
+"MonsterEvent": "",
 "ResearchOption": "",
 "ResourceCreator": "",
 "Stored_Energy": ""
@@ -48,6 +54,7 @@ ResourceList="*res://Scripts/ResourceList.gd"
 SoundPlayer="*res://Scenes/SoundPlayer.tscn"
 StoredEnergy="*res://Scripts/StoredEnergy.gd"
 ResearchDB="*res://Scripts/ResearchDB.gd"
+Monster="*res://Scripts/Monster.gd"
 
 [rendering]
 

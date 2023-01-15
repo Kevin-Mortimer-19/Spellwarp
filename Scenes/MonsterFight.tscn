@@ -1,56 +1,140 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/MidBattleWarp.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/BossFight.gd" type="Script" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Elements" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 40.0
+margin_right = -21.0
+margin_bottom = -510.0
+custom_constants/separation = 50
+
+[node name="Air" type="VBoxContainer" parent="Elements"]
+margin_right = 22.0
+margin_bottom = 50.0
+custom_constants/separation = 10
+
+[node name="Count" type="Label" parent="Elements/Air"]
+margin_right = 22.0
+margin_bottom = 14.0
+text = "Air:"
+
+[node name="Earth" type="VBoxContainer" parent="Elements"]
+margin_left = 72.0
+margin_right = 108.0
+margin_bottom = 50.0
+custom_constants/separation = 10
+
+[node name="Count" type="Label" parent="Elements/Earth"]
+margin_right = 36.0
+margin_bottom = 14.0
+text = "Earth:"
+
+[node name="Fire" type="VBoxContainer" parent="Elements"]
+margin_left = 158.0
+margin_right = 186.0
+margin_bottom = 50.0
+custom_constants/separation = 10
+
+[node name="Count" type="Label" parent="Elements/Fire"]
+margin_right = 28.0
+margin_bottom = 14.0
+text = "Fire:"
+
+[node name="Water" type="VBoxContainer" parent="Elements"]
+margin_left = 236.0
+margin_right = 278.0
+margin_bottom = 50.0
+custom_constants/separation = 10
+
+[node name="Count" type="Label" parent="Elements/Water"]
+margin_right = 42.0
+margin_bottom = 14.0
+text = "Water:"
+
+[node name="Menu" type="VBoxContainer" parent="."]
 margin_left = 68.0187
 margin_top = 120.123
 margin_right = 919.019
 margin_bottom = 472.123
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="Menu"]
 margin_top = 145.0
 margin_right = 851.0
 margin_bottom = 159.0
-text = "The Monster attacks, breathing a jet of smoldering fire towards you!"
 align = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="CombatRow" type="HBoxContainer" parent="Menu"]
 margin_top = 163.0
 margin_right = 851.0
 margin_bottom = 183.0
 alignment = 1
 
-[node name="FightButton1" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 237.0
-margin_right = 406.0
+[node name="FailButton" type="Button" parent="Menu/CombatRow"]
+margin_left = 150.0
+margin_right = 319.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 70, 20 )
 text = "Block it with your hands!"
 
-[node name="FightButton2" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 410.0
-margin_right = 614.0
+[node name="ElementButton" type="Button" parent="Menu/CombatRow"]
+margin_left = 323.0
+margin_right = 527.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 70, 20 )
 text = "Block it with a shield of water!"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="LightButton" type="Button" parent="Menu/CombatRow"]
+margin_left = 531.0
+margin_right = 700.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 70, 20 )
+text = "Block it with your hands!"
+
+[node name="Advance" type="Button" parent="Menu/CombatRow"]
+visible = false
+margin_left = 610.0
+margin_right = 622.0
+margin_bottom = 20.0
+
+[node name="WarpRow" type="HBoxContainer" parent="Menu"]
 margin_top = 187.0
 margin_right = 851.0
 margin_bottom = 207.0
 alignment = 1
 
-[node name="WarpButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="WarpButton" type="Button" parent="Menu/WarpRow"]
 margin_left = 387.0
 margin_right = 464.0
 margin_bottom = 20.0
 text = "Run Away!"
 script = ExtResource( 1 )
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/WarpButton" to="VBoxContainer/HBoxContainer2/WarpButton" method="_on_warp_pressed"]
+[node name="LightHBox" type="HBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 983.0
+margin_bottom = 90.0
+alignment = 2
+
+[node name="LightLabel" type="Label" parent="LightHBox"]
+margin_left = 928.0
+margin_top = 18.0
+margin_right = 963.0
+margin_bottom = 32.0
+text = "Light:"
+align = 2
+
+[connection signal="pressed" from="Menu/CombatRow/FailButton" to="." method="_on_fail_button_pressed"]
+[connection signal="pressed" from="Menu/CombatRow/ElementButton" to="." method="_on_element_button_pressed"]
+[connection signal="pressed" from="Menu/CombatRow/LightButton" to="." method="_on_light_button_pressed"]
+[connection signal="pressed" from="Menu/WarpRow/WarpButton" to="Menu/WarpRow/WarpButton" method="_on_warp_pressed"]
