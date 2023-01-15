@@ -65,30 +65,39 @@ func _process(delta):
 
 func _on_warp1_pressed():
 	buy_research(warp1)
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_warp2_pressed():
 	buy_research(warp2)
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_warp3_pressed():
 	buy_research(warp3)
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_spell1_pressed():
 	buy_research(spell1)
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_spell2_pressed():
 	buy_research(spell2)
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_spell3_pressed():
 	buy_research(spell3)
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_prod1_pressed():
 	buy_research(prod1)
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_prod2_pressed():
 	buy_research(prod2)
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_prod3_pressed():
 	buy_research(prod3)
+	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func buy_research(option):
 	main.add_element(-1 * option.buy(), ResourceList.RES.LIGHT)
