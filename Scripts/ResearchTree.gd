@@ -3,6 +3,7 @@ extends VBoxContainer
 var research_option = load("res://Scripts/ResearchOption.gd")
 
 onready var main = get_node("..")
+onready var passive = get_node("../PassiveController")
 
 onready var warp1_b = $Warp1
 onready var warp2_b = $Warp2
@@ -32,17 +33,26 @@ var prod3: ResearchOption
 var options = []
 
 func _ready():
-	warp1 = research_option.new("Efficient Warping", 50, warp1_b, null, null)
-	warp2 = research_option.new("Distance Warping", 100, warp2_b, null, null)
-	warp3 = research_option.new("Prosperous Warping", 100, warp3_b, warp1, warp2)
+	warp1 = research_option.new("Efficient Warping", 5, warp1_b, null, null)
+	if ResearchDB.warp_1(): warp1.buy()
+	warp2 = research_option.new("Distance Warping", 10, warp2_b, null, null)
+	if ResearchDB.warp_2(): warp2.buy()
+	warp3 = research_option.new("Prosperous Warping", 10, warp3_b, warp1, warp2)
+	if ResearchDB.warp_3(): warp3.buy()
 	
-	spell1 = research_option.new("Offensive Spellcasting", 50, spell1_b, null, null)
-	spell2 = research_option.new("Defensive Spellcasting", 50, spell2_b, null, null)
-	spell3 = research_option.new("Efficient Spellcasting", 200, spell3_b, spell1, spell2)
+	spell1 = research_option.new("Offensive Spellcasting", 5, spell1_b, null, null)
+	if ResearchDB.spell_1(): spell1.buy()
+	spell2 = research_option.new("Defensive Spellcasting", 5, spell2_b, null, null)
+	if ResearchDB.spell_2(): spell2.buy()
+	spell3 = research_option.new("Efficient Spellcasting", 20, spell3_b, spell1, spell2)
+	if ResearchDB.spell_3(): spell3.buy()
 	
-	prod1 = research_option.new("Advanced Production", 10, prod1_b, null, null)
-	prod2 = research_option.new("Speedy Gremlins", 100, prod2_b, prod1, null)
-	prod3 = research_option.new("Powerful Extractors", 100, prod3_b, prod1, null)
+	prod1 = research_option.new("Advanced Production", 1, prod1_b, null, null)
+	if ResearchDB.prod_1(): prod1.buy()
+	prod2 = research_option.new("Speedy Gremlins", 10, prod2_b, prod1, null)
+	if ResearchDB.prod_2(): prod2.buy()
+	prod3 = research_option.new("Powerful Extractors", 10, prod3_b, prod1, null)
+	if ResearchDB.prod_3(): prod3.buy()
 	
 	options.append(warp1)
 	options.append(warp2)
@@ -65,42 +75,51 @@ func _process(delta):
 
 func _on_warp1_pressed():
 	buy_research(warp1)
+  
+	ResearchDB.set_warp_1()
 	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_warp2_pressed():
 	buy_research(warp2)
+	ResearchDB.set_warp_2()
 	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_warp3_pressed():
 	buy_research(warp3)
+	ResearchDB.set_warp_3()
 	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_spell1_pressed():
 	buy_research(spell1)
+	ResearchDB.set_spell_1()
 	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_spell2_pressed():
 	buy_research(spell2)
+	ResearchDB.set_spell_2()
 	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_spell3_pressed():
 	buy_research(spell3)
+	ResearchDB.set_spell_3()
 	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_prod1_pressed():
 	buy_research(prod1)
+	ResearchDB.set_prod_1()
+	main.unlock_advanced()
 	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_prod2_pressed():
 	buy_research(prod2)
+	ResearchDB.set_prod_2()
+	passive.better_gremlins()
 	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func _on_prod3_pressed():
 	buy_research(prod3)
+	ResearchDB.set_prod_3()
 	SoundPlayer.play_category(SoundPlayer.UNLOCKSOUNDS)
 
 func buy_research(option):
 	main.add_element(-1 * option.buy(), ResourceList.RES.LIGHT)
-
-func save_research():
-	pass

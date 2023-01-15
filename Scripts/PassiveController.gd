@@ -39,6 +39,8 @@ onready var water_label_2 = get_node("../TabContainer/Water/Label2")
 # Passive income objects and the arrays in which they are contained are declared here
 
 var all_passives = []
+var gremlins = []
+var gremlin_research: bool = false
 
 var air_passive_1: ResourceCreator
 var air_passive_2 :ResourceCreator
@@ -55,6 +57,8 @@ var water_passive_2: ResourceCreator
 var cost_label = " (Cost: %s)"
 
 func _ready():
+	if ResearchDB.prod_2():
+		gremlin_research = true
 	#
 	# Passive income objects are defined here and placed into the correct arrays.
 	# ARGUMENTS:
@@ -85,6 +89,11 @@ func _ready():
 	water_passive_2 = resource_creator.new(50, 1, 1, water_button_2, water_timer_2, water_label_2, "Crystal Crushers", list.RES.WATER)
 	all_passives.append(water_passive_1)
 	all_passives.append(water_passive_2)
+	
+	gremlins.append(air_passive_1)
+	gremlins.append(earth_passive_1)
+	gremlins.append(fire_passive_1)
+	gremlins.append(water_passive_1)
 	
 	# Initial button text setup
 	for x in all_passives:
@@ -169,6 +178,10 @@ func _on_water_passive2_timeout():
 
 # Helper functions
 
+func better_gremlins():
+	for g in gremlins:
+		g.get_timer().set_wait_time(g.get_timer().get_wait_time() / 2)
+
 func buy_creator(creator):
 	var cost = creator.buy()
 	main.add_element(-1 * cost, creator.get_element())
@@ -177,7 +190,10 @@ func buy_creator(creator):
 func extraction(amount, element):
 	if res.can_afford(amount, element):
 		res.add_sub_element(-1 * amount, element)
-		main.add_element(amount * main.get_affinity(element), element)
+		if ResearchDB.prod_flag3():
+			main.add_element(2 * amount * main.get_affinity(element), element)
+		else:
+			main.add_element(amount * main.get_affinity(element), element)
 
 func payout(creator) -> int:
 	return creator.get_output() * creator.get_amount()

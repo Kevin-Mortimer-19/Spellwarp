@@ -80,71 +80,71 @@ margin_bottom = -510.0
 custom_constants/separation = 50
 
 [node name="Air" type="VBoxContainer" parent="Elements"]
-margin_right = 75.0
+margin_right = 87.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Air"]
-margin_right = 75.0
+margin_right = 87.0
 margin_bottom = 14.0
 text = "Air:"
 
 [node name="Subresource" type="Label" parent="Elements/Air" groups=["air"]]
 margin_top = 24.0
-margin_right = 75.0
+margin_right = 87.0
 margin_bottom = 38.0
-text = "Cloud Puffs:"
+text = "Cloud Puffs: 0"
 
 [node name="Earth" type="VBoxContainer" parent="Elements"]
-margin_left = 125.0
-margin_right = 236.0
+margin_left = 137.0
+margin_right = 260.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Earth"]
-margin_right = 111.0
+margin_right = 123.0
 margin_bottom = 14.0
 text = "Earth:"
 
 [node name="Subresource" type="Label" parent="Elements/Earth" groups=["earth"]]
 margin_top = 24.0
-margin_right = 111.0
+margin_right = 123.0
 margin_bottom = 38.0
-text = "Obsidian Chunks:"
+text = "Obsidian Chunks: 0"
 
 [node name="Fire" type="VBoxContainer" parent="Elements"]
-margin_left = 286.0
-margin_right = 383.0
+margin_left = 310.0
+margin_right = 419.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Fire"]
-margin_right = 97.0
+margin_right = 109.0
 margin_bottom = 14.0
 text = "Fire:"
 
 [node name="Subresource" type="Label" parent="Elements/Fire" groups=["fire"]]
 margin_top = 24.0
-margin_right = 97.0
+margin_right = 109.0
 margin_bottom = 38.0
-text = "Glowing Roses:"
+text = "Glowing Roses: 0"
 
 [node name="Water" type="VBoxContainer" parent="Elements"]
-margin_left = 433.0
-margin_right = 523.0
+margin_left = 469.0
+margin_right = 571.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Water"]
-margin_right = 90.0
+margin_right = 102.0
 margin_bottom = 14.0
 text = "Water:"
 
 [node name="Subresource" type="Label" parent="Elements/Water" groups=["water"]]
 margin_top = 24.0
-margin_right = 90.0
+margin_right = 102.0
 margin_bottom = 38.0
-text = "Coral Crystals:"
+text = "Coral Crystals: 0"
 
 [node name="LightHBox" type="HBoxContainer" parent="."]
 margin_left = 20.0

@@ -47,3 +47,30 @@ func prod_2():
 
 func prod_3():
 	return prod_flag3
+
+func set_warp_1():
+	warp_flag1 = true
+
+func set_warp_2():
+	warp_flag2 = true
+
+func set_warp_3():
+	warp_flag3 = true
+
+func set_spell_1():
+	spell_flag1 = true
+
+func set_spell_2():
+	spell_flag2 = true
+
+func set_spell_3():
+	spell_flag3 = true
+
+func set_prod_1():
+	prod_flag1 = true
+
+func set_prod_2():
+	prod_flag2 = true
+
+func set_prod_3():
+	prod_flag3 = true

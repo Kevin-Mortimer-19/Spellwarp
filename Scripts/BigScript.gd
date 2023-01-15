@@ -38,6 +38,10 @@ func _ready():
 	fire_label.text = "Fire: %s" % fire_count
 	water_label.text = "Water: %s" % water_count
 	light_label.text = "Light: %s" % light_count
+	
+	if ResearchDB.prod_1():
+		for r in get_tree().get_nodes_in_group("advanced"):
+			r.visible = true
 
 func _process(delta):
 	pass
@@ -45,19 +49,19 @@ func _process(delta):
 func add_element(amount, element):
 	match element:
 		list.RES.AIR, list.RES.SUBAIR:
-			air_count += amount
+			air_count = air_count + amount if air_count + amount >= 0 else 0
 			air_label.text = "Air: %s" % air_count
 		list.RES.EARTH, list.RES.SUBEARTH:
-			earth_count += amount
+			earth_count = earth_count + amount if earth_count + amount >= 0 else 0
 			earth_label.text = "Earth: %s" % earth_count
 		list.RES.FIRE, list.RES.SUBFIRE:
-			fire_count += amount
+			fire_count = fire_count + amount if fire_count + amount >= 0 else 0
 			fire_label.text = "Fire: %s" % fire_count
 		list.RES.WATER, list.RES.SUBWATER:
-			water_count += amount
+			water_count = water_count + amount if water_count + amount >= 0 else 0
 			water_label.text = "Water: %s" % water_count
 		list.RES.LIGHT:
-			light_count += amount
+			light_count = light_count + amount if light_count + amount >= 0 else 0
 			light_label.text = "Light: %s" % light_count
 
 func get_element(element):
@@ -124,12 +128,23 @@ func new_dimension():
 	fire_clicker = rng.randi_range(1,5)
 	water_clicker = rng.randi_range(1,5)
 	current_dim = dim.new(air_clicker, earth_clicker, fire_clicker, water_clicker)
-	Resource_Controller.resources(current_dim.get_resource_1(), current_dim.get_resource_2())
+	Resource_Controller.resources(current_dim.get_resource_1(), current_dim.get_resource_2(), current_dim.get_resource_3())
+	if ResearchDB.warp_1():
+		add_element(-1 * air_count / 2, list.RES.AIR)
+		add_element(-1 * earth_count / 2, list.RES.EARTH)
+		add_element(-1 * fire_count / 2, list.RES.FIRE)
+		add_element(-1 * water_count / 2, list.RES.WATER)
+	else:
+		add_element(-1 * air_count, list.RES.AIR)
+		add_element(-1 * earth_count, list.RES.EARTH)
+		add_element(-1 * fire_count, list.RES.FIRE)
+		add_element(-1 * water_count, list.RES.WATER)
 
 func _on_warp_button_pressed():
 	Time_Until_End.reset()
 	new_dimension()
 	SoundPlayer.play_random_ost(SoundPlayer.THEOST)
 
-func _on_warp2_pressed():
-	pass # Replace with function body.
+func unlock_advanced():
+	for r in get_tree().get_nodes_in_group("advanced"):
+		r.visible = true

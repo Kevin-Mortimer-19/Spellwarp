@@ -14,24 +14,17 @@ var water_sub_count = 0
 
 var r_clicker = 1
 
-func resources(r1, r2):
+func resources(r1, r2, r3):
 	disable_groups()
 	
 	print("The resources available are as follows:")
-	match r1:
-		0:
-			print("AIR")
-			air_resource()
-		1:
-			print("EARTH")
-			earth_resource()
-		2:
-			print ("FIRE")
-			fire_resource()
-		3:
-			print("WATER")
-			water_resource()
-	match r2:
+	find_resource(r1)
+	find_resource(r2)
+	if ResearchDB.warp_3():
+		find_resource(r3)
+
+func find_resource(r):
+	match r:
 		0:
 			print("AIR")
 			air_resource()

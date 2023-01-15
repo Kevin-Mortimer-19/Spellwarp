@@ -8,7 +8,7 @@ var start_time = 600
 onready var Display = $Display
 
 func _ready():
-	wait_time = start_time
+	set_time()
 	start()
 
 func _process(delta):
@@ -18,10 +18,16 @@ func _process(delta):
 
 func reset():
 	stop()
-	wait_time = start_time
+	set_time()
 	main.store_energy()
 	start()
 
 func _time_is_up():
 	main.store_energy()
 	get_tree().change_scene("res://Scenes/MonsterFight.tscn")
+
+func set_time():
+	if ResearchDB.warp_2():
+		wait_time = start_time * 1.5
+	else:
+		wait_time = start_time
