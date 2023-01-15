@@ -21,53 +21,53 @@ script = ExtResource( 5 )
 
 [node name="Title" type="Label" parent="Research"]
 margin_top = 18.0
-margin_right = 58.0
+margin_right = 202.0
 margin_bottom = 32.0
 text = "Research"
 
 [node name="Warp1" type="Button" parent="Research"]
 margin_top = 36.0
-margin_right = 58.0
+margin_right = 202.0
 margin_bottom = 56.0
 
 [node name="Warp2" type="Button" parent="Research"]
 margin_top = 60.0
-margin_right = 58.0
+margin_right = 202.0
 margin_bottom = 80.0
 
 [node name="Warp3" type="Button" parent="Research"]
 margin_top = 84.0
-margin_right = 58.0
+margin_right = 202.0
 margin_bottom = 104.0
 
 [node name="Spell1" type="Button" parent="Research"]
 margin_top = 108.0
-margin_right = 58.0
+margin_right = 202.0
 margin_bottom = 128.0
 
 [node name="Spell2" type="Button" parent="Research"]
 margin_top = 132.0
-margin_right = 58.0
+margin_right = 202.0
 margin_bottom = 152.0
 
 [node name="Spell3" type="Button" parent="Research"]
 margin_top = 156.0
-margin_right = 58.0
+margin_right = 202.0
 margin_bottom = 176.0
 
 [node name="Production1" type="Button" parent="Research"]
 margin_top = 180.0
-margin_right = 58.0
+margin_right = 202.0
 margin_bottom = 200.0
 
 [node name="Production2" type="Button" parent="Research"]
 margin_top = 204.0
-margin_right = 58.0
+margin_right = 202.0
 margin_bottom = 224.0
 
 [node name="Production3" type="Button" parent="Research"]
 margin_top = 228.0
-margin_right = 58.0
+margin_right = 202.0
 margin_bottom = 248.0
 
 [node name="Elements" type="HBoxContainer" parent="."]
@@ -80,69 +80,69 @@ margin_bottom = -510.0
 custom_constants/separation = 50
 
 [node name="Air" type="VBoxContainer" parent="Elements"]
-margin_right = 87.0
+margin_right = 356.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Air"]
-margin_right = 87.0
+margin_right = 356.0
 margin_bottom = 14.0
 text = "Air:"
 
 [node name="Subresource" type="Label" parent="Elements/Air" groups=["air"]]
 margin_top = 24.0
-margin_right = 87.0
+margin_right = 356.0
 margin_bottom = 38.0
 text = "Cloud Puffs: 0"
 
 [node name="Earth" type="VBoxContainer" parent="Elements"]
-margin_left = 137.0
-margin_right = 260.0
+margin_left = 406.0
+margin_right = 872.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Earth"]
-margin_right = 123.0
+margin_right = 466.0
 margin_bottom = 14.0
 text = "Earth:"
 
 [node name="Subresource" type="Label" parent="Elements/Earth" groups=["earth"]]
 margin_top = 24.0
-margin_right = 123.0
+margin_right = 466.0
 margin_bottom = 38.0
 text = "Obsidian Chunks: 0"
 
 [node name="Fire" type="VBoxContainer" parent="Elements"]
-margin_left = 310.0
-margin_right = 419.0
+margin_left = 922.0
+margin_right = 1340.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Fire"]
-margin_right = 109.0
+margin_right = 418.0
 margin_bottom = 14.0
 text = "Fire:"
 
 [node name="Subresource" type="Label" parent="Elements/Fire" groups=["fire"]]
 margin_top = 24.0
-margin_right = 109.0
+margin_right = 418.0
 margin_bottom = 38.0
 text = "Glowing Roses: 0"
 
 [node name="Water" type="VBoxContainer" parent="Elements"]
-margin_left = 469.0
-margin_right = 571.0
+margin_left = 1390.0
+margin_right = 1824.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Water"]
-margin_right = 102.0
+margin_right = 434.0
 margin_bottom = 14.0
 text = "Water:"
 
 [node name="Subresource" type="Label" parent="Elements/Water" groups=["water"]]
 margin_top = 24.0
-margin_right = 102.0
+margin_right = 434.0
 margin_bottom = 38.0
 text = "Coral Crystals: 0"
 
@@ -154,7 +154,7 @@ margin_bottom = 90.0
 alignment = 2
 
 [node name="LightLabel" type="Label" parent="LightHBox"]
-margin_left = 928.0
+margin_left = 825.0
 margin_top = 18.0
 margin_right = 963.0
 margin_bottom = 32.0

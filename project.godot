@@ -56,6 +56,10 @@ StoredEnergy="*res://Scripts/StoredEnergy.gd"
 ResearchDB="*res://Scripts/ResearchDB.gd"
 Monster="*res://Scripts/Monster.gd"
 
+[gui]
+
+theme/custom_font="res://Fonts/PixufDynamic1.tres"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

@@ -44,8 +44,6 @@ func _ready():
 	rng.randomize()
 	new_dimension()
 	
-<<<<<<< Updated upstream
-=======
 	#TEMP
 	air_count = 100
 	earth_count = 100
@@ -55,7 +53,6 @@ func _ready():
 	
 	dimension_attributes(current_dim.get_resource_1())
 	
->>>>>>> Stashed changes
 	air_label.text = "Air: %s" % air_count
 	earth_label.text = "Earth: %s" % earth_count
 	fire_label.text = "Fire: %s" % fire_count
