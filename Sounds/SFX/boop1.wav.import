@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/boop1.wav-8bb310c3d1d2dfd092db8b85d3e04e4c.sample"
+
+[deps]
+
+source_file="res://Sounds/SFX/boop1.wav"
+dest_files=[ "res://.import/boop1.wav-8bb310c3d1d2dfd092db8b85d3e04e4c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
