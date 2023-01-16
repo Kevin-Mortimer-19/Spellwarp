@@ -1,12 +1,17 @@
 extends Control
 var resource_creator = load("res://Scripts/ResourceCreator.gd")
 var dim = load("res://Scripts/Dimension.gd")
+var air_bg = load("res://Art/air_bg.png")
+var earth_bg = load("res://Art/earth_bg.png")
+var fire_bg = load("res://Art/fire_bg.png")
+var water_bg = load("res://Art/water_bg.png")
 
 onready var air_label: Label = $Elements/Air/Count
 onready var earth_label: Label = $Elements/Earth/Count
 onready var fire_label: Label = $Elements/Fire/Count
 onready var water_label: Label = $Elements/Water/Count
-onready var light_label: Label = $LightHBox/LightLabel
+onready var light_label: Label = $Elements/Light/Count
+#onready var light_label: Label = $LightHBox/LightLabel
 
 onready var Resource_Controller = $Resource_Controller
 onready var Passive_Controller = $PassiveController
@@ -15,6 +20,10 @@ onready var Warp_Button = $WARP_SPEED
 onready var Warp_Timer = $WARP_SPEED/Timer
 onready var Warp_Label = $WARP_SPEED/Label
 onready var LogBox = $LogBox
+onready var Background = $Background
+onready var BGSideLine = $Line1
+onready var BGBottomLine = $Line2
+
 onready var Storage = StoredEnergy
 
 var air_count: int = 0
@@ -149,16 +158,33 @@ func dimension_attributes(resource):
 		list.RES.AIR, list.RES.SUBAIR:
 			LogBox.set_text("You land on a world whose winds dance across the skies like children at play.")
 			SoundPlayer.play_ost(SoundPlayer.AIRSONG)
+			Background.set_texture(air_bg)
 		list.RES.EARTH, list.RES.SUBEARTH:
 			LogBox.set_text("You land on a world whose mysterious caves hide an ancient and glorious history.")
 			SoundPlayer.play_ost(SoundPlayer.EARTHSONG)
+			Background.set_texture(earth_bg)
 		list.RES.FIRE, list.RES.SUBFIRE:
 			LogBox.set_text("You land on a world consumed by fire and magma, passion and rage.")
 			SoundPlayer.play_ost(SoundPlayer.FIRESONG)
+			Background.set_texture(fire_bg)
 		list.RES.WATER, list.RES.SUBWATER:
 			LogBox.set_text("You land in a vast ocean, whose dark depths are at once calming and ominous.")
 			SoundPlayer.play_ost(SoundPlayer.WATERSONG)
-		
+			Background.set_texture(water_bg)
+	draw_ui()
+
+func draw_ui():
+	var scale_factor = 0.18
+	var img_height = 2100
+	var img_width = 1500
+	Background.set_scale(Vector2(scale_factor, scale_factor))
+	Background.set_position(Vector2((scale_factor * img_width)/2, (scale_factor * img_height)/2))
+	
+	BGSideLine.add_point(Vector2(img_width * scale_factor + BGSideLine.width/2, 0))
+	BGSideLine.add_point(Vector2(img_width * scale_factor + BGSideLine.width/2, img_height * scale_factor + BGSideLine.width/2))
+	BGSideLine.add_point(Vector2(0, img_height * scale_factor + BGSideLine.width/2))
+	BGSideLine.add_point(Vector2(img_width * scale_factor + BGSideLine.width/2, img_height * scale_factor + BGSideLine.width/2))
+
 
 func store_energy():
 	Storage.update(air_count, earth_count, fire_count, water_count, light_count)
@@ -187,11 +213,10 @@ func new_dimension():
 func _on_warp_button_pressed():
 	if light_count >= warp_cost:
 		add_element(-1 * warp_cost, list.RES.LIGHT)
-		#warp_cost += 2 * warp_cost
+		warp_cost += 2 * warp_cost
 		Warp_Label.text = "Cost to warp: %s" % str(warp_cost)
 		Time_Until_End.reset()
 		new_dimension()
-		#SoundPlayer.play_random_ost(SoundPlayer.THEOST)
 		Warp_Button.disabled = true
 		if Warp_Timer.is_stopped():
 			Warp_Timer.start()
