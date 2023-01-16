@@ -55,6 +55,7 @@ SoundPlayer="*res://Scenes/SoundPlayer.tscn"
 StoredEnergy="*res://Scripts/StoredEnergy.gd"
 ResearchDB="*res://Scripts/ResearchDB.gd"
 Monster="*res://Scripts/Monster.gd"
+ElementUI="*res://Scripts/ElementUI.gd"
 
 [gui]
 

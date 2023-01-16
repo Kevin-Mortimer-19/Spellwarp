@@ -11,7 +11,6 @@ onready var earth_label: Label = $Elements/Earth/Count
 onready var fire_label: Label = $Elements/Fire/Count
 onready var water_label: Label = $Elements/Water/Count
 onready var light_label: Label = $Elements/Light/Count
-#onready var light_label: Label = $LightHBox/LightLabel
 
 onready var Resource_Controller = $Resource_Controller
 onready var Passive_Controller = $PassiveController
@@ -20,9 +19,9 @@ onready var Warp_Button = $WARP_SPEED
 onready var Warp_Timer = $WARP_SPEED/Timer
 onready var Warp_Label = $WARP_SPEED/Label
 onready var LogBox = $LogBox
-onready var Background = $Background
-onready var BGSideLine = $Line1
-onready var BGBottomLine = $Line2
+onready var Background = $UI/Background
+onready var BGSideLine = $UI/Line1
+onready var BGBottomLine = $UI/Line2
 
 onready var Storage = StoredEnergy
 
@@ -32,12 +31,14 @@ var fire_count: int = 0
 var water_count: int = 0
 var light_count: int = 0
 
+var warp_count: int = 0
+
 var air_clicker = 1
 var earth_clicker = 1
 var fire_clicker = 1
 var water_clicker = 1
 
-var warp_cost = 10
+var warp_cost: int
 var warp_ready: bool = false
 
 var list = ResourceList
@@ -47,26 +48,31 @@ var rng = RandomNumberGenerator.new()
 var current_dim = dim.new(1,1,1,1)
 
 func _ready():
-	Warp_Label.text = "Cost to warp: %s" % str(warp_cost)
+	warp_count = StoredEnergy.warp
 	if Warp_Timer.is_stopped():
 		Warp_Timer.start()
 	rng.randomize()
 	new_dimension()
 	
-	#TEMP
-	air_count = 100
-	earth_count = 100
-	fire_count = 100
-	water_count = 100
-	light_count = 100
+	air_count = StoredEnergy.air
+	earth_count = StoredEnergy.earth
+	fire_count = StoredEnergy.fire
+	water_count = StoredEnergy.water
+	light_count = StoredEnergy.light
+	
+	warp_cost += warp_cost_change()
+	if warp_cost == 0:
+		warp_cost = 1
+	
+	Warp_Label.text = "Cost to warp: %s Light" % str(warp_cost)
 	
 	dimension_attributes(current_dim.get_resource_1())
 	
-	air_label.text = "Air: %s" % air_count
-	earth_label.text = "Earth: %s" % earth_count
-	fire_label.text = "Fire: %s" % fire_count
-	water_label.text = "Water: %s" % water_count
-	light_label.text = "Light: %s" % light_count
+	ElementUI.display_element(air_label, "Air: %s", air_count)
+	ElementUI.display_element(earth_label, "Earth: %s", earth_count)
+	ElementUI.display_element(fire_label, "Fire: %s", fire_count)
+	ElementUI.display_element(water_label, "Water: %s", water_count)
+	ElementUI.display_element(light_label, "Light: %s", light_count)
 	
 	if ResearchDB.prod_1():
 		for r in get_tree().get_nodes_in_group("advanced"):
@@ -84,19 +90,19 @@ func add_element(amount, element):
 	match element:
 		list.RES.AIR, list.RES.SUBAIR:
 			air_count = air_count + amount if air_count + amount >= 0 else 0
-			air_label.text = "Air: %s" % air_count
+			ElementUI.display_element(air_label, "Air: %s", air_count)
 		list.RES.EARTH, list.RES.SUBEARTH:
 			earth_count = earth_count + amount if earth_count + amount >= 0 else 0
-			earth_label.text = "Earth: %s" % earth_count
+			ElementUI.display_element(earth_label, "Earth: %s", earth_count)
 		list.RES.FIRE, list.RES.SUBFIRE:
 			fire_count = fire_count + amount if fire_count + amount >= 0 else 0
-			fire_label.text = "Fire: %s" % fire_count
+			ElementUI.display_element(fire_label, "Fire: %s", fire_count)
 		list.RES.WATER, list.RES.SUBWATER:
 			water_count = water_count + amount if water_count + amount >= 0 else 0
-			water_label.text = "Water: %s" % water_count
+			ElementUI.display_element(water_label, "Water: %s", water_count)
 		list.RES.LIGHT:
 			light_count = light_count + amount if light_count + amount >= 0 else 0
-			light_label.text = "Light: %s" % light_count
+			ElementUI.display_element(light_label, "Light: %s", light_count)
 
 func get_element(element):
 	match element:
@@ -187,9 +193,10 @@ func draw_ui():
 
 
 func store_energy():
-	Storage.update(air_count, earth_count, fire_count, water_count, light_count)
+	Storage.update(air_count, earth_count, fire_count, water_count, light_count, warp_count)
 
 func new_dimension():
+	warp_count += 1
 	Resource_Controller.wipe()
 	Passive_Controller.reset()
 	air_clicker = rng.randi_range(1,5)
@@ -210,16 +217,23 @@ func new_dimension():
 		add_element(-1 * fire_count, list.RES.FIRE)
 		add_element(-1 * water_count, list.RES.WATER)
 
+func warp_cost_change() -> int:
+	var delta = int(warp_count * warp_count * log(warp_count))
+	return delta if delta > 0 else 1
+
+func warp():
+	warp_cost += warp_cost_change()
+	Warp_Label.text = "Cost to warp: %s Light" % str(warp_cost)
+	Time_Until_End.reset()
+	new_dimension()
+	if Warp_Timer.is_stopped():
+		Warp_Timer.start()
+	warp_ready = false
+
 func _on_warp_button_pressed():
 	if light_count >= warp_cost:
 		add_element(-1 * warp_cost, list.RES.LIGHT)
-		warp_cost += 2 * warp_cost
-		Warp_Label.text = "Cost to warp: %s" % str(warp_cost)
-		Time_Until_End.reset()
-		new_dimension()
-		Warp_Button.disabled = true
-		if Warp_Timer.is_stopped():
-			Warp_Timer.start()
+		warp()
 
 func _on_warp_timer_timeout():
 	warp_ready = true
@@ -227,7 +241,6 @@ func _on_warp_timer_timeout():
 func unlock_advanced():
 	for r in get_tree().get_nodes_in_group("advanced"):
 		r.visible = true
-
 
 func _on_TabContainer_tab_changed(tab):
 	SoundPlayer.play_category(SoundPlayer.PAGETURNSOUNDS)
