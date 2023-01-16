@@ -25,11 +25,11 @@ var WaterAttack: MonsterEvent
 var WaterDefend: MonsterEvent
 var water_events = []
 
-const AIR = 10
-const EARTH = 10
-const FIRE = 10
-const WATER = 10
-const DARK = 25
+var AIR: int
+var EARTH: int
+var FIRE: int
+var WATER: int
+var DARK: int
 
 var active_element: int
 var offense_mode: bool
@@ -40,6 +40,19 @@ var turn_count: int
 var rng = RandomNumberGenerator.new()
 
 func _ready():
+	if ResearchDB.spell_3():
+		AIR = Monster.air / 2
+		EARTH = Monster.earth / 2
+		FIRE = Monster.fire / 2
+		WATER = Monster.water / 2
+		DARK = Monster.darkness / 2
+	else:
+		AIR = Monster.air
+		EARTH = Monster.earth
+		FIRE = Monster.fire
+		WATER = Monster.water
+		DARK = Monster.darkness
+
 	rng.randomize()
 	element_text_update()
 	AirAttack = Event.new("The Monster leaps into the air and conjures a great hurricane that quickly encircles you!", ResourceList.RES.AIR, "Curl up in the fetal position!", "Rock shield!", "Light")
@@ -93,6 +106,10 @@ func battle_turn(e):
 	FightLabel.set_text(e.get_desc())
 	FailButton.set_text(e.get_fail_button())
 	ElementButton.set_text(e.get_element_button())
+	if (!ResearchDB.spell_1() && !offense_mode) || (!ResearchDB.spell_2() && offense_mode):
+		ElementButton.disabled = true
+	else:
+		ElementButton.disabled = false
 	LightButton.set_text(e.get_light_button())
 
 func _on_fail_button_pressed():
