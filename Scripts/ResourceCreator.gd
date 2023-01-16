@@ -72,5 +72,10 @@ func reset_cost():
 func buy() -> int:
 	amount += 1
 	var current_cost = cost
-	cost += base_cost * amount
+	if amount >= 50:
+		cost += base_cost * 10
+	elif amount >= 25:
+		cost += base_cost * 5
+	else:
+		cost += base_cost
 	return current_cost

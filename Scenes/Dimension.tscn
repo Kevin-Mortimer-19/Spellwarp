@@ -180,39 +180,39 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Button1" type="Button" parent="TabContainer/Air"]
-margin_right = 412.0
+margin_right = 413.0
 margin_bottom = 20.0
 text = "Channel Air"
 
 [node name="Gather" type="Button" parent="TabContainer/Air" groups=["air"]]
 margin_top = 24.0
-margin_right = 412.0
+margin_right = 413.0
 margin_bottom = 44.0
 text = "Bottle Cloud Puffs"
 
 [node name="Passive1" type="Button" parent="TabContainer/Air" groups=["air", "passive_button"]]
 margin_top = 48.0
-margin_right = 412.0
+margin_right = 413.0
 margin_bottom = 68.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Air/Passive1"]
 
 [node name="Label1" type="Label" parent="TabContainer/Air"]
 margin_top = 72.0
-margin_right = 412.0
+margin_right = 413.0
 margin_bottom = 86.0
 align = 1
 
 [node name="Passive2" type="Button" parent="TabContainer/Air" groups=["air"]]
 margin_top = 90.0
-margin_right = 412.0
+margin_right = 413.0
 margin_bottom = 110.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Air/Passive2"]
 
 [node name="Label2" type="Label" parent="TabContainer/Air"]
 margin_top = 114.0
-margin_right = 412.0
+margin_right = 413.0
 margin_bottom = 128.0
 align = 1
 
@@ -376,7 +376,6 @@ margin_bottom = 567.666
 text = "WARP SPEED"
 
 [node name="Timer" type="Timer" parent="WARP_SPEED"]
-wait_time = 10.0
 
 [node name="Label" type="Label" parent="WARP_SPEED"]
 margin_left = -5.30328
@@ -407,14 +406,16 @@ margin_bottom = 554.409
 autowrap = true
 clip_text = true
 
-[node name="Background" type="Sprite" parent="."]
+[node name="UI" type="Node" parent="."]
+
+[node name="Background" type="Sprite" parent="UI"]
 position = Vector2( 112.5, 157.5 )
 
-[node name="Line1" type="Line2D" parent="."]
+[node name="Line1" type="Line2D" parent="UI"]
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
-[node name="Line2" type="Line2D" parent="."]
+[node name="Line2" type="Line2D" parent="UI"]
 
 [connection signal="pressed" from="Research/Warp1" to="Research" method="_on_warp1_pressed"]
 [connection signal="pressed" from="Research/Warp2" to="Research" method="_on_warp2_pressed"]
