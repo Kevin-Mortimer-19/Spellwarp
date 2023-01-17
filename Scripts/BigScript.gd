@@ -48,6 +48,8 @@ var rng = RandomNumberGenerator.new()
 var current_dim = dim.new(1,1,1,1)
 
 func _ready():
+	if !Monster.initialized:
+		monster_stats()
 	warp_count = StoredEnergy.warp
 	if Warp_Timer.is_stopped():
 		Warp_Timer.start()
@@ -77,14 +79,25 @@ func _ready():
 	if ResearchDB.prod_1():
 		for r in get_tree().get_nodes_in_group("advanced"):
 			r.visible = true
-	
-	#SoundPlayer.play_ost(SoundPlayer.TITLESONG)
 
 func _process(delta):
 	if light_count < warp_cost || !warp_ready: 
 		Warp_Button.disabled = true
 	else:
 		Warp_Button.disabled = false
+
+func monster_stats():
+	var not_affinity = rng.randi_range(0,3)
+	var arr = [list.RES.AIR, list.RES.EARTH, list.RES.FIRE, list.RES.WATER]
+	var affinity_arr = []
+	for a in arr:
+		if a != not_affinity:
+			affinity_arr.append(a)
+	Monster.affinity1 = affinity_arr[0]
+	Monster.affinity2 = affinity_arr[1]
+	Monster.affinity3 = affinity_arr[2]
+	
+	Monster.initialized = true
 
 func add_element(amount, element):
 	match element:
@@ -146,18 +159,19 @@ func _on_water_button_pressed():
 
 func _on_light_button_pressed():
 	combine(1)
+	if can_afford_light(1):
+		SoundPlayer.play_category(SoundPlayer.LIGHTSOUNDS)
+	else: 
+		SoundPlayer.play_category(SoundPlayer.GREMLINSOUNDS)
 
 func combine(amount):
 	if can_afford_light(amount):
 		for x in range(0,4):
 			add_element(-1 * amount, x)
 		add_element(amount, list.RES.LIGHT)
-		SoundPlayer.play_category(SoundPlayer.LIGHTSOUNDS)
-	else: 
-		SoundPlayer.play_category(SoundPlayer.GREMLINSOUNDS)
 
 func can_afford_light(amount):
-	return true if air_count > 0 && earth_count > 0 && fire_count > 0 && water_count > 0 else false
+	return true if air_count >= amount && earth_count >= amount && fire_count >= amount && water_count >= amount else false
 
 func dimension_attributes(resource):
 	match resource:
