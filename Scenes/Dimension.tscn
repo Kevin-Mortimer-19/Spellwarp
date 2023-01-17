@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/ResourceController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/TimeLimit.gd" type="Script" id=2]
@@ -8,11 +8,22 @@
 [ext_resource path="res://Art/wood_bg.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/FadeAnimation.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Themes/Spellbook.tres" type="Theme" id=8]
+[ext_resource path="res://Art/book.png" type="Texture" id=9]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
+
+[node name="WoodPanel" type="TextureRect" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1076.0
+margin_bottom = 900.0
+rect_scale = Vector2( 0.488, 0.4 )
+mouse_filter = 2
+texture = ExtResource( 6 )
 
 [node name="PassiveController" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -21,10 +32,10 @@ script = ExtResource( 4 )
 script = ExtResource( 1 )
 
 [node name="Research" type="VBoxContainer" parent="."]
-margin_left = 730.739
-margin_top = 253.425
-margin_right = 792.739
-margin_bottom = 519.425
+margin_left = 783.064
+margin_top = 202.289
+margin_right = 845.064
+margin_bottom = 468.289
 alignment = 1
 script = ExtResource( 5 )
 
@@ -174,14 +185,24 @@ margin_right = 983.0
 margin_bottom = 90.0
 alignment = 2
 
+[node name="SpellBook" type="TextureRect" parent="."]
+show_behind_parent = true
+margin_left = 251.323
+margin_top = 161.405
+margin_right = 671.323
+margin_bottom = 461.405
+rect_scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 9 )
+
 [node name="TabContainer" type="TabContainer" parent="."]
-margin_left = 283.043
-margin_top = 245.799
-margin_right = 704.043
-margin_bottom = 514.799
+self_modulate = Color( 1, 1, 1, 0.360784 )
+margin_left = 308.109
+margin_top = 166.594
+margin_right = 748.109
+margin_bottom = 456.594
 theme = ExtResource( 8 )
 
-[node name="Air" type="VBoxContainer" parent="TabContainer"]
+[node name="Air" type="ScrollContainer" parent="TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -189,348 +210,471 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Button1" type="Button" parent="TabContainer/Air"]
-margin_right = 413.0
+[node name="AirList" type="VBoxContainer" parent="TabContainer/Air"]
+margin_right = 432.0
+margin_bottom = 254.0
+rect_min_size = Vector2( 432, 0 )
+
+[node name="Button1" type="Button" parent="TabContainer/Air/AirList"]
+margin_right = 432.0
 margin_bottom = 20.0
 text = "Channel Air"
 
-[node name="Gather" type="Button" parent="TabContainer/Air" groups=["air"]]
+[node name="Gather" type="Button" parent="TabContainer/Air/AirList" groups=["air"]]
 margin_top = 24.0
-margin_right = 413.0
+margin_right = 432.0
 margin_bottom = 44.0
 text = "Bottle Cloud Puffs"
 
-[node name="Passive0" type="Button" parent="TabContainer/Air" groups=["advanced", "passive_button"]]
+[node name="Passive0" type="Button" parent="TabContainer/Air/AirList" groups=["advanced", "passive_button"]]
 margin_top = 48.0
-margin_right = 413.0
+margin_right = 432.0
 margin_bottom = 68.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Air/Passive0"]
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive0"]
 
-[node name="Label0" type="Label" parent="TabContainer/Air" groups=["advanced"]]
+[node name="Label0" type="Label" parent="TabContainer/Air/AirList" groups=["advanced"]]
 margin_top = 72.0
-margin_right = 413.0
+margin_right = 432.0
 margin_bottom = 86.0
 align = 1
 
-[node name="Passive1" type="Button" parent="TabContainer/Air" groups=["air", "passive_button"]]
+[node name="Passive1" type="Button" parent="TabContainer/Air/AirList" groups=["air", "passive_button"]]
 margin_top = 90.0
-margin_right = 413.0
+margin_right = 432.0
 margin_bottom = 110.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Air/Passive1"]
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive1"]
 
-[node name="Label1" type="Label" parent="TabContainer/Air"]
+[node name="Label1" type="Label" parent="TabContainer/Air/AirList"]
 margin_top = 114.0
-margin_right = 413.0
+margin_right = 432.0
 margin_bottom = 128.0
 align = 1
 
-[node name="Passive2" type="Button" parent="TabContainer/Air" groups=["air", "passive_button"]]
+[node name="Passive2" type="Button" parent="TabContainer/Air/AirList" groups=["air", "passive_button"]]
 margin_top = 132.0
-margin_right = 413.0
+margin_right = 432.0
 margin_bottom = 152.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Air/Passive2"]
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive2"]
 
-[node name="Label2" type="Label" parent="TabContainer/Air"]
+[node name="Label2" type="Label" parent="TabContainer/Air/AirList"]
 margin_top = 156.0
-margin_right = 413.0
+margin_right = 432.0
 margin_bottom = 170.0
 align = 1
 
-[node name="Passive3" type="Button" parent="TabContainer/Air" groups=["air", "passive_button"]]
+[node name="Passive3" type="Button" parent="TabContainer/Air/AirList" groups=["air", "passive_button"]]
 margin_top = 174.0
-margin_right = 413.0
+margin_right = 432.0
 margin_bottom = 194.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Air/Passive3"]
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive3"]
 
-[node name="Label3" type="Label" parent="TabContainer/Air"]
+[node name="Label3" type="Label" parent="TabContainer/Air/AirList"]
 margin_top = 198.0
-margin_right = 413.0
+margin_right = 432.0
 margin_bottom = 212.0
 align = 1
 
-[node name="Passive4" type="Button" parent="TabContainer/Air" groups=["air", "passive_button"]]
+[node name="Passive4" type="Button" parent="TabContainer/Air/AirList" groups=["air", "passive_button"]]
 margin_top = 216.0
-margin_right = 413.0
+margin_right = 432.0
 margin_bottom = 236.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Air/Passive4"]
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive4"]
 
-[node name="Label4" type="Label" parent="TabContainer/Air"]
+[node name="Label4" type="Label" parent="TabContainer/Air/AirList"]
 margin_top = 240.0
-margin_right = 413.0
+margin_right = 432.0
 margin_bottom = 254.0
 align = 1
 
-[node name="Earth" type="VBoxContainer" parent="TabContainer"]
+[node name="Earth" type="ScrollContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 24.0
+margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Button1" type="Button" parent="TabContainer/Earth"]
-margin_right = 513.0
+[node name="EarthList" type="VBoxContainer" parent="TabContainer/Earth"]
+margin_right = 158.0
+margin_bottom = 254.0
+rect_min_size = Vector2( 432, 0 )
+
+[node name="Button1" type="Button" parent="TabContainer/Earth/EarthList"]
+margin_right = 158.0
 margin_bottom = 20.0
 text = "Channel Earth"
 
-[node name="Gather" type="Button" parent="TabContainer/Earth" groups=["earth"]]
+[node name="Gather" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
 margin_top = 24.0
-margin_right = 513.0
+margin_right = 158.0
 margin_bottom = 44.0
 text = "Mine Obsidian Chunks"
 
-[node name="Passive0" type="Button" parent="TabContainer/Earth"]
+[node name="Passive0" type="Button" parent="TabContainer/Earth/EarthList"]
 margin_top = 48.0
-margin_right = 513.0
+margin_right = 158.0
 margin_bottom = 68.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Earth/Passive0"]
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive0"]
 
-[node name="Label0" type="Label" parent="TabContainer/Earth"]
+[node name="Label0" type="Label" parent="TabContainer/Earth/EarthList"]
 margin_top = 72.0
-margin_right = 513.0
+margin_right = 158.0
 margin_bottom = 86.0
 align = 1
 
-[node name="Passive1" type="Button" parent="TabContainer/Earth" groups=["earth"]]
-margin_top = 48.0
-margin_right = 513.0
-margin_bottom = 68.0
-
-[node name="Timer" type="Timer" parent="TabContainer/Earth/Passive1"]
-
-[node name="Label1" type="Label" parent="TabContainer/Earth"]
-margin_top = 72.0
-margin_right = 513.0
-margin_bottom = 86.0
-align = 1
-
-[node name="Passive2" type="Button" parent="TabContainer/Earth" groups=["earth"]]
+[node name="Passive1" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
 margin_top = 90.0
-margin_right = 513.0
+margin_right = 158.0
 margin_bottom = 110.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Earth/Passive2"]
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive1"]
 
-[node name="Label2" type="Label" parent="TabContainer/Earth"]
+[node name="Label1" type="Label" parent="TabContainer/Earth/EarthList"]
 margin_top = 114.0
-margin_right = 513.0
+margin_right = 158.0
 margin_bottom = 128.0
 align = 1
 
-[node name="Passive3" type="Button" parent="TabContainer/Earth" groups=["earth"]]
-margin_top = 90.0
-margin_right = 513.0
-margin_bottom = 110.0
+[node name="Passive2" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
+margin_top = 132.0
+margin_right = 158.0
+margin_bottom = 152.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Earth/Passive3"]
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive2"]
 
-[node name="Label3" type="Label" parent="TabContainer/Earth"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="Label2" type="Label" parent="TabContainer/Earth/EarthList"]
+margin_top = 156.0
+margin_right = 158.0
+margin_bottom = 170.0
+align = 1
 
-[node name="Passive4" type="Button" parent="TabContainer/Earth" groups=["earth"]]
-margin_top = 90.0
-margin_right = 513.0
-margin_bottom = 110.0
+[node name="Passive3" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
+margin_top = 174.0
+margin_right = 158.0
+margin_bottom = 194.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Earth/Passive4"]
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive3"]
 
-[node name="Label4" type="Label" parent="TabContainer/Earth"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="Label3" type="Label" parent="TabContainer/Earth/EarthList"]
+margin_top = 198.0
+margin_right = 158.0
+margin_bottom = 212.0
 
-[node name="Fire" type="VBoxContainer" parent="TabContainer"]
+[node name="Passive4" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
+margin_top = 216.0
+margin_right = 158.0
+margin_bottom = 236.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive4"]
+
+[node name="Label4" type="Label" parent="TabContainer/Earth/EarthList"]
+margin_top = 240.0
+margin_right = 158.0
+margin_bottom = 254.0
+
+[node name="Fire" type="ScrollContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 24.0
+margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Button1" type="Button" parent="TabContainer/Fire"]
-margin_right = 513.0
+[node name="FireList" type="VBoxContainer" parent="TabContainer/Fire"]
+margin_right = 186.0
+margin_bottom = 254.0
+rect_min_size = Vector2( 432, 0 )
+
+[node name="Button1" type="Button" parent="TabContainer/Fire/FireList"]
+margin_right = 186.0
 margin_bottom = 20.0
 text = "Channel Fire"
 
-[node name="Gather" type="Button" parent="TabContainer/Fire" groups=["fire"]]
+[node name="Gather" type="Button" parent="TabContainer/Fire/FireList" groups=["fire"]]
 margin_top = 24.0
-margin_right = 513.0
+margin_right = 186.0
 margin_bottom = 44.0
 text = "Cut Glowing Rose Bushes"
 
-[node name="Passive0" type="Button" parent="TabContainer/Fire"]
+[node name="Passive0" type="Button" parent="TabContainer/Fire/FireList"]
 margin_top = 48.0
-margin_right = 513.0
+margin_right = 186.0
 margin_bottom = 68.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Fire/Passive0"]
+[node name="Timer" type="Timer" parent="TabContainer/Fire/FireList/Passive0"]
 
-[node name="Label0" type="Label" parent="TabContainer/Fire"]
+[node name="Label0" type="Label" parent="TabContainer/Fire/FireList"]
 margin_top = 72.0
-margin_right = 513.0
+margin_right = 186.0
 margin_bottom = 86.0
 align = 1
 
-[node name="Passive1" type="Button" parent="TabContainer/Fire" groups=["fire"]]
-margin_top = 48.0
-margin_right = 513.0
-margin_bottom = 68.0
-
-[node name="Timer" type="Timer" parent="TabContainer/Fire/Passive1"]
-
-[node name="Label1" type="Label" parent="TabContainer/Fire"]
-margin_top = 72.0
-margin_right = 513.0
-margin_bottom = 86.0
-align = 1
-
-[node name="Passive2" type="Button" parent="TabContainer/Fire" groups=["fire"]]
+[node name="Passive1" type="Button" parent="TabContainer/Fire/FireList" groups=["fire"]]
 margin_top = 90.0
-margin_right = 513.0
+margin_right = 186.0
 margin_bottom = 110.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Fire/Passive2"]
+[node name="Timer" type="Timer" parent="TabContainer/Fire/FireList/Passive1"]
 
-[node name="Label2" type="Label" parent="TabContainer/Fire"]
+[node name="Label1" type="Label" parent="TabContainer/Fire/FireList"]
 margin_top = 114.0
-margin_right = 513.0
+margin_right = 186.0
 margin_bottom = 128.0
 align = 1
 
-[node name="Passive3" type="Button" parent="TabContainer/Fire" groups=["fire"]]
-margin_top = 90.0
-margin_right = 513.0
-margin_bottom = 110.0
+[node name="Passive2" type="Button" parent="TabContainer/Fire/FireList" groups=["fire"]]
+margin_top = 132.0
+margin_right = 186.0
+margin_bottom = 152.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Fire/Passive3"]
+[node name="Timer" type="Timer" parent="TabContainer/Fire/FireList/Passive2"]
 
-[node name="Label3" type="Label" parent="TabContainer/Fire"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="Label2" type="Label" parent="TabContainer/Fire/FireList"]
+margin_top = 156.0
+margin_right = 186.0
+margin_bottom = 170.0
+align = 1
 
-[node name="Passive4" type="Button" parent="TabContainer/Fire" groups=["fire"]]
-margin_top = 90.0
-margin_right = 513.0
-margin_bottom = 110.0
+[node name="Passive3" type="Button" parent="TabContainer/Fire/FireList" groups=["fire"]]
+margin_top = 174.0
+margin_right = 186.0
+margin_bottom = 194.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Fire/Passive4"]
+[node name="Timer" type="Timer" parent="TabContainer/Fire/FireList/Passive3"]
 
-[node name="Label4" type="Label" parent="TabContainer/Fire"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="Label3" type="Label" parent="TabContainer/Fire/FireList"]
+margin_top = 198.0
+margin_right = 186.0
+margin_bottom = 212.0
 
-[node name="Water" type="VBoxContainer" parent="TabContainer"]
+[node name="Passive4" type="Button" parent="TabContainer/Fire/FireList" groups=["fire"]]
+margin_top = 216.0
+margin_right = 186.0
+margin_bottom = 236.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Fire/FireList/Passive4"]
+
+[node name="Label4" type="Label" parent="TabContainer/Fire/FireList"]
+margin_top = 240.0
+margin_right = 186.0
+margin_bottom = 254.0
+
+[node name="Water" type="ScrollContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 24.0
+margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Button1" type="Button" parent="TabContainer/Water"]
-margin_right = 513.0
+[node name="WaterList" type="VBoxContainer" parent="TabContainer/Water"]
+margin_right = 162.0
+margin_bottom = 254.0
+rect_min_size = Vector2( 432, 0 )
+
+[node name="Button1" type="Button" parent="TabContainer/Water/WaterList"]
+margin_right = 162.0
 margin_bottom = 20.0
 text = "Channel Water"
 
-[node name="Gather" type="Button" parent="TabContainer/Water" groups=["water"]]
+[node name="Gather" type="Button" parent="TabContainer/Water/WaterList" groups=["water"]]
 margin_top = 24.0
-margin_right = 513.0
+margin_right = 162.0
 margin_bottom = 44.0
 text = "Collect Coral Crystals"
 
-[node name="Passive0" type="Button" parent="TabContainer/Water"]
+[node name="Passive0" type="Button" parent="TabContainer/Water/WaterList"]
 margin_top = 48.0
-margin_right = 513.0
+margin_right = 162.0
 margin_bottom = 68.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Water/Passive0"]
+[node name="Timer" type="Timer" parent="TabContainer/Water/WaterList/Passive0"]
 
-[node name="Label0" type="Label" parent="TabContainer/Water"]
+[node name="Label0" type="Label" parent="TabContainer/Water/WaterList"]
 margin_top = 72.0
-margin_right = 513.0
+margin_right = 162.0
 margin_bottom = 86.0
 align = 1
 
-[node name="Passive1" type="Button" parent="TabContainer/Water" groups=["water"]]
-margin_top = 48.0
-margin_right = 513.0
-margin_bottom = 68.0
-
-[node name="Timer" type="Timer" parent="TabContainer/Water/Passive1"]
-
-[node name="Label1" type="Label" parent="TabContainer/Water"]
-margin_top = 72.0
-margin_right = 513.0
-margin_bottom = 86.0
-align = 1
-
-[node name="Passive2" type="Button" parent="TabContainer/Water" groups=["water"]]
+[node name="Passive1" type="Button" parent="TabContainer/Water/WaterList" groups=["water"]]
 margin_top = 90.0
-margin_right = 513.0
+margin_right = 162.0
 margin_bottom = 110.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Water/Passive2"]
+[node name="Timer" type="Timer" parent="TabContainer/Water/WaterList/Passive1"]
 
-[node name="Label2" type="Label" parent="TabContainer/Water"]
+[node name="Label1" type="Label" parent="TabContainer/Water/WaterList"]
 margin_top = 114.0
-margin_right = 513.0
+margin_right = 162.0
 margin_bottom = 128.0
 align = 1
 
-[node name="Passive3" type="Button" parent="TabContainer/Water" groups=["water"]]
-margin_top = 90.0
-margin_right = 513.0
-margin_bottom = 110.0
+[node name="Passive2" type="Button" parent="TabContainer/Water/WaterList" groups=["water"]]
+margin_top = 132.0
+margin_right = 162.0
+margin_bottom = 152.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Water/Passive3"]
+[node name="Timer" type="Timer" parent="TabContainer/Water/WaterList/Passive2"]
 
-[node name="Label3" type="Label" parent="TabContainer/Water"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="Label2" type="Label" parent="TabContainer/Water/WaterList"]
+margin_top = 156.0
+margin_right = 162.0
+margin_bottom = 170.0
+align = 1
 
-[node name="Passive4" type="Button" parent="TabContainer/Water" groups=["water"]]
-margin_top = 90.0
-margin_right = 513.0
-margin_bottom = 110.0
+[node name="Passive3" type="Button" parent="TabContainer/Water/WaterList" groups=["water"]]
+margin_top = 174.0
+margin_right = 162.0
+margin_bottom = 194.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Water/Passive4"]
+[node name="Timer" type="Timer" parent="TabContainer/Water/WaterList/Passive3"]
 
-[node name="Label4" type="Label" parent="TabContainer/Water"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="Label3" type="Label" parent="TabContainer/Water/WaterList"]
+margin_top = 198.0
+margin_right = 162.0
+margin_bottom = 212.0
 
-[node name="Light" type="VBoxContainer" parent="TabContainer"]
+[node name="Passive4" type="Button" parent="TabContainer/Water/WaterList" groups=["water"]]
+margin_top = 216.0
+margin_right = 162.0
+margin_bottom = 236.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Water/WaterList/Passive4"]
+
+[node name="Label4" type="Label" parent="TabContainer/Water/WaterList"]
+margin_top = 240.0
+margin_right = 162.0
+margin_bottom = 254.0
+
+[node name="Light" type="ScrollContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 24.0
+margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Button" type="Button" parent="TabContainer/Light"]
-margin_right = 513.0
+[node name="LightList" type="VBoxContainer" parent="TabContainer/Light"]
+margin_right = 136.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 432, 0 )
+
+[node name="Button" type="Button" parent="TabContainer/Light/LightList"]
+margin_right = 136.0
 margin_bottom = 20.0
 text = "Combine Elements"
 
-[node name="Passive1" type="Button" parent="TabContainer/Light"]
-margin_right = 12.0
+[node name="Passive1" type="Button" parent="TabContainer/Light/LightList"]
+margin_top = 24.0
+margin_right = 136.0
+margin_bottom = 44.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Light/LightList/Passive1"]
+
+[node name="Label1" type="Label" parent="TabContainer/Light/LightList"]
+margin_top = 48.0
+margin_right = 136.0
+margin_bottom = 62.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Air" type="VBoxContainer" parent="TabContainer/ScrollContainer"]
+margin_right = 432.0
+margin_bottom = 254.0
+rect_min_size = Vector2( 432, 254 )
+
+[node name="Button1" type="Button" parent="TabContainer/ScrollContainer/Air"]
+margin_right = 432.0
 margin_bottom = 20.0
+text = "Channel Air"
 
-[node name="Timer" type="Timer" parent="TabContainer/Light/Passive1"]
+[node name="Gather" type="Button" parent="TabContainer/ScrollContainer/Air" groups=["air"]]
+margin_top = 24.0
+margin_right = 432.0
+margin_bottom = 44.0
+text = "Bottle Cloud Puffs"
 
-[node name="Label1" type="Label" parent="TabContainer/Light"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="Passive0" type="Button" parent="TabContainer/ScrollContainer/Air" groups=["advanced", "passive_button"]]
+margin_top = 48.0
+margin_right = 432.0
+margin_bottom = 68.0
+
+[node name="Timer" type="Timer" parent="TabContainer/ScrollContainer/Air/Passive0"]
+
+[node name="Label0" type="Label" parent="TabContainer/ScrollContainer/Air" groups=["advanced"]]
+margin_top = 72.0
+margin_right = 432.0
+margin_bottom = 86.0
+align = 1
+
+[node name="Passive1" type="Button" parent="TabContainer/ScrollContainer/Air" groups=["air", "passive_button"]]
+margin_top = 90.0
+margin_right = 432.0
+margin_bottom = 110.0
+
+[node name="Timer" type="Timer" parent="TabContainer/ScrollContainer/Air/Passive1"]
+
+[node name="Label1" type="Label" parent="TabContainer/ScrollContainer/Air"]
+margin_top = 114.0
+margin_right = 432.0
+margin_bottom = 128.0
+align = 1
+
+[node name="Passive2" type="Button" parent="TabContainer/ScrollContainer/Air" groups=["air", "passive_button"]]
+margin_top = 132.0
+margin_right = 432.0
+margin_bottom = 152.0
+
+[node name="Timer" type="Timer" parent="TabContainer/ScrollContainer/Air/Passive2"]
+
+[node name="Label2" type="Label" parent="TabContainer/ScrollContainer/Air"]
+margin_top = 156.0
+margin_right = 432.0
+margin_bottom = 170.0
+align = 1
+
+[node name="Passive3" type="Button" parent="TabContainer/ScrollContainer/Air" groups=["air", "passive_button"]]
+margin_top = 174.0
+margin_right = 432.0
+margin_bottom = 194.0
+
+[node name="Timer" type="Timer" parent="TabContainer/ScrollContainer/Air/Passive3"]
+
+[node name="Label3" type="Label" parent="TabContainer/ScrollContainer/Air"]
+margin_top = 198.0
+margin_right = 432.0
+margin_bottom = 212.0
+align = 1
+
+[node name="Passive4" type="Button" parent="TabContainer/ScrollContainer/Air" groups=["air", "passive_button"]]
+margin_top = 216.0
+margin_right = 432.0
+margin_bottom = 236.0
+
+[node name="Timer" type="Timer" parent="TabContainer/ScrollContainer/Air/Passive4"]
+
+[node name="Label4" type="Label" parent="TabContainer/ScrollContainer/Air"]
+margin_top = 240.0
+margin_right = 432.0
+margin_bottom = 254.0
+align = 1
 
 [node name="WARP_SPEED" type="Button" parent="."]
 margin_left = 54.883
@@ -575,16 +719,8 @@ default_color = Color( 0, 0, 0, 1 )
 
 [node name="Line2" type="Line2D" parent="UI"]
 
-[node name="WoodPanel" type="TextureRect" parent="."]
-visible = false
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_scale = Vector2( 0.488, 0.4 )
-mouse_filter = 2
-texture = ExtResource( 6 )
-
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 7 )]
+visible = false
 
 [connection signal="pressed" from="Research/Warp1" to="Research" method="_on_warp1_pressed"]
 [connection signal="pressed" from="Research/Warp2" to="Research" method="_on_warp2_pressed"]
@@ -596,57 +732,69 @@ texture = ExtResource( 6 )
 [connection signal="pressed" from="Research/Production2" to="Research" method="_on_prod2_pressed"]
 [connection signal="pressed" from="Research/Production3" to="Research" method="_on_prod3_pressed"]
 [connection signal="tab_changed" from="TabContainer" to="." method="_on_TabContainer_tab_changed"]
-[connection signal="pressed" from="TabContainer/Air/Button1" to="." method="_on_air_button_pressed"]
-[connection signal="pressed" from="TabContainer/Air/Gather" to="Resource_Controller" method="_on_air_sub_gather_button_pressed"]
-[connection signal="pressed" from="TabContainer/Air/Passive0" to="PassiveController" method="_on_air_passive0_pressed"]
-[connection signal="timeout" from="TabContainer/Air/Passive0/Timer" to="PassiveController" method="_on_air_passive0_timeout"]
-[connection signal="pressed" from="TabContainer/Air/Passive1" to="PassiveController" method="_on_air_passive1_pressed"]
-[connection signal="timeout" from="TabContainer/Air/Passive1/Timer" to="PassiveController" method="_on_air_passive1_timeout"]
-[connection signal="pressed" from="TabContainer/Air/Passive2" to="PassiveController" method="_on_air_passive2_pressed"]
-[connection signal="timeout" from="TabContainer/Air/Passive2/Timer" to="PassiveController" method="_on_air_passive2_timeout"]
-[connection signal="pressed" from="TabContainer/Air/Passive3" to="PassiveController" method="_on_air_passive3_pressed"]
-[connection signal="timeout" from="TabContainer/Air/Passive3/Timer" to="PassiveController" method="_on_air_passive3_timeout"]
-[connection signal="pressed" from="TabContainer/Air/Passive4" to="PassiveController" method="_on_air_passive4_pressed"]
-[connection signal="timeout" from="TabContainer/Air/Passive4/Timer" to="PassiveController" method="_on_air_passive4_timeout"]
-[connection signal="pressed" from="TabContainer/Earth/Button1" to="." method="_on_earth_button_pressed"]
-[connection signal="pressed" from="TabContainer/Earth/Gather" to="Resource_Controller" method="_on_earth_sub_gather_button_pressed"]
-[connection signal="pressed" from="TabContainer/Earth/Passive0" to="PassiveController" method="_on_earth_passive0_pressed"]
-[connection signal="timeout" from="TabContainer/Earth/Passive0/Timer" to="PassiveController" method="_on_earth_passive0_timeout"]
-[connection signal="pressed" from="TabContainer/Earth/Passive1" to="PassiveController" method="_on_earth_passive1_pressed"]
-[connection signal="timeout" from="TabContainer/Earth/Passive1/Timer" to="PassiveController" method="_on_earth_passive1_timeout"]
-[connection signal="pressed" from="TabContainer/Earth/Passive2" to="PassiveController" method="_on_earth_passive2_pressed"]
-[connection signal="timeout" from="TabContainer/Earth/Passive2/Timer" to="PassiveController" method="_on_earth_passive2_timeout"]
-[connection signal="pressed" from="TabContainer/Earth/Passive3" to="PassiveController" method="_on_earth_passive3_pressed"]
-[connection signal="timeout" from="TabContainer/Earth/Passive3/Timer" to="PassiveController" method="_on_earth_passive3_timeout"]
-[connection signal="pressed" from="TabContainer/Earth/Passive4" to="PassiveController" method="_on_earth_passive4_pressed"]
-[connection signal="timeout" from="TabContainer/Earth/Passive4/Timer" to="PassiveController" method="_on_earth_passive4_timeout"]
-[connection signal="pressed" from="TabContainer/Fire/Button1" to="." method="_on_fire_button_pressed"]
-[connection signal="pressed" from="TabContainer/Fire/Gather" to="Resource_Controller" method="_on_fire_sub_gather_button_pressed"]
-[connection signal="pressed" from="TabContainer/Fire/Passive0" to="PassiveController" method="_on_fire_passive0_pressed"]
-[connection signal="timeout" from="TabContainer/Fire/Passive0/Timer" to="PassiveController" method="_on_fire_passive0_timeout"]
-[connection signal="pressed" from="TabContainer/Fire/Passive1" to="PassiveController" method="_on_fire_passive1_pressed"]
-[connection signal="timeout" from="TabContainer/Fire/Passive1/Timer" to="PassiveController" method="_on_fire_passive1_timeout"]
-[connection signal="pressed" from="TabContainer/Fire/Passive2" to="PassiveController" method="_on_fire_passive2_pressed"]
-[connection signal="timeout" from="TabContainer/Fire/Passive2/Timer" to="PassiveController" method="_on_fire_passive2_timeout"]
-[connection signal="pressed" from="TabContainer/Fire/Passive3" to="PassiveController" method="_on_fire_passive3_pressed"]
-[connection signal="timeout" from="TabContainer/Fire/Passive3/Timer" to="PassiveController" method="_on_fire_passive3_timeout"]
-[connection signal="pressed" from="TabContainer/Fire/Passive4" to="PassiveController" method="_on_fire_passive4_pressed"]
-[connection signal="timeout" from="TabContainer/Fire/Passive4/Timer" to="PassiveController" method="_on_fire_passive4_timeout"]
-[connection signal="pressed" from="TabContainer/Water/Button1" to="." method="_on_water_button_pressed"]
-[connection signal="pressed" from="TabContainer/Water/Gather" to="Resource_Controller" method="_on_water_sub_gather_button_pressed"]
-[connection signal="pressed" from="TabContainer/Water/Passive0" to="PassiveController" method="_on_water_passive0_pressed"]
-[connection signal="timeout" from="TabContainer/Water/Passive0/Timer" to="PassiveController" method="_on_water_passive0_timeout"]
-[connection signal="pressed" from="TabContainer/Water/Passive1" to="PassiveController" method="_on_water_passive1_pressed"]
-[connection signal="timeout" from="TabContainer/Water/Passive1/Timer" to="PassiveController" method="_on_water_passive1_timeout"]
-[connection signal="pressed" from="TabContainer/Water/Passive2" to="PassiveController" method="_on_water_passive2_pressed"]
-[connection signal="timeout" from="TabContainer/Water/Passive2/Timer" to="PassiveController" method="_on_water_passive2_timeout"]
-[connection signal="pressed" from="TabContainer/Water/Passive3" to="PassiveController" method="_on_water_passive3_pressed"]
-[connection signal="timeout" from="TabContainer/Water/Passive3/Timer" to="PassiveController" method="_on_water_passive3_timeout"]
-[connection signal="pressed" from="TabContainer/Water/Passive4" to="PassiveController" method="_on_water_passive4_pressed"]
-[connection signal="timeout" from="TabContainer/Water/Passive4/Timer" to="PassiveController" method="_on_water_passive4_timeout"]
-[connection signal="pressed" from="TabContainer/Light/Button" to="." method="_on_light_button_pressed"]
-[connection signal="pressed" from="TabContainer/Light/Passive1" to="PassiveController" method="_on_light_passive1_pressed"]
-[connection signal="timeout" from="TabContainer/Light/Passive1/Timer" to="PassiveController" method="_on_light_passive1_timeout"]
+[connection signal="pressed" from="TabContainer/Air/AirList/Button1" to="." method="_on_air_button_pressed"]
+[connection signal="pressed" from="TabContainer/Air/AirList/Gather" to="Resource_Controller" method="_on_air_sub_gather_button_pressed"]
+[connection signal="pressed" from="TabContainer/Air/AirList/Passive0" to="PassiveController" method="_on_air_passive0_pressed"]
+[connection signal="timeout" from="TabContainer/Air/AirList/Passive0/Timer" to="PassiveController" method="_on_air_passive0_timeout"]
+[connection signal="pressed" from="TabContainer/Air/AirList/Passive1" to="PassiveController" method="_on_air_passive1_pressed"]
+[connection signal="timeout" from="TabContainer/Air/AirList/Passive1/Timer" to="PassiveController" method="_on_air_passive1_timeout"]
+[connection signal="pressed" from="TabContainer/Air/AirList/Passive2" to="PassiveController" method="_on_air_passive2_pressed"]
+[connection signal="timeout" from="TabContainer/Air/AirList/Passive2/Timer" to="PassiveController" method="_on_air_passive2_timeout"]
+[connection signal="pressed" from="TabContainer/Air/AirList/Passive3" to="PassiveController" method="_on_air_passive3_pressed"]
+[connection signal="timeout" from="TabContainer/Air/AirList/Passive3/Timer" to="PassiveController" method="_on_air_passive3_timeout"]
+[connection signal="pressed" from="TabContainer/Air/AirList/Passive4" to="PassiveController" method="_on_air_passive4_pressed"]
+[connection signal="timeout" from="TabContainer/Air/AirList/Passive4/Timer" to="PassiveController" method="_on_air_passive4_timeout"]
+[connection signal="pressed" from="TabContainer/Earth/EarthList/Button1" to="." method="_on_earth_button_pressed"]
+[connection signal="pressed" from="TabContainer/Earth/EarthList/Gather" to="Resource_Controller" method="_on_earth_sub_gather_button_pressed"]
+[connection signal="pressed" from="TabContainer/Earth/EarthList/Passive0" to="PassiveController" method="_on_earth_passive0_pressed"]
+[connection signal="timeout" from="TabContainer/Earth/EarthList/Passive0/Timer" to="PassiveController" method="_on_earth_passive0_timeout"]
+[connection signal="pressed" from="TabContainer/Earth/EarthList/Passive1" to="PassiveController" method="_on_earth_passive1_pressed"]
+[connection signal="timeout" from="TabContainer/Earth/EarthList/Passive1/Timer" to="PassiveController" method="_on_earth_passive1_timeout"]
+[connection signal="pressed" from="TabContainer/Earth/EarthList/Passive2" to="PassiveController" method="_on_earth_passive2_pressed"]
+[connection signal="timeout" from="TabContainer/Earth/EarthList/Passive2/Timer" to="PassiveController" method="_on_earth_passive2_timeout"]
+[connection signal="pressed" from="TabContainer/Earth/EarthList/Passive3" to="PassiveController" method="_on_earth_passive3_pressed"]
+[connection signal="timeout" from="TabContainer/Earth/EarthList/Passive3/Timer" to="PassiveController" method="_on_earth_passive3_timeout"]
+[connection signal="pressed" from="TabContainer/Earth/EarthList/Passive4" to="PassiveController" method="_on_earth_passive4_pressed"]
+[connection signal="timeout" from="TabContainer/Earth/EarthList/Passive4/Timer" to="PassiveController" method="_on_earth_passive4_timeout"]
+[connection signal="pressed" from="TabContainer/Fire/FireList/Button1" to="." method="_on_fire_button_pressed"]
+[connection signal="pressed" from="TabContainer/Fire/FireList/Gather" to="Resource_Controller" method="_on_fire_sub_gather_button_pressed"]
+[connection signal="pressed" from="TabContainer/Fire/FireList/Passive0" to="PassiveController" method="_on_fire_passive0_pressed"]
+[connection signal="timeout" from="TabContainer/Fire/FireList/Passive0/Timer" to="PassiveController" method="_on_fire_passive0_timeout"]
+[connection signal="pressed" from="TabContainer/Fire/FireList/Passive1" to="PassiveController" method="_on_fire_passive1_pressed"]
+[connection signal="timeout" from="TabContainer/Fire/FireList/Passive1/Timer" to="PassiveController" method="_on_fire_passive1_timeout"]
+[connection signal="pressed" from="TabContainer/Fire/FireList/Passive2" to="PassiveController" method="_on_fire_passive2_pressed"]
+[connection signal="timeout" from="TabContainer/Fire/FireList/Passive2/Timer" to="PassiveController" method="_on_fire_passive2_timeout"]
+[connection signal="pressed" from="TabContainer/Fire/FireList/Passive3" to="PassiveController" method="_on_fire_passive3_pressed"]
+[connection signal="timeout" from="TabContainer/Fire/FireList/Passive3/Timer" to="PassiveController" method="_on_fire_passive3_timeout"]
+[connection signal="pressed" from="TabContainer/Fire/FireList/Passive4" to="PassiveController" method="_on_fire_passive4_pressed"]
+[connection signal="timeout" from="TabContainer/Fire/FireList/Passive4/Timer" to="PassiveController" method="_on_fire_passive4_timeout"]
+[connection signal="pressed" from="TabContainer/Water/WaterList/Button1" to="." method="_on_water_button_pressed"]
+[connection signal="pressed" from="TabContainer/Water/WaterList/Gather" to="Resource_Controller" method="_on_water_sub_gather_button_pressed"]
+[connection signal="pressed" from="TabContainer/Water/WaterList/Passive0" to="PassiveController" method="_on_water_passive0_pressed"]
+[connection signal="timeout" from="TabContainer/Water/WaterList/Passive0/Timer" to="PassiveController" method="_on_water_passive0_timeout"]
+[connection signal="pressed" from="TabContainer/Water/WaterList/Passive1" to="PassiveController" method="_on_water_passive1_pressed"]
+[connection signal="timeout" from="TabContainer/Water/WaterList/Passive1/Timer" to="PassiveController" method="_on_water_passive1_timeout"]
+[connection signal="pressed" from="TabContainer/Water/WaterList/Passive2" to="PassiveController" method="_on_water_passive2_pressed"]
+[connection signal="timeout" from="TabContainer/Water/WaterList/Passive2/Timer" to="PassiveController" method="_on_water_passive2_timeout"]
+[connection signal="pressed" from="TabContainer/Water/WaterList/Passive3" to="PassiveController" method="_on_water_passive3_pressed"]
+[connection signal="timeout" from="TabContainer/Water/WaterList/Passive3/Timer" to="PassiveController" method="_on_water_passive3_timeout"]
+[connection signal="pressed" from="TabContainer/Water/WaterList/Passive4" to="PassiveController" method="_on_water_passive4_pressed"]
+[connection signal="timeout" from="TabContainer/Water/WaterList/Passive4/Timer" to="PassiveController" method="_on_water_passive4_timeout"]
+[connection signal="pressed" from="TabContainer/Light/LightList/Button" to="." method="_on_light_button_pressed"]
+[connection signal="pressed" from="TabContainer/Light/LightList/Passive1" to="PassiveController" method="_on_light_passive1_pressed"]
+[connection signal="timeout" from="TabContainer/Light/LightList/Passive1/Timer" to="PassiveController" method="_on_light_passive1_timeout"]
+[connection signal="pressed" from="TabContainer/ScrollContainer/Air/Button1" to="." method="_on_air_button_pressed"]
+[connection signal="pressed" from="TabContainer/ScrollContainer/Air/Gather" to="Resource_Controller" method="_on_air_sub_gather_button_pressed"]
+[connection signal="pressed" from="TabContainer/ScrollContainer/Air/Passive0" to="PassiveController" method="_on_air_passive0_pressed"]
+[connection signal="timeout" from="TabContainer/ScrollContainer/Air/Passive0/Timer" to="PassiveController" method="_on_air_passive0_timeout"]
+[connection signal="pressed" from="TabContainer/ScrollContainer/Air/Passive1" to="PassiveController" method="_on_air_passive1_pressed"]
+[connection signal="timeout" from="TabContainer/ScrollContainer/Air/Passive1/Timer" to="PassiveController" method="_on_air_passive1_timeout"]
+[connection signal="pressed" from="TabContainer/ScrollContainer/Air/Passive2" to="PassiveController" method="_on_air_passive2_pressed"]
+[connection signal="timeout" from="TabContainer/ScrollContainer/Air/Passive2/Timer" to="PassiveController" method="_on_air_passive2_timeout"]
+[connection signal="pressed" from="TabContainer/ScrollContainer/Air/Passive3" to="PassiveController" method="_on_air_passive3_pressed"]
+[connection signal="timeout" from="TabContainer/ScrollContainer/Air/Passive3/Timer" to="PassiveController" method="_on_air_passive3_timeout"]
+[connection signal="pressed" from="TabContainer/ScrollContainer/Air/Passive4" to="PassiveController" method="_on_air_passive4_pressed"]
+[connection signal="timeout" from="TabContainer/ScrollContainer/Air/Passive4/Timer" to="PassiveController" method="_on_air_passive4_timeout"]
 [connection signal="pressed" from="WARP_SPEED" to="." method="_on_warp_button_pressed"]
 [connection signal="timeout" from="WARP_SPEED/Timer" to="." method="_on_warp_timer_timeout"]
 [connection signal="timeout" from="TimeUntilTheEnd" to="TimeUntilTheEnd" method="_time_is_up"]
