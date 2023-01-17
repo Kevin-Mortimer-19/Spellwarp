@@ -123,12 +123,11 @@ func _ready():
 	# Object's name
 	# Type of resource produced
 	#
-	
 	air_passive_0 = resource_creator.new(100, 1, 1, air_button_0, air_timer_0, air_label_0, "Air Auto Extractor", list.RES.AIR)
 	air_passive_1 = resource_creator.new(25, 10, 10, air_button_1, air_timer_1, air_label_1, "Hire Lightweight Gremlins", list.RES.SUBAIR)
 	air_passive_2 = resource_creator.new(50, 1, 1, air_button_2, air_timer_2, air_label_2, "Construct Puff Condenser", list.RES.AIR)
-	air_passive_3 = resource_creator.new(500, 100, 10, air_button_3, air_timer_3, air_label_3, "Hire Wing Gremlins", list.RES.SUBAIR)
-	air_passive_4 = resource_creator.new(1000, 10, 1, air_button_4, air_timer_4, air_label_4, "Construct Puff Zapper", list.RES.AIR)
+	air_passive_3 = resource_creator.new(250, 100, 10, air_button_3, air_timer_3, air_label_3, "Hire Wing Gremlins", list.RES.SUBAIR)
+	air_passive_4 = resource_creator.new(500, 10, 1, air_button_4, air_timer_4, air_label_4, "Construct Puff Zapper", list.RES.AIR)
 
 	
 	all_passives.append(air_passive_0)
@@ -141,8 +140,8 @@ func _ready():
 	earth_passive_0 = resource_creator.new(100, 1, 1, earth_button_0, earth_timer_0, earth_label_0, "Earth Auto Extractor", list.RES.EARTH)
 	earth_passive_1 = resource_creator.new(25, 10, 10, earth_button_1, earth_timer_1, earth_label_1, "Hire Mining Gremlins", list.RES.SUBEARTH)
 	earth_passive_2 = resource_creator.new(50, 1, 1, earth_button_2, earth_timer_2, earth_label_2, "Construct Chunk Breaker", list.RES.EARTH)
-	earth_passive_3 = resource_creator.new(500, 100, 10, earth_button_3, earth_timer_3, earth_label_3, "Hire Crag Gremlins", list.RES.SUBEARTH)
-	earth_passive_4 = resource_creator.new(1000, 10, 1, earth_button_4, earth_timer_4, earth_label_4, "Construct Chunk Grinder", list.RES.EARTH)
+	earth_passive_3 = resource_creator.new(250, 100, 10, earth_button_3, earth_timer_3, earth_label_3, "Hire Crag Gremlins", list.RES.SUBEARTH)
+	earth_passive_4 = resource_creator.new(500, 10, 1, earth_button_4, earth_timer_4, earth_label_4, "Construct Chunk Grinder", list.RES.EARTH)
 	
 	all_passives.append(earth_passive_0)
 	all_passives.append(earth_passive_1)
@@ -153,8 +152,8 @@ func _ready():
 	fire_passive_0 = resource_creator.new(100, 1, 1, fire_button_0, fire_timer_0, fire_label_0, "Fire Auto Extractor", list.RES.FIRE)
 	fire_passive_1 = resource_creator.new(25, 10, 10, fire_button_1, fire_timer_1, fire_label_1,  "Hire Gathering Gremlins", list.RES.SUBFIRE)
 	fire_passive_2 = resource_creator.new(50, 1, 1, fire_button_2, fire_timer_2, fire_label_2, "Construct Rose Mixer", list.RES.FIRE)
-	fire_passive_3 = resource_creator.new(500, 100, 10, fire_button_3, fire_timer_3, fire_label_3,  "Hire Fireproof Gremlins", list.RES.SUBFIRE)
-	fire_passive_4 = resource_creator.new(1000, 10, 1, fire_button_4, fire_timer_4, fire_label_4, "Construct Rose Centrifuge", list.RES.FIRE)
+	fire_passive_3 = resource_creator.new(250, 100, 10, fire_button_3, fire_timer_3, fire_label_3,  "Hire Fireproof Gremlins", list.RES.SUBFIRE)
+	fire_passive_4 = resource_creator.new(500, 10, 1, fire_button_4, fire_timer_4, fire_label_4, "Construct Rose Centrifuge", list.RES.FIRE)
 
 	all_passives.append(fire_passive_0)
 	all_passives.append(fire_passive_1)
@@ -165,8 +164,8 @@ func _ready():
 	water_passive_0 = resource_creator.new(100, 1, 1, water_button_0, water_timer_0, water_label_0, "Water Auto Extactor", list.RES.WATER)
 	water_passive_1 = resource_creator.new(25, 10, 10, water_button_1, water_timer_1, water_label_1, "Hire Snorkeling Gremlins", list.RES.SUBWATER)
 	water_passive_2 = resource_creator.new(50, 1, 1, water_button_2, water_timer_2, water_label_2, "Construct Crystal Crushers", list.RES.WATER)
-	water_passive_3 = resource_creator.new(500, 100, 10, water_button_3, water_timer_3, water_label_3, "Hire Amphibious Gremlins", list.RES.SUBWATER)
-	water_passive_4 = resource_creator.new(1000, 10, 1, water_button_4, water_timer_4, water_label_4, "Construct Crystal Pulverizer", list.RES.WATER)
+	water_passive_3 = resource_creator.new(250, 100, 10, water_button_3, water_timer_3, water_label_3, "Hire Amphibious Gremlins", list.RES.SUBWATER)
+	water_passive_4 = resource_creator.new(500, 10, 1, water_button_4, water_timer_4, water_label_4, "Construct Crystal Pulverizer", list.RES.WATER)
   
 	all_passives.append(water_passive_0)
 	all_passives.append(water_passive_1)
