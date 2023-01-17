@@ -14,6 +14,12 @@ onready var air_label_1 = get_node("../TabContainer/Air/Label1")
 onready var air_button_2 = get_node("../TabContainer/Air/Passive2")
 onready var air_timer_2 = get_node("../TabContainer/Air/Passive2/Timer")
 onready var air_label_2 = get_node("../TabContainer/Air/Label2")
+onready var air_button_3 = get_node("../TabContainer/Air/Passive3")
+onready var air_timer_3 = get_node("../TabContainer/Air/Passive3/Timer")
+onready var air_label_3 = get_node("../TabContainer/Air/Label3")
+onready var air_button_4 = get_node("../TabContainer/Air/Passive4")
+onready var air_timer_4 = get_node("../TabContainer/Air/Passive4/Timer")
+onready var air_label_4 = get_node("../TabContainer/Air/Label4")
 
 onready var earth_button_1 = get_node("../TabContainer/Earth/Passive1")
 onready var earth_timer_1 = get_node("../TabContainer/Earth/Passive1/Timer")
@@ -44,6 +50,8 @@ var gremlin_research: bool = false
 
 var air_passive_1: ResourceCreator
 var air_passive_2 :ResourceCreator
+var air_passive_3: ResourceCreator
+var air_passive_4 :ResourceCreator
 
 var earth_passive_1: ResourceCreator
 var earth_passive_2: ResourceCreator
@@ -69,11 +77,15 @@ func _ready():
 	# Object's name
 	# Type of resource produced
 	#
-	air_passive_1 = resource_creator.new(25, 10, 10, air_button_1, air_timer_1, air_label_1, "Hire Wing Gremlins", list.RES.SUBAIR)
+	air_passive_1 = resource_creator.new(25, 10, 10, air_button_1, air_timer_1, air_label_1, "Hire Lightweight Gremlins", list.RES.SUBAIR)
 	air_passive_2 = resource_creator.new(50, 1, 1, air_button_2, air_timer_2, air_label_2, "Construct Puff Condenser", list.RES.AIR)
+	air_passive_3 = resource_creator.new(500, 100, 10, air_button_3, air_timer_3, air_label_3, "Hire Wing Gremlins", list.RES.SUBAIR)
+	air_passive_4 = resource_creator.new(1000, 10, 1, air_button_4, air_timer_4, air_label_4, "Construct Puff Zapper", list.RES.AIR)
 	
 	all_passives.append(air_passive_1)
 	all_passives.append(air_passive_2)
+	all_passives.append(air_passive_3)
+	all_passives.append(air_passive_4)
 	
 	earth_passive_1 = resource_creator.new(25, 10, 10, earth_button_1, earth_timer_1, earth_label_1, "Hire Crag Gremlins", list.RES.SUBEARTH)
 	earth_passive_2 = resource_creator.new(50, 1, 1, earth_button_2, earth_timer_2, earth_label_2, "Construct Chunk Breaker", list.RES.EARTH)
@@ -127,6 +139,20 @@ func _on_air_passive2_pressed():
 
 func _on_air_passive2_timeout():
 	extraction(payout(air_passive_2), list.RES.SUBAIR)
+
+func _on_air_passive3_pressed():
+	buy_creator(air_passive_3)
+	SoundPlayer.play_category(SoundPlayer.GREMLINSOUNDS)
+
+func _on_air_passive3_timeout():
+	res.add_sub_element(payout(air_passive_3), list.RES.SUBAIR)
+
+func _on_air_passive4_pressed():
+	buy_creator(air_passive_4)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
+
+func _on_air_passive4_timeout():
+	extraction(payout(air_passive_4), list.RES.SUBAIR)
 
 # Earth
 

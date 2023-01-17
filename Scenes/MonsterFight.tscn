@@ -18,47 +18,58 @@ margin_bottom = -510.0
 custom_constants/separation = 50
 
 [node name="Air" type="VBoxContainer" parent="Elements"]
-margin_right = 22.0
+margin_right = 24.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Air"]
-margin_right = 22.0
+margin_right = 24.0
 margin_bottom = 14.0
 text = "Air:"
 
 [node name="Earth" type="VBoxContainer" parent="Elements"]
-margin_left = 72.0
-margin_right = 108.0
+margin_left = 74.0
+margin_right = 114.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Earth"]
-margin_right = 36.0
+margin_right = 40.0
 margin_bottom = 14.0
 text = "Earth:"
 
 [node name="Fire" type="VBoxContainer" parent="Elements"]
-margin_left = 158.0
-margin_right = 186.0
+margin_left = 164.0
+margin_right = 194.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Fire"]
-margin_right = 28.0
+margin_right = 30.0
 margin_bottom = 14.0
 text = "Fire:"
 
 [node name="Water" type="VBoxContainer" parent="Elements"]
-margin_left = 236.0
-margin_right = 278.0
+margin_left = 244.0
+margin_right = 288.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Water"]
-margin_right = 42.0
+margin_right = 44.0
 margin_bottom = 14.0
 text = "Water:"
+
+[node name="Light" type="VBoxContainer" parent="Elements"]
+margin_left = 338.0
+margin_right = 376.0
+margin_bottom = 50.0
+
+[node name="Count" type="Label" parent="Elements/Light"]
+margin_right = 38.0
+margin_bottom = 14.0
+text = "Light:"
+align = 2
 
 [node name="Menu" type="VBoxContainer" parent="."]
 margin_left = 68.0187
@@ -80,22 +91,22 @@ margin_bottom = 183.0
 alignment = 1
 
 [node name="FailButton" type="Button" parent="Menu/CombatRow"]
-margin_left = 150.0
-margin_right = 319.0
+margin_left = 130.0
+margin_right = 310.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 70, 20 )
 text = "Block it with your hands!"
 
 [node name="ElementButton" type="Button" parent="Menu/CombatRow"]
-margin_left = 323.0
-margin_right = 527.0
+margin_left = 314.0
+margin_right = 536.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 70, 20 )
 text = "Block it with a shield of water!"
 
 [node name="LightButton" type="Button" parent="Menu/CombatRow"]
-margin_left = 531.0
-margin_right = 700.0
+margin_left = 540.0
+margin_right = 720.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 70, 20 )
 text = "Block it with your hands!"
@@ -113,8 +124,8 @@ margin_bottom = 207.0
 alignment = 1
 
 [node name="WarpButton" type="Button" parent="Menu/WarpRow"]
-margin_left = 387.0
-margin_right = 464.0
+margin_left = 383.0
+margin_right = 467.0
 margin_bottom = 20.0
 text = "Run Away!"
 script = ExtResource( 1 )
@@ -125,14 +136,6 @@ margin_top = 40.0
 margin_right = 983.0
 margin_bottom = 90.0
 alignment = 2
-
-[node name="LightLabel" type="Label" parent="LightHBox"]
-margin_left = 928.0
-margin_top = 18.0
-margin_right = 963.0
-margin_bottom = 32.0
-text = "Light:"
-align = 2
 
 [connection signal="pressed" from="Menu/CombatRow/FailButton" to="." method="_on_fail_button_pressed"]
 [connection signal="pressed" from="Menu/CombatRow/ElementButton" to="." method="_on_element_button_pressed"]

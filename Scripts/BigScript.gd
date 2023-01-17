@@ -78,7 +78,7 @@ func _ready():
 		for r in get_tree().get_nodes_in_group("advanced"):
 			r.visible = true
 	
-	SoundPlayer.play_ost(SoundPlayer.TITLESONG)
+	#SoundPlayer.play_ost(SoundPlayer.TITLESONG)
 
 func _process(delta):
 	if light_count < warp_cost || !warp_ready: 

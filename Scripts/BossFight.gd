@@ -6,11 +6,17 @@ onready var FailButton = $Menu/CombatRow/FailButton
 onready var ElementButton = $Menu/CombatRow/ElementButton
 onready var LightButton = $Menu/CombatRow/LightButton
 
-onready var AirLabel = $Elements/Air/Count
-onready var EarthLabel = $Elements/Earth/Count
-onready var FireLabel = $Elements/Fire/Count
-onready var WaterLabel = $Elements/Water/Count
-onready var LightLabel = $LightHBox/LightLabel
+#onready var AirLabel = $Elements/Air/Count
+#onready var EarthLabel = $Elements/Earth/Count
+#onready var FireLabel = $Elements/Fire/Count
+#onready var WaterLabel = $Elements/Water/Count
+#onready var LightLabel = $Elements/Light/Count
+
+onready var air_label: Label = $Elements/Air/Count
+onready var earth_label: Label = $Elements/Earth/Count
+onready var fire_label: Label = $Elements/Fire/Count
+onready var water_label: Label = $Elements/Water/Count
+onready var light_label: Label = $Elements/Light/Count
 
 var AirAttack: MonsterEvent
 var AirDefend: MonsterEvent
@@ -40,6 +46,7 @@ var turn_count: int
 var rng = RandomNumberGenerator.new()
 
 func _ready():
+	SoundPlayer.play_ost(SoundPlayer.MONSTERSONG)
 	if ResearchDB.spell_3():
 		AIR = Monster.air / 2
 		EARTH = Monster.earth / 2
@@ -79,11 +86,11 @@ func _ready():
 	battle_turn(get_event(Monster.affinity1))
 
 func element_text_update():
-	AirLabel.set_text("Air: %s" % StoredEnergy.air)
-	EarthLabel.set_text("Earth: %s" % StoredEnergy.earth)
-	FireLabel.set_text("Fire: %s" % StoredEnergy.fire)
-	WaterLabel.set_text("Water: %s" % StoredEnergy.water)
-	LightLabel.set_text("Light: %s" % StoredEnergy.light)
+	ElementUI.display_element(air_label, "Air: %s", StoredEnergy.air)
+	ElementUI.display_element(earth_label, "Earth: %s", StoredEnergy.earth)
+	ElementUI.display_element(fire_label, "Fire: %s", StoredEnergy.fire)
+	ElementUI.display_element(water_label, "Water: %s", StoredEnergy.water)
+	ElementUI.display_element(light_label, "Light: %s", StoredEnergy.light)
 
 func next_turn(success):
 	if success:
@@ -92,6 +99,7 @@ func next_turn(success):
 		match turn_count:
 			1:
 				turn_count += 1
+				SoundPlayer.play_ost(SoundPlayer.PLAYERSONG)
 				battle_turn(get_event(Monster.affinity2))
 			2:
 				turn_count += 1
@@ -213,3 +221,6 @@ func get_event(a):
 			return fire_events[index]
 		ResourceList.RES.WATER:
 			return water_events[index]
+
+func get_turn_count() -> int:
+	return turn_count
