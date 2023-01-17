@@ -138,12 +138,13 @@ func _ready():
 	all_passives.append(air_passive_4)
 	
 
-  earth_passive_0 = resource_creator.new(100, 1, 1, earth_button_0, earth_timer_0, earth_label_0, "Earth Auto Extractor", list.RES.EARTH)
+	earth_passive_0 = resource_creator.new(100, 1, 1, earth_button_0, earth_timer_0, earth_label_0, "Earth Auto Extractor", list.RES.EARTH)
 	earth_passive_1 = resource_creator.new(25, 10, 10, earth_button_1, earth_timer_1, earth_label_1, "Hire Mining Gremlins", list.RES.SUBEARTH)
 	earth_passive_2 = resource_creator.new(50, 1, 1, earth_button_2, earth_timer_2, earth_label_2, "Construct Chunk Breaker", list.RES.EARTH)
 	earth_passive_3 = resource_creator.new(500, 100, 10, earth_button_3, earth_timer_3, earth_label_3, "Hire Crag Gremlins", list.RES.SUBEARTH)
 	earth_passive_4 = resource_creator.new(1000, 10, 1, earth_button_4, earth_timer_4, earth_label_4, "Construct Chunk Grinder", list.RES.EARTH)
-
+	
+	all_passives.append(earth_passive_0)
 	all_passives.append(earth_passive_1)
 	all_passives.append(earth_passive_2)
 	all_passives.append(earth_passive_3)
