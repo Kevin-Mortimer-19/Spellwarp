@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/ResourceController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/TimeLimit.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scripts/PassiveController.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/ResearchTree.gd" type="Script" id=5]
 [ext_resource path="res://Art/wood_bg.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/FadeAnimation.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Themes/Spellbook.tres" type="Theme" id=8]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -177,6 +179,7 @@ margin_left = 283.043
 margin_top = 245.799
 margin_right = 704.043
 margin_bottom = 514.799
+theme = ExtResource( 8 )
 
 [node name="Air" type="VBoxContainer" parent="TabContainer"]
 anchor_right = 1.0
@@ -267,7 +270,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 24.0
 margin_right = -4.0
 margin_bottom = -4.0
 
@@ -348,7 +351,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 24.0
 margin_right = -4.0
 margin_bottom = -4.0
 
@@ -429,7 +432,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 24.0
 margin_right = -4.0
 margin_bottom = -4.0
 
@@ -510,7 +513,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 24.0
 margin_right = -4.0
 margin_bottom = -4.0
 
@@ -573,11 +576,15 @@ default_color = Color( 0, 0, 0, 1 )
 [node name="Line2" type="Line2D" parent="UI"]
 
 [node name="WoodPanel" type="TextureRect" parent="."]
+visible = false
 show_behind_parent = true
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_scale = Vector2( 0.488, 0.4 )
+mouse_filter = 2
 texture = ExtResource( 6 )
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource( 7 )]
 
 [connection signal="pressed" from="Research/Warp1" to="Research" method="_on_warp1_pressed"]
 [connection signal="pressed" from="Research/Warp2" to="Research" method="_on_warp2_pressed"]
