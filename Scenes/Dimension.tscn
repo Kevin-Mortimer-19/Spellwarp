@@ -294,6 +294,28 @@ margin_right = 513.0
 margin_bottom = 128.0
 align = 1
 
+[node name="Passive3" type="Button" parent="TabContainer/Earth" groups=["earth"]]
+margin_top = 90.0
+margin_right = 513.0
+margin_bottom = 110.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Earth/Passive3"]
+
+[node name="Label3" type="Label" parent="TabContainer/Earth"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="Passive4" type="Button" parent="TabContainer/Earth" groups=["earth"]]
+margin_top = 90.0
+margin_right = 513.0
+margin_bottom = 110.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Earth/Passive4"]
+
+[node name="Label4" type="Label" parent="TabContainer/Earth"]
+margin_right = 40.0
+margin_bottom = 14.0
+
 [node name="Fire" type="VBoxContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -340,6 +362,28 @@ margin_right = 513.0
 margin_bottom = 128.0
 align = 1
 
+[node name="Passive3" type="Button" parent="TabContainer/Fire" groups=["fire"]]
+margin_top = 90.0
+margin_right = 513.0
+margin_bottom = 110.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Fire/Passive3"]
+
+[node name="Label3" type="Label" parent="TabContainer/Fire"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="Passive4" type="Button" parent="TabContainer/Fire" groups=["fire"]]
+margin_top = 90.0
+margin_right = 513.0
+margin_bottom = 110.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Fire/Passive4"]
+
+[node name="Label4" type="Label" parent="TabContainer/Fire"]
+margin_right = 40.0
+margin_bottom = 14.0
+
 [node name="Water" type="VBoxContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -385,6 +429,28 @@ margin_top = 114.0
 margin_right = 513.0
 margin_bottom = 128.0
 align = 1
+
+[node name="Passive3" type="Button" parent="TabContainer/Water" groups=["water"]]
+margin_top = 90.0
+margin_right = 513.0
+margin_bottom = 110.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Water/Passive3"]
+
+[node name="Label3" type="Label" parent="TabContainer/Water"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="Passive4" type="Button" parent="TabContainer/Water" groups=["water"]]
+margin_top = 90.0
+margin_right = 513.0
+margin_bottom = 110.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Water/Passive4"]
+
+[node name="Label4" type="Label" parent="TabContainer/Water"]
+margin_right = 40.0
+margin_bottom = 14.0
 
 [node name="Light" type="VBoxContainer" parent="TabContainer"]
 visible = false
@@ -469,18 +535,30 @@ default_color = Color( 0, 0, 0, 1 )
 [connection signal="timeout" from="TabContainer/Earth/Passive1/Timer" to="PassiveController" method="_on_earth_passive1_timeout"]
 [connection signal="pressed" from="TabContainer/Earth/Passive2" to="PassiveController" method="_on_earth_passive2_pressed"]
 [connection signal="timeout" from="TabContainer/Earth/Passive2/Timer" to="PassiveController" method="_on_earth_passive2_timeout"]
+[connection signal="pressed" from="TabContainer/Earth/Passive3" to="PassiveController" method="_on_earth_passive3_pressed"]
+[connection signal="timeout" from="TabContainer/Earth/Passive3/Timer" to="PassiveController" method="_on_earth_passive3_timeout"]
+[connection signal="pressed" from="TabContainer/Earth/Passive4" to="PassiveController" method="_on_earth_passive4_pressed"]
+[connection signal="timeout" from="TabContainer/Earth/Passive4/Timer" to="PassiveController" method="_on_earth_passive4_timeout"]
 [connection signal="pressed" from="TabContainer/Fire/Button1" to="." method="_on_fire_button_pressed"]
 [connection signal="pressed" from="TabContainer/Fire/Gather" to="Resource_Controller" method="_on_fire_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Fire/Passive1" to="PassiveController" method="_on_fire_passive1_pressed"]
 [connection signal="timeout" from="TabContainer/Fire/Passive1/Timer" to="PassiveController" method="_on_fire_passive1_timeout"]
 [connection signal="pressed" from="TabContainer/Fire/Passive2" to="PassiveController" method="_on_fire_passive2_pressed"]
 [connection signal="timeout" from="TabContainer/Fire/Passive2/Timer" to="PassiveController" method="_on_fire_passive2_timeout"]
+[connection signal="pressed" from="TabContainer/Fire/Passive3" to="PassiveController" method="_on_fire_passive3_pressed"]
+[connection signal="timeout" from="TabContainer/Fire/Passive3/Timer" to="PassiveController" method="_on_fire_passive3_timeout"]
+[connection signal="pressed" from="TabContainer/Fire/Passive4" to="PassiveController" method="_on_fire_passive4_pressed"]
+[connection signal="timeout" from="TabContainer/Fire/Passive4/Timer" to="PassiveController" method="_on_fire_passive4_timeout"]
 [connection signal="pressed" from="TabContainer/Water/Button1" to="." method="_on_water_button_pressed"]
 [connection signal="pressed" from="TabContainer/Water/Gather" to="Resource_Controller" method="_on_water_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Water/Passive1" to="PassiveController" method="_on_water_passive1_pressed"]
 [connection signal="timeout" from="TabContainer/Water/Passive1/Timer" to="PassiveController" method="_on_water_passive1_timeout"]
 [connection signal="pressed" from="TabContainer/Water/Passive2" to="PassiveController" method="_on_water_passive2_pressed"]
 [connection signal="timeout" from="TabContainer/Water/Passive2/Timer" to="PassiveController" method="_on_water_passive2_timeout"]
+[connection signal="pressed" from="TabContainer/Water/Passive3" to="PassiveController" method="_on_water_passive3_pressed"]
+[connection signal="timeout" from="TabContainer/Water/Passive3/Timer" to="PassiveController" method="_on_water_passive3_timeout"]
+[connection signal="pressed" from="TabContainer/Water/Passive4" to="PassiveController" method="_on_water_passive4_pressed"]
+[connection signal="timeout" from="TabContainer/Water/Passive4/Timer" to="PassiveController" method="_on_water_passive4_timeout"]
 [connection signal="pressed" from="TabContainer/Light/Button" to="." method="_on_light_button_pressed"]
 [connection signal="pressed" from="WARP_SPEED" to="." method="_on_warp_button_pressed"]
 [connection signal="timeout" from="WARP_SPEED/Timer" to="." method="_on_warp_timer_timeout"]
