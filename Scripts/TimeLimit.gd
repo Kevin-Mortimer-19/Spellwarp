@@ -9,6 +9,8 @@ var start_time = 600
 
 onready var Display = $Display
 
+var text = " remain until the Monster arrives"
+
 func _ready():
 	set_time()
 	start()
@@ -18,9 +20,9 @@ func _process(delta):
 	var seconds = int(get_time_left()) % 60
 	
 	if seconds < 10:
-		Display.set_text(str(minutes) + ":0" + str(seconds))
+		Display.set_text(str(minutes) + ":0" + str(seconds) + text)
 	else:
-		Display.set_text(str(minutes) + ":" + str(seconds))
+		Display.set_text(str(minutes) + ":" + str(seconds) + text)
 
 func reset():
 	stop()
