@@ -16,12 +16,14 @@ var time: float = 0.0
 var amount: int = 0
 # The resource creator's name
 var r_name: String
+# The resource creator's tooltip
+var tooltip: String
 
 var button: Button
 var timer: Timer
 var label: Label
 
-func _init(c, o, t, b, t2, l, n, r):
+func _init(c, o, t, b, t2, l, n, r, tt=""):
 	base_cost = c
 	cost = base_cost
 	output = o
@@ -32,6 +34,9 @@ func _init(c, o, t, b, t2, l, n, r):
 	label = l
 	r_name = n
 	res = r
+	tooltip = tt
+	
+	set_tooltip()
 
 func get_cost() -> int:
 	return cost
@@ -79,3 +84,6 @@ func buy() -> int:
 	else:
 		cost += base_cost
 	return current_cost
+
+func set_tooltip():
+	button.set_tooltip(tooltip)

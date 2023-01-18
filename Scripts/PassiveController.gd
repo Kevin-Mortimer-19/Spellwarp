@@ -187,7 +187,7 @@ func _ready():
 	# Object's name
 	# Type of resource produced
 	#
-	air_passive_0 = resource_creator.new(100, 1, 1, air_button_0, air_timer_0, air_label_0, "Air Auto Extractor", list.RES.AIR)
+	air_passive_0 = resource_creator.new(100, 1, 1, air_button_0, air_timer_0, air_label_0, "Air Auto Extractor", list.RES.AIR, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
 	air_passive_1 = resource_creator.new(20, 10, 10, air_button_1, air_timer_1, air_label_1, "Hire Lightweight Gremlins", list.RES.SUBAIR)
 	air_passive_2 = resource_creator.new(40, 1, 1, air_button_2, air_timer_2, air_label_2, "Construct Puff Condenser", list.RES.AIR)
 	air_passive_3 = resource_creator.new(250, 100, 10, air_button_3, air_timer_3, air_label_3, "Hire Wing Gremlins", list.RES.SUBAIR)
@@ -209,7 +209,7 @@ func _ready():
 	all_passives.append(air_passive_8)
 	
 
-	earth_passive_0 = resource_creator.new(100, 1, 1, earth_button_0, earth_timer_0, earth_label_0, "Earth Auto Extractor", list.RES.EARTH)
+	earth_passive_0 = resource_creator.new(100, 1, 1, earth_button_0, earth_timer_0, earth_label_0, "Earth Auto Extractor", list.RES.EARTH, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
 	earth_passive_1 = resource_creator.new(20, 10, 10, earth_button_1, earth_timer_1, earth_label_1, "Hire Mining Gremlins", list.RES.SUBEARTH)
 	earth_passive_2 = resource_creator.new(40, 1, 1, earth_button_2, earth_timer_2, earth_label_2, "Construct Chunk Breaker", list.RES.EARTH)
 	earth_passive_3 = resource_creator.new(250, 100, 10, earth_button_3, earth_timer_3, earth_label_3, "Hire Crag Gremlins", list.RES.SUBEARTH)
@@ -229,7 +229,7 @@ func _ready():
 	all_passives.append(earth_passive_7)
 	all_passives.append(earth_passive_8)
 	
-	fire_passive_0 = resource_creator.new(100, 1, 1, fire_button_0, fire_timer_0, fire_label_0, "Fire Auto Extractor", list.RES.FIRE)
+	fire_passive_0 = resource_creator.new(100, 1, 1, fire_button_0, fire_timer_0, fire_label_0, "Fire Auto Extractor", list.RES.FIRE, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
 	fire_passive_1 = resource_creator.new(20, 10, 10, fire_button_1, fire_timer_1, fire_label_1,  "Hire Gathering Gremlins", list.RES.SUBFIRE)
 	fire_passive_2 = resource_creator.new(40, 1, 1, fire_button_2, fire_timer_2, fire_label_2, "Construct Rose Mixer", list.RES.FIRE)
 	fire_passive_3 = resource_creator.new(250, 100, 10, fire_button_3, fire_timer_3, fire_label_3,  "Hire Thorny Gremlins", list.RES.SUBFIRE)
@@ -249,7 +249,7 @@ func _ready():
 	all_passives.append(fire_passive_7)
 	all_passives.append(fire_passive_8)
 	
-	water_passive_0 = resource_creator.new(100, 1, 1, water_button_0, water_timer_0, water_label_0, "Water Auto Extactor", list.RES.WATER)
+	water_passive_0 = resource_creator.new(100, 1, 1, water_button_0, water_timer_0, water_label_0, "Water Auto Extractor", list.RES.WATER, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
 	water_passive_1 = resource_creator.new(20, 10, 10, water_button_1, water_timer_1, water_label_1, "Hire Snorkeling Gremlins", list.RES.SUBWATER)
 	water_passive_2 = resource_creator.new(40, 1, 1, water_button_2, water_timer_2, water_label_2, "Construct Crystal Crushers", list.RES.WATER)
 	water_passive_3 = resource_creator.new(250, 100, 10, water_button_3, water_timer_3, water_label_3, "Hire Fin Gremlins", list.RES.SUBWATER)
@@ -269,7 +269,7 @@ func _ready():
 	all_passives.append(water_passive_7)
 	all_passives.append(water_passive_8)
 	
-	light_passive_1 = resource_creator.new(50, 1, 1, light_button_1, light_timer_1, light_label_1, "Prism Altar", list.RES.LIGHT)
+	light_passive_1 = resource_creator.new(50, 1, 1, light_button_1, light_timer_1, light_label_1, "Prism Altar", list.RES.LIGHT, "Construct an apparatus to refract elements into light automatically.")
 	
 	all_passives.append(light_passive_1)
 	
