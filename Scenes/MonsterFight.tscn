@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/MidBattleWarp.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/BossFight.gd" type="Script" id=2]
 [ext_resource path="res://Art/space_bg.png" type="Texture" id=3]
 [ext_resource path="res://Art/final_boss.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/FadeAnimation.tscn" type="PackedScene" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -150,6 +151,8 @@ margin_top = 40.0
 margin_right = 983.0
 margin_bottom = 90.0
 alignment = 2
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource( 5 )]
 
 [connection signal="pressed" from="Menu/CombatRow/FailButton" to="." method="_on_fail_button_pressed"]
 [connection signal="pressed" from="Menu/CombatRow/ElementButton" to="." method="_on_element_button_pressed"]

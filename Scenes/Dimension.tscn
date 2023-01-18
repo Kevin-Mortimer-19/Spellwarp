@@ -226,14 +226,14 @@ margin_right = 432.0
 margin_bottom = 44.0
 text = "Bottle Cloud Puffs"
 
-[node name="Passive0" type="Button" parent="TabContainer/Air/AirList" groups=["advanced", "air", "passive_button"]]
+[node name="Passive0" type="Button" parent="TabContainer/Air/AirList"]
 margin_top = 48.0
 margin_right = 432.0
 margin_bottom = 68.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive0"]
 
-[node name="Label0" type="Label" parent="TabContainer/Air/AirList" groups=["advanced", "air"]]
+[node name="Label0" type="Label" parent="TabContainer/Air/AirList"]
 margin_top = 72.0
 margin_right = 432.0
 margin_bottom = 86.0
@@ -375,7 +375,7 @@ margin_bottom = 68.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive0"]
 
-[node name="Label0" type="Label" parent="TabContainer/Earth/EarthList" groups=["earth"]]
+[node name="Label0" type="Label" parent="TabContainer/Earth/EarthList"]
 margin_top = 72.0
 margin_right = 158.0
 margin_bottom = 86.0
@@ -517,7 +517,7 @@ margin_bottom = 68.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Fire/FireList/Passive0"]
 
-[node name="Label0" type="Label" parent="TabContainer/Fire/FireList" groups=["fire"]]
+[node name="Label0" type="Label" parent="TabContainer/Fire/FireList"]
 margin_top = 72.0
 margin_right = 186.0
 margin_bottom = 86.0
@@ -659,7 +659,7 @@ margin_bottom = 68.0
 
 [node name="Timer" type="Timer" parent="TabContainer/Water/WaterList/Passive0"]
 
-[node name="Label0" type="Label" parent="TabContainer/Water/WaterList" groups=["water"]]
+[node name="Label0" type="Label" parent="TabContainer/Water/WaterList"]
 margin_top = 72.0
 margin_right = 162.0
 margin_bottom = 86.0
@@ -924,17 +924,28 @@ clip_text = true
 
 [node name="UI" type="Node" parent="."]
 
-[node name="Background" type="Sprite" parent="UI"]
-position = Vector2( 112.5, 157.5 )
+[node name="BG" type="TextureRect" parent="UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="UI"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1076.0
+margin_bottom = 900.0
+rect_scale = Vector2( 0.488, 0.4 )
+mouse_filter = 2
+
+[node name="SceneTransitionRect" parent="UI" instance=ExtResource( 7 )]
 
 [node name="Line1" type="Line2D" parent="UI"]
+z_as_relative = false
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
 [node name="Line2" type="Line2D" parent="UI"]
-
-[node name="SceneTransitionRect" parent="." instance=ExtResource( 7 )]
-visible = false
+z_as_relative = false
 
 [connection signal="pressed" from="Research/Warp1" to="Research" method="_on_warp1_pressed"]
 [connection signal="pressed" from="Research/Warp2" to="Research" method="_on_warp2_pressed"]

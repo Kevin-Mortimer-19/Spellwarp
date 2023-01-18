@@ -95,19 +95,15 @@ func add_sub_element(amount, element):
 	match element:
 		list.RES.AIR, list.RES.SUBAIR:
 			air_sub_count += amount
-			#air_sub_label.text = "Cloud Puffs: %s" % air_sub_count
 			ElementUI.display_element(air_sub_label, "Cloud Puffs: %s", air_sub_count)
 		list.RES.EARTH, list.RES.SUBEARTH:
 			earth_sub_count += amount
-			#earth_sub_label.text = "Obsidian Chunks: %s" % earth_sub_count
 			ElementUI.display_element(earth_sub_label, "Obsidian Chunks: %s", earth_sub_count)
 		list.RES.FIRE, list.RES.SUBFIRE:
 			fire_sub_count += amount
-			#fire_sub_label.text = "Glowing Roses: %s" % fire_sub_count
 			ElementUI.display_element(fire_sub_label, "Glowing Roses: %s", fire_sub_count)
 		list.RES.WATER, list.RES.SUBWATER:
 			water_sub_count += amount
-			#water_sub_label.text = "Coral Crystals: %s" % water_sub_count
 			ElementUI.display_element(water_sub_label, "Coral Crystals: %s", water_sub_count)
 
 func can_afford(amount, element):

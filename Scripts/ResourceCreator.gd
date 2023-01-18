@@ -20,8 +20,9 @@ var r_name: String
 var button: Button
 var timer: Timer
 var label: Label
+#var tooltip: String # new
 
-func _init(c, o, t, b, t2, l, n, r):
+func _init(c, o, t, b, t2, l, n, r): # t3 is new
 	base_cost = c
 	cost = base_cost
 	output = o
@@ -32,6 +33,11 @@ func _init(c, o, t, b, t2, l, n, r):
 	label = l
 	r_name = n
 	res = r
+#	# new
+#	tooltip = t3
+#
+#func tooltip():
+#	button.set_tooltip(tooltip) # this function might be wrong
 
 func get_cost() -> int:
 	return cost
