@@ -22,6 +22,8 @@ var tooltip: String
 var button: Button
 var timer: Timer
 var label: Label
+#var tooltip: String # new
+
 
 func _init(c, o, t, b, t2, l, n, r, tt=""):
 	base_cost = c
@@ -34,6 +36,7 @@ func _init(c, o, t, b, t2, l, n, r, tt=""):
 	label = l
 	r_name = n
 	res = r
+
 	tooltip = tt
 	
 	set_tooltip()

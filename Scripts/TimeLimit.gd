@@ -2,8 +2,10 @@ extends Timer
 
 onready var main = get_node("..")
 
+onready var Fade = get_node("../UI/SceneTransitionRect")
+
 # Time (in seconds) until the monster appears
-var start_time = 15
+var start_time = 600
 
 onready var Display = $Display
 
@@ -28,7 +30,7 @@ func reset():
 
 func _time_is_up():
 	main.store_energy()
-	get_tree().change_scene("res://Scenes/MonsterFight.tscn")
+	Fade.transition_to("res://Scenes/MonsterFight.tscn")
 
 func set_time():
 	if ResearchDB.warp_2():

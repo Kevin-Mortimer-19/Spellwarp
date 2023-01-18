@@ -6,17 +6,12 @@ onready var FailButton = $Menu/CombatRow/FailButton
 onready var ElementButton = $Menu/CombatRow/ElementButton
 onready var LightButton = $Menu/CombatRow/LightButton
 
-#onready var AirLabel = $Elements/Air/Count
-#onready var EarthLabel = $Elements/Earth/Count
-#onready var FireLabel = $Elements/Fire/Count
-#onready var WaterLabel = $Elements/Water/Count
-#onready var LightLabel = $Elements/Light/Count
-
 onready var air_label: Label = $Elements/Air/Count
 onready var earth_label: Label = $Elements/Earth/Count
 onready var fire_label: Label = $Elements/Fire/Count
 onready var water_label: Label = $Elements/Water/Count
 onready var light_label: Label = $Elements/Light/Count
+onready var fade = $SceneTransitionRect
 
 var AirAttack: MonsterEvent
 var AirDefend: MonsterEvent
@@ -199,14 +194,16 @@ func spell_check(button, research):
 		button.disabled = true
 
 func overwhelming_darkness():
-	FightLabel.set_text("The monster charges up a blast of overwhelming darkness!")
+	FightLabel.set_text("The Monster charges up a blast of overwhelming darkness!")
 	ElementButton.visible = false
+	FailButton.set_text("Cower in Fear!")
+	LightButton.set_text("The Monster's darkness is no match for your light!")
 
 func game_over():
-	get_tree().change_scene("res://Scenes/GAMEOVER.tscn")
+	fade.transition_to("res://Scenes/GAMEOVER.tscn")
 
 func victory():
-	FightLabel.set_text("victory!")
+	fade.transition_to("res://Scenes/Victory.tscn")
 
 func get_event(a):
 	var index = rng.randi_range(0,1)

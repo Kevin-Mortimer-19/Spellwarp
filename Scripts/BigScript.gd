@@ -194,7 +194,7 @@ func draw_ui():
 	var img_height = 2100
 	var img_width = 1500
 	Background.set_scale(Vector2(scale_factor, scale_factor))
-	Background.set_position(Vector2((scale_factor * img_width)/2, (scale_factor * img_height)/2))
+	#Background.set_position(Vector2((scale_factor * img_width)/16, (scale_factor * img_height)/16))
 	
 	BGSideLine.add_point(Vector2(img_width * scale_factor + BGSideLine.width/2, 0))
 	BGSideLine.add_point(Vector2(img_width * scale_factor + BGSideLine.width/2, img_height * scale_factor + BGSideLine.width/2))
