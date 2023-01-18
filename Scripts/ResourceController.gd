@@ -27,16 +27,16 @@ func find_resource(r):
 	match r:
 		0:
 			print("AIR")
-			air_resource()
+			enable_resource("air")
 		1:
 			print("EARTH")
-			earth_resource()
+			enable_resource("earth")
 		2:
 			print ("FIRE")
-			fire_resource()
+			enable_resource("fire")
 		3:
 			print("WATER")
-			water_resource()
+			enable_resource("water")
 
 func disable_groups():
 	for r in get_tree().get_nodes_in_group("air"):
@@ -47,6 +47,26 @@ func disable_groups():
 		r.visible = false
 	for r in get_tree().get_nodes_in_group("water"):
 		r.visible = false
+
+func research_unlock(r1, r2, r3):
+	enable_resource(get_resource_name(r1))
+	enable_resource(get_resource_name(r2))
+	if ResearchDB.warp_3():
+		enable_resource(get_resource_name(r3))
+
+func get_resource_name(r: int) -> String:
+	match r:
+		0:
+			return "air"
+		1:
+			return "earth"
+		2:
+			return "fire"
+		3:
+			return "water"
+		4:
+			return "light"
+	return ""
 
 func air_resource():
 	for r in get_tree().get_nodes_in_group("air"):
@@ -64,20 +84,31 @@ func water_resource():
 	for r in get_tree().get_nodes_in_group("water"):
 		r.visible = true
 
+func enable_resource(element: String):
+	for r in get_tree().get_nodes_in_group(element):
+		if r.is_in_group("advanced") && !ResearchDB.prod_1():
+			r.visible = false
+		else:
+			r.visible = true
+
 func add_sub_element(amount, element):
 	match element:
 		list.RES.AIR, list.RES.SUBAIR:
 			air_sub_count += amount
-			air_sub_label.text = "Cloud Puffs: %s" % air_sub_count
+			#air_sub_label.text = "Cloud Puffs: %s" % air_sub_count
+			ElementUI.display_element(air_sub_label, "Cloud Puffs: %s", air_sub_count)
 		list.RES.EARTH, list.RES.SUBEARTH:
 			earth_sub_count += amount
-			earth_sub_label.text = "Obsidian Chunks: %s" % earth_sub_count
+			#earth_sub_label.text = "Obsidian Chunks: %s" % earth_sub_count
+			ElementUI.display_element(earth_sub_label, "Obsidian Chunks: %s", earth_sub_count)
 		list.RES.FIRE, list.RES.SUBFIRE:
 			fire_sub_count += amount
-			fire_sub_label.text = "Glowing Roses: %s" % fire_sub_count
+			#fire_sub_label.text = "Glowing Roses: %s" % fire_sub_count
+			ElementUI.display_element(fire_sub_label, "Glowing Roses: %s", fire_sub_count)
 		list.RES.WATER, list.RES.SUBWATER:
 			water_sub_count += amount
-			water_sub_label.text = "Coral Crystals %s" % water_sub_count
+			#water_sub_label.text = "Coral Crystals: %s" % water_sub_count
+			ElementUI.display_element(water_sub_label, "Coral Crystals: %s", water_sub_count)
 
 func can_afford(amount, element):
 	match element:

@@ -1,12 +1,26 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/MidBattleWarp.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/BossFight.gd" type="Script" id=2]
+[ext_resource path="res://Art/space_bg.png" type="Texture" id=3]
+[ext_resource path="res://Art/final_boss.png" type="Texture" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+
+[node name="Space" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.488, 0.4 )
+texture = ExtResource( 3 )
+
+[node name="Monster" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.488, 0.4 )
+texture = ExtResource( 4 )
 
 [node name="Elements" type="HBoxContainer" parent="."]
 anchor_right = 1.0
@@ -72,22 +86,22 @@ text = "Light:"
 align = 2
 
 [node name="Menu" type="VBoxContainer" parent="."]
-margin_left = 68.0187
-margin_top = 120.123
-margin_right = 919.019
-margin_bottom = 472.123
+margin_left = 73.0806
+margin_top = 438.24
+margin_right = 924.081
+margin_bottom = 661.24
 alignment = 1
 
 [node name="Label" type="Label" parent="Menu"]
-margin_top = 145.0
+margin_top = 80.0
 margin_right = 851.0
-margin_bottom = 159.0
+margin_bottom = 94.0
 align = 1
 
 [node name="CombatRow" type="HBoxContainer" parent="Menu"]
-margin_top = 163.0
+margin_top = 98.0
 margin_right = 851.0
-margin_bottom = 183.0
+margin_bottom = 118.0
 alignment = 1
 
 [node name="FailButton" type="Button" parent="Menu/CombatRow"]
@@ -118,9 +132,9 @@ margin_right = 622.0
 margin_bottom = 20.0
 
 [node name="WarpRow" type="HBoxContainer" parent="Menu"]
-margin_top = 187.0
+margin_top = 122.0
 margin_right = 851.0
-margin_bottom = 207.0
+margin_bottom = 142.0
 alignment = 1
 
 [node name="WarpButton" type="Button" parent="Menu/WarpRow"]

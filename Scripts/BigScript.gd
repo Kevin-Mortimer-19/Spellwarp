@@ -75,12 +75,8 @@ func _ready():
 	ElementUI.display_element(fire_label, "Fire: %s", fire_count)
 	ElementUI.display_element(water_label, "Water: %s", water_count)
 	ElementUI.display_element(light_label, "Light: %s", light_count)
-	
-	if ResearchDB.prod_1():
-		for r in get_tree().get_nodes_in_group("advanced"):
-			r.visible = true
 
-func _process(delta):
+func _process(_delta):
 	if light_count < warp_cost || !warp_ready: 
 		Warp_Button.disabled = true
 	else:
@@ -220,6 +216,7 @@ func new_dimension():
 	current_dim = dim.new(air_clicker, earth_clicker, fire_clicker, water_clicker)
 	dimension_attributes(current_dim.get_resource_1())
 	Resource_Controller.resources(current_dim.get_resource_1(), current_dim.get_resource_2(), current_dim.get_resource_3())
+	advanced_check()
 	if ResearchDB.warp_1():
 		add_element(-1 * air_count / 2, list.RES.AIR)
 		add_element(-1 * earth_count / 2, list.RES.EARTH)
@@ -252,9 +249,18 @@ func _on_warp_button_pressed():
 func _on_warp_timer_timeout():
 	warp_ready = true
 
+func advanced_check():
+	if ResearchDB.prod_1():
+		unlock_advanced()
+	else:
+		lock_advanced()
+
 func unlock_advanced():
+	Resource_Controller.research_unlock(current_dim.get_resource_1(), current_dim.get_resource_2(), current_dim.get_resource_3())
+
+func lock_advanced():
 	for r in get_tree().get_nodes_in_group("advanced"):
-		r.visible = true
+		r.visible = false
 
 func _on_TabContainer_tab_changed(tab):
 	SoundPlayer.play_category(SoundPlayer.PAGETURNSOUNDS)
