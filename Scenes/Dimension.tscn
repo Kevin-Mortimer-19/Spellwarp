@@ -66,16 +66,22 @@ margin_bottom = 68.0
 [node name="Warp1" type="Button" parent="Research/Warp"]
 margin_right = 12.0
 margin_bottom = 20.0
+hint_tooltip = "When you warp to a new dimension, you can keep some reserves of elemental energy."
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Warp2" type="Button" parent="Research/Warp"]
 margin_top = 24.0
 margin_right = 12.0
 margin_bottom = 44.0
+hint_tooltip = "You can warp to dimensions that are further away, extending the time it takes for the monster to arrive."
 
 [node name="Warp3" type="Button" parent="Research/Warp"]
 margin_top = 48.0
 margin_right = 12.0
 margin_bottom = 68.0
+hint_tooltip = "You can warp to more prosperous dimensions with three available resources."
 
 [node name="Spell" type="VBoxContainer" parent="Research"]
 margin_left = 82.0
@@ -85,16 +91,19 @@ margin_bottom = 68.0
 [node name="Spell1" type="Button" parent="Research/Spell"]
 margin_right = 12.0
 margin_bottom = 20.0
+hint_tooltip = "Learn powerful offensive magics that allow you to strike back against the monster."
 
 [node name="Spell2" type="Button" parent="Research/Spell"]
 margin_top = 24.0
 margin_right = 12.0
 margin_bottom = 44.0
+hint_tooltip = "Recall potent defensive incantations that can protect you from the monster’s onslaught."
 
 [node name="Spell3" type="Button" parent="Research/Spell"]
 margin_top = 48.0
 margin_right = 12.0
 margin_bottom = 68.0
+hint_tooltip = "Weave spells more efficiently, reducing the magical energy necessary to cast them."
 
 [node name="Prod" type="VBoxContainer" parent="Research"]
 margin_left = 98.0
@@ -104,16 +113,19 @@ margin_bottom = 68.0
 [node name="Production1" type="Button" parent="Research/Prod"]
 margin_right = 12.0
 margin_bottom = 20.0
+hint_tooltip = "Unlocks a new set of more plucky gremlins and further advanced machines."
 
 [node name="Production2" type="Button" parent="Research/Prod"]
 margin_top = 24.0
 margin_right = 12.0
 margin_bottom = 44.0
+hint_tooltip = "Magical enhancement allows gremlins work more efficiently, bringing back resources in half the time."
 
 [node name="Production3" type="Button" parent="Research/Prod"]
 margin_top = 48.0
 margin_right = 12.0
 margin_bottom = 68.0
+hint_tooltip = "Production machines are enhanced with light-infused components, doubling their output."
 
 [node name="Elements" type="HBoxContainer" parent="."]
 anchor_right = 1.0
