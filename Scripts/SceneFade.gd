@@ -19,4 +19,3 @@ func fade_out():
 
 func fade_in():
 	_anim_player.play_backwards("Fade")
-	#yield(_anim_player, "animation_finished")

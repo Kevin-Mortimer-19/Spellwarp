@@ -31,4 +31,13 @@ margin_bottom = 530.828
 custom_fonts/font = ExtResource( 5 )
 text = "GAME OVER"
 
+[node name="Button" type="Button" parent="."]
+margin_left = 473.679
+margin_top = 547.761
+margin_right = 545.679
+margin_bottom = 567.761
+text = "Restart?"
+
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 2 )]
+
+[connection signal="pressed" from="Button" to="." method="_on_restart_pressed"]

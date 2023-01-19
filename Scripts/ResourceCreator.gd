@@ -22,7 +22,6 @@ var tooltip: String
 var button: Button
 var timer: Timer
 var label: Label
-#var tooltip: String # new
 
 
 func _init(c, o, t, b, t2, l, n, r, tt=""):

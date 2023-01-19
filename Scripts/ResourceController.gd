@@ -15,6 +15,9 @@ var water_sub_count = 0
 
 var r_clicker = 1
 
+func _ready():
+	pass
+
 func resources(r1, r2, r3):
 	disable_groups()
 	

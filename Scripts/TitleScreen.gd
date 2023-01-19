@@ -7,5 +7,3 @@ func _ready():
 
 func _on_start_button_pressed():
 	_transition_rect.transition_to("res://Scenes/OpeningCutscene.tscn")
-
-#	yield(_anim_player, "animation_finished")
