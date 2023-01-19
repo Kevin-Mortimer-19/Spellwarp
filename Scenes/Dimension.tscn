@@ -271,6 +271,7 @@ hint_tooltip = "Construct a rudimentary machine to extract elemental energy from
 [node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive0"]
 
 [node name="Label0" type="Label" parent="TabContainer/Air/AirList"]
+self_modulate = Color( 0, 0, 0, 1 )
 margin_top = 72.0
 margin_right = 432.0
 margin_bottom = 86.0

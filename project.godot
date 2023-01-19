@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="clicker jam"
-run/main_scene="res://Scenes/Dimension.tscn"
+run/main_scene="res://Scenes/Title.tscn"
 config/icon="res://icon.png"
 
 [autoload]

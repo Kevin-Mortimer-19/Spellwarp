@@ -755,6 +755,7 @@ func payout(creator) -> int:
 func text_update(creator):
 	var template = creator.get_name() + cost_label
 	creator.get_button().text = template % creator.get_cost()
+	creator.get_label().modulate = Color(0,0,0)
 	if creator.amount > 0:
 		template = "You own %s, which produce %s per second."
 		creator.get_label().text = template % [creator.get_amount(), payout(creator) / creator.get_time()]

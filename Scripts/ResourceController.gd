@@ -31,16 +31,12 @@ func resources(r1, r2, r3):
 func find_resource(r):
 	match r:
 		0:
-			print("AIR")
 			enable_resource("air")
 		1:
-			print("EARTH")
 			enable_resource("earth")
 		2:
-			print ("FIRE")
 			enable_resource("fire")
 		3:
-			print("WATER")
 			enable_resource("water")
 
 func disable_groups():
