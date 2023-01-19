@@ -334,10 +334,10 @@ func _ready():
 	all_passives.append(water_passive_7)
 	all_passives.append(water_passive_8)
 	
-	light_passive_1 = resource_creator.new(50, 1, 1, light_button_1, light_timer_1, light_label_1, "Prism Altar", list.RES.LIGHT, "Construct an apparatus to refract elements into light automatically.")
-	light_passive_2 = resource_creator.new(500, 10, 1, light_button_2, light_timer_2, light_label_2, "Prism Shrine", list.RES.LIGHT, "Construct an apparatus to refract elements into light automatically.")
-	light_passive_3 = resource_creator.new(5000, 100, 1, light_button_3, light_timer_3, light_label_3, "Prism Tower", list.RES.LIGHT, "Construct an apparatus to refract elements into light automatically.")
-	light_passive_4 = resource_creator.new(50000, 1000, 1, light_button_4, light_timer_4, light_label_4, "Prism Satellite", list.RES.LIGHT, "Construct an apparatus to refract elements into light automatically.")
+	light_passive_1 = resource_creator.new(50, 1, 1, light_button_1, light_timer_1, light_label_1, "Prism Altar", list.RES.LIGHT, "Construct a simple arcane apparatus to refract elements into light automatically.")
+	light_passive_2 = resource_creator.new(500, 10, 1, light_button_2, light_timer_2, light_label_2, "Prism Shrine", list.RES.LIGHT, "Construct an advanced arcane apparatus to reform elements into light automatically.")
+	light_passive_3 = resource_creator.new(5000, 100, 1, light_button_3, light_timer_3, light_label_3, "Prism Tower", list.RES.LIGHT, "Construct a grand arcane apparatus to reshape elements into light automatically.")
+	light_passive_4 = resource_creator.new(50000, 1000, 1, light_button_4, light_timer_4, light_label_4, "Prism Satellite", list.RES.LIGHT, "Construct an ultimate arcane apparatus to fuse elements into light automatically.")
 	
 	all_passives.append(light_passive_1)
 	all_passives.append(light_passive_2)

@@ -126,6 +126,7 @@ func _on_element_button_pressed():
 			var difference = StoredEnergy.air - AIR
 			if difference > 0:
 				StoredEnergy.air = difference
+				SoundPlayer.play_sound(SoundPlayer.AIRSPELL)
 				next_turn(true)
 			else:
 				next_turn(false)
@@ -133,6 +134,7 @@ func _on_element_button_pressed():
 			var difference = StoredEnergy.earth - EARTH
 			if difference > 0:
 				StoredEnergy.earth = difference
+				SoundPlayer.play_sound(SoundPlayer.EARTHSPELL)
 				next_turn(true)
 			else:
 				next_turn(false)
@@ -140,6 +142,7 @@ func _on_element_button_pressed():
 			var difference = StoredEnergy.fire - FIRE
 			if difference > 0:
 				StoredEnergy.fire = difference
+				SoundPlayer.play_sound(SoundPlayer.FIRESPELL)
 				next_turn(true)
 			else:
 				next_turn(false)
@@ -147,6 +150,7 @@ func _on_element_button_pressed():
 			var difference = StoredEnergy.water - WATER
 			if difference > 0:
 				StoredEnergy.water = difference
+				SoundPlayer.play_sound(SoundPlayer.WATERSPELL)
 				next_turn(true)
 			else:
 				next_turn(false)
@@ -155,6 +159,8 @@ func _on_light_button_pressed():
 	if final_turn:
 		var difference = StoredEnergy.light - DARK
 		if difference > 0:
+			SoundPlayer.play_sound(SoundPlayer.LIGHTSPELL1)
+			SoundPlayer.play_sound(SoundPlayer.LIGHTSPELL2)
 			victory()
 		else:
 			game_over()
@@ -164,6 +170,8 @@ func _on_light_button_pressed():
 				var difference = StoredEnergy.light - AIR
 				if difference > 0:
 					StoredEnergy.light = difference
+					SoundPlayer.play_sound(SoundPlayer.LIGHTSPELL1)
+					SoundPlayer.play_sound(SoundPlayer.LIGHTSPELL2)
 					next_turn(true)
 				else:
 					next_turn(false)
@@ -171,6 +179,8 @@ func _on_light_button_pressed():
 				var difference = StoredEnergy.light - EARTH
 				if difference > 0:
 					StoredEnergy.light = difference
+					SoundPlayer.play_sound(SoundPlayer.LIGHTSPELL1)
+					SoundPlayer.play_sound(SoundPlayer.LIGHTSPELL2)
 					next_turn(true)
 				else:
 					next_turn(false)
@@ -178,6 +188,8 @@ func _on_light_button_pressed():
 				var difference = StoredEnergy.light - FIRE
 				if difference > 0:
 					StoredEnergy.light = difference
+					SoundPlayer.play_sound(SoundPlayer.LIGHTSPELL1)
+					SoundPlayer.play_sound(SoundPlayer.LIGHTSPELL2)
 					next_turn(true)
 				else:
 					next_turn(false)
@@ -185,6 +197,8 @@ func _on_light_button_pressed():
 				var difference = StoredEnergy.light - WATER
 				if difference > 0:
 					StoredEnergy.light = difference
+					SoundPlayer.play_sound(SoundPlayer.LIGHTSPELL1)
+					SoundPlayer.play_sound(SoundPlayer.LIGHTSPELL2)
 					next_turn(true)
 				else:
 					next_turn(false)
@@ -202,6 +216,8 @@ func overwhelming_darkness():
 	LightButton.set_text("The Monster's darkness is no match for your light!")
 
 func game_over():
+	SoundPlayer.play_sound(SoundPlayer.DEATH)
+	SoundPlayer.play_sound(SoundPlayer.NEGATIVE)
 	fade.transition_to("res://Scenes/GAMEOVER.tscn")
 
 func victory():

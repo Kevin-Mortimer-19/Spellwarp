@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/warpsound1.mp3-12762ae3bf44b2d345b3ccf8288af11b.mp3str"
+
+[deps]
+
+source_file="res://Sounds/SFX/warpsound1.mp3"
+dest_files=[ "res://.import/warpsound1.mp3-12762ae3bf44b2d345b3ccf8288af11b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
