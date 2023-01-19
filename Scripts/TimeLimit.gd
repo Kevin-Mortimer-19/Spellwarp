@@ -36,6 +36,10 @@ func reset():
 	main.store_energy()
 	start()
 
+func _on_challenge_pressed():
+	main.store_energy()
+	Fade.transition_to("res://Scenes/MonsterFight.tscn")
+
 func _time_is_up():
 	stop()
 	main.store_energy()

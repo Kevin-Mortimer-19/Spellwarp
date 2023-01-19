@@ -1176,6 +1176,13 @@ margin_bottom = 413.388
 autowrap = true
 clip_text = true
 
+[node name="Button" type="Button" parent="TimeUntilTheEnd"]
+margin_left = 844.45
+margin_top = 435.0
+margin_right = 1010.45
+margin_bottom = 455.0
+text = "Challenge the Monster"
+
 [node name="LogBox" type="Label" parent="."]
 margin_left = 20.0
 margin_top = 405.0
@@ -1348,3 +1355,4 @@ z_as_relative = false
 [connection signal="pressed" from="WARP_SPEED" to="." method="_on_warp_button_pressed"]
 [connection signal="timeout" from="WARP_SPEED/Timer" to="." method="_on_warp_timer_timeout"]
 [connection signal="timeout" from="TimeUntilTheEnd" to="TimeUntilTheEnd" method="_time_is_up"]
+[connection signal="pressed" from="TimeUntilTheEnd/Button" to="TimeUntilTheEnd" method="_on_challenge_pressed"]

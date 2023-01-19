@@ -20,8 +20,6 @@ func _ready():
 
 func resources(r1, r2, r3):
 	disable_groups()
-	
-	print("The resources available are as follows:")
 	find_resource(r1)
 	find_resource(r2)
 	if ResearchDB.warp_3():
