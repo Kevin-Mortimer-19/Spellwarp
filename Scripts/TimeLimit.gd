@@ -5,7 +5,7 @@ onready var main = get_node("..")
 onready var Fade = get_node("../UI/SceneTransitionRect")
 
 # Time (in seconds) until the monster appears
-var start_time = 10
+var start_time = 600
 
 onready var Display = $Display
 
