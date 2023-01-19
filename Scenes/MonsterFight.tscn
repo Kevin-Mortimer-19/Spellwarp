@@ -126,37 +126,30 @@ margin_bottom = 661.24
 alignment = 1
 
 [node name="Label" type="Label" parent="Menu"]
-margin_top = 80.0
+margin_top = 68.0
 margin_right = 851.0
-margin_bottom = 94.0
+margin_bottom = 82.0
 align = 1
 
 [node name="CombatRow" type="HBoxContainer" parent="Menu"]
-margin_top = 98.0
+margin_top = 86.0
 margin_right = 851.0
-margin_bottom = 118.0
+margin_bottom = 106.0
 alignment = 1
 
 [node name="FailButton" type="Button" parent="Menu/CombatRow"]
-margin_left = 185.0
-margin_right = 365.0
+margin_left = 222.0
+margin_right = 402.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 70, 20 )
 text = "Block it with your hands!"
 
 [node name="ElementButton" type="Button" parent="Menu/CombatRow"]
-margin_left = 369.0
-margin_right = 591.0
+margin_left = 406.0
+margin_right = 628.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 70, 20 )
 text = "Block it with a shield of water!"
-
-[node name="LightButton" type="Button" parent="Menu/CombatRow"]
-margin_left = 595.0
-margin_right = 665.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 70, 20 )
-text = "Light!"
 
 [node name="Advance" type="Button" parent="Menu/CombatRow"]
 visible = false
@@ -164,10 +157,23 @@ margin_left = 610.0
 margin_right = 622.0
 margin_bottom = 20.0
 
-[node name="WarpRow" type="HBoxContainer" parent="Menu"]
-margin_top = 122.0
+[node name="LightRow" type="HBoxContainer" parent="Menu"]
+margin_top = 110.0
 margin_right = 851.0
-margin_bottom = 142.0
+margin_bottom = 130.0
+alignment = 1
+
+[node name="LightButton" type="Button" parent="Menu/LightRow"]
+margin_left = 390.0
+margin_right = 460.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 70, 20 )
+text = "Light!"
+
+[node name="WarpRow" type="HBoxContainer" parent="Menu"]
+margin_top = 134.0
+margin_right = 851.0
+margin_bottom = 154.0
 alignment = 1
 
 [node name="WarpButton" type="Button" parent="Menu/WarpRow"]
@@ -188,5 +194,5 @@ alignment = 2
 
 [connection signal="pressed" from="Menu/CombatRow/FailButton" to="." method="_on_fail_button_pressed"]
 [connection signal="pressed" from="Menu/CombatRow/ElementButton" to="." method="_on_element_button_pressed"]
-[connection signal="pressed" from="Menu/CombatRow/LightButton" to="." method="_on_light_button_pressed"]
+[connection signal="pressed" from="Menu/LightRow/LightButton" to="." method="_on_light_button_pressed"]
 [connection signal="pressed" from="Menu/WarpRow/WarpButton" to="Menu/WarpRow/WarpButton" method="_on_warp_pressed"]
