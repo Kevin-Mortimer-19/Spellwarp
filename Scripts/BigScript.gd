@@ -66,7 +66,7 @@ func _ready():
 	if warp_cost == 0:
 		warp_cost = 1
 	
-	Warp_Label.text = "Cost to warp: %s Light" % str(warp_cost)
+	Warp_Label.text = "Cost to warp:\n" + str(warp_cost) + " Light"
 	
 	dimension_attributes(current_dim.get_resource_1())
 	
@@ -194,7 +194,6 @@ func draw_ui():
 	var img_height = 2100
 	var img_width = 1500
 	Background.set_scale(Vector2(scale_factor, scale_factor))
-	#Background.set_position(Vector2((scale_factor * img_width)/16, (scale_factor * img_height)/16))
 	
 	BGSideLine.add_point(Vector2(img_width * scale_factor + BGSideLine.width/2, 0))
 	BGSideLine.add_point(Vector2(img_width * scale_factor + BGSideLine.width/2, img_height * scale_factor + BGSideLine.width/2))
@@ -234,7 +233,7 @@ func warp_cost_change() -> int:
 
 func warp():
 	warp_cost += warp_cost_change()
-	Warp_Label.text = "Cost to warp: %s Light" % str(warp_cost)
+	Warp_Label.text = "Cost to warp:\n" + str(warp_cost) + " Light"
 	Time_Until_End.reset()
 	new_dimension()
 	if Warp_Timer.is_stopped():

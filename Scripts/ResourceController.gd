@@ -4,6 +4,7 @@ onready var air_sub_label: Label = get_node("../Elements/Air/Subresource")
 onready var earth_sub_label: Label = get_node("../Elements/Earth/Subresource")
 onready var fire_sub_label: Label = get_node("../Elements/Fire/Subresource")
 onready var water_sub_label: Label = get_node("../Elements/Water/Subresource")
+onready var resource_log: Label = get_node("../ResourceLog")
 
 var list = ResourceList
 
@@ -22,6 +23,7 @@ func resources(r1, r2, r3):
 	find_resource(r2)
 	if ResearchDB.warp_3():
 		find_resource(r3)
+	log_resources(r1, r2, r3)
 
 func find_resource(r):
 	match r:
@@ -66,6 +68,18 @@ func get_resource_name(r: int) -> String:
 			return "water"
 		4:
 			return "light"
+	return ""
+
+func get_subresource_name(r: int) -> String:
+	match r:
+		0:
+			return "Cloud Puffs"
+		1:
+			return "Obsidian Chunks"
+		2:
+			return "Glowing Roses"
+		3:
+			return "Coral Crystals"
 	return ""
 
 func air_resource():
@@ -116,6 +130,12 @@ func can_afford(amount, element):
 			return true if fire_sub_count - amount >= 0 else false
 		list.RES.WATER, list.RES.SUBWATER:
 			return true if water_sub_count - amount >= 0 else false
+
+func log_resources(r1, r2, r3):
+	if ResearchDB.warp_3():
+		resource_log.set_text("The resources available in this dimension are " + get_subresource_name(r1) + ", " + get_subresource_name(r2) + ", and " + get_subresource_name(r3) + ".")
+	else:
+		resource_log.set_text("The resources available in this dimension are " + get_subresource_name(r1) + " and " + get_subresource_name(r2) + ".")
 
 func _on_air_sub_gather_button_pressed():
 	add_sub_element(r_clicker, list.RES.AIR)
