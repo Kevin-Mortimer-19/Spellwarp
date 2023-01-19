@@ -4,7 +4,7 @@ var Event = load("res://Scripts/MonsterEvent.gd")
 onready var FightLabel = $Menu/Label
 onready var FailButton = $Menu/CombatRow/FailButton
 onready var ElementButton = $Menu/CombatRow/ElementButton
-onready var LightButton = $Menu/CombatRow/LightButton
+onready var LightButton = $Menu/LightRow/LightButton
 
 onready var air_label: Label = $Elements/Air/Count
 onready var earth_label: Label = $Elements/Earth/Count
@@ -58,24 +58,24 @@ func _ready():
 
 	rng.randomize()
 	element_text_update()
-	AirAttack = Event.new("The Monster leaps into the air and conjures a great hurricane that quickly encircles you!", ResourceList.RES.AIR, "Curl up in the fetal position!", "Rock shield!", "Light")
-	AirDefend = Event.new("The Monster leaps into the air, wreathing itself in a formidable windstorm!", ResourceList.RES.AIR, "Throw a rock at it!", "Throw a big rock at it!", "Light")
+	AirAttack = Event.new("The Monster leaps into the air and conjures a great hurricane that quickly encircles you!", ResourceList.RES.AIR, "Curl up in the fetal position!", "Conjure a wall of Earth to shield yourself from the winds!", "Blast free from the eye of the storm with a burst of primordial Light!")
+	AirDefend = Event.new("The Monster leaps into the air, wreathing itself in a formidable, shielding windstorm!", ResourceList.RES.AIR, "Throw a tome at it feebly!", "Call forth a barrage of boulders to pierce the defensive gale!", "Blast through the howling winds with a burst of primordial Light!")
 	air_events.append(AirAttack)
 	air_events.append(AirDefend)
 	
-	EarthAttack = Event.new("The Monster smashes into the ground, causing the earth itself to quake in fear!", ResourceList.RES.EARTH, "Jump!", "Fly!", "Light")
-	EarthDefend = Event.new("The Monster digs into the ground, taking shelter amid walls of upturned mineral!", ResourceList.RES.EARTH, "Fail", "Air Cutter", "Light")
+	EarthAttack = Event.new("The Monster smashes into the ground, causing the earth itself to quake in fear!", ResourceList.RES.EARTH, "Jump into the air!", "Wreathe yourself in magical Air and take flight!", "Suffuse the land itself with the Light of pure magic, steadying it against the quake!")
+	EarthDefend = Event.new("The Monster digs into the ground, taking shelter amid walls of upturned mineral!", ResourceList.RES.EARTH, "Hurl an empty bottle at the rocks!", "Rip the boulders from the earth with a whirlwind of Air!", "Reduce the stony barrier to ash with a beam of Light!")
 	earth_events.append(EarthAttack)
 	earth_events.append(EarthDefend)
 	
-	FireAttack = Event.new("The Monster attacks, breathing a jet of smoldering fire towards you!", ResourceList.RES.FIRE, "Stop, drop, and roll!", "Doues the flames with water!", "Light")
-	FireDefend = Event.new("The Monster begins to glow, and the surrounding terrain melts and burns in the intense heat!", ResourceList.RES.FIRE, "Charge through the flames!", "Douse the vortex with water!", "Light")
+	FireAttack = Event.new("The Monster attacks, breathing a jet of smoldering fire towards you!", ResourceList.RES.FIRE, "Stop, drop, and roll!", "Quell the roaring flames, surrounding yourself in a torrent of Water!", "Snuff out the fires of darkness with a flare of Light!")
+	FireDefend = Event.new("The Monster begins to glow, and the surrounding terrain melts and burns in the intense heat!", ResourceList.RES.FIRE, "Charge into the molten aura!", "Douse the conflagration with a downpour of freezing Water!", "Nullify the heat and restore the melted plane with a rippling wave of Light!")
 	fire_events.append(FireAttack)
 	fire_events.append(FireDefend)
 	
 	
-	WaterAttack = Event.new("The Monster roars, summoning a mighty flood to wash away its foe!", ResourceList.RES.WATER, "Dive in!", "Raise a wall of fire!", "Light")
-	WaterDefend = Event.new("The temperature drops suddenly as the Monster's fur takes on an icy sheen!", ResourceList.RES.WATER, "Punch the ice!", "Melt the ice!", "Light")
+	WaterAttack = Event.new("The Monster roars, summoning a mighty flood to wash away its foe!", ResourceList.RES.WATER, "Dive straight in!", "Vaporize the oncoming wall of surf with a broiling arc of Fire!", "Rend through the waves with rapid blasts of unyeilding Light!")
+	WaterDefend = Event.new("The temperature drops suddenly as the Monster's fur takes on an icy sheen!", ResourceList.RES.WATER, "Punch through the frost!", "Melt through its frozen shields, and scorch the Monster with a roaring pillar of primordial Fire!", "Shatter the ice with a hammering barrage of superconcentrated Light!")
 	water_events.append(WaterAttack)
 	water_events.append(WaterDefend)
 	turn_count = 1
@@ -212,8 +212,8 @@ func spell_check(button, research):
 func overwhelming_darkness():
 	FightLabel.set_text("The Monster charges up a blast of overwhelming darkness!")
 	ElementButton.visible = false
-	FailButton.set_text("Cower in Fear!")
-	LightButton.set_text("The Monster's darkness is no match for your light!")
+	FailButton.set_text("Cower in fear... across worlds and stars, has your promised end finally come?")
+	LightButton.set_text("You won't back down... not this time. Power radiates from within you! The Monster's darkness is no match for your light!")
 
 func game_over():
 	SoundPlayer.play_sound(SoundPlayer.DEATH)
