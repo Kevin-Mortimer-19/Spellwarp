@@ -78,7 +78,8 @@ func _ready():
 	
 	if ResearchDB.prod_1():
 		unlock_advanced()
-		Resource_Controller.enable_auto_extractors()
+		
+	Resource_Controller.enable_auto_extractors()
 
 func _process(_delta):
 	if light_count < warp_cost || !warp_ready: 
@@ -168,7 +169,10 @@ func combine(amount):
 	if can_afford_light(amount):
 		for x in range(0,4):
 			add_element(-1 * amount, x)
-		add_element(amount, list.RES.LIGHT)
+		if ResearchDB.prod_3():
+			add_element(amount * 5, list.RES.LIGHT)
+		else:
+			add_element(amount, list.RES.LIGHT)
 
 func can_afford_light(amount):
 	return true if air_count >= amount && earth_count >= amount && fire_count >= amount && water_count >= amount else false
@@ -220,16 +224,16 @@ func new_dimension():
 	dimension_attributes(current_dim.get_resource_1())
 	Resource_Controller.resources(current_dim.get_resource_1(), current_dim.get_resource_2(), current_dim.get_resource_3())
 	advanced_check()
-	if ResearchDB.warp_1():
+	if !ResearchDB.warp_1():
 		add_element(-1 * air_count / 2, list.RES.AIR)
 		add_element(-1 * earth_count / 2, list.RES.EARTH)
 		add_element(-1 * fire_count / 2, list.RES.FIRE)
 		add_element(-1 * water_count / 2, list.RES.WATER)
-	else:
-		add_element(-1 * air_count, list.RES.AIR)
-		add_element(-1 * earth_count, list.RES.EARTH)
-		add_element(-1 * fire_count, list.RES.FIRE)
-		add_element(-1 * water_count, list.RES.WATER)
+#	else:
+#		add_element(-1 * air_count, list.RES.AIR)
+#		add_element(-1 * earth_count, list.RES.EARTH)
+#		add_element(-1 * fire_count, list.RES.FIRE)
+#		add_element(-1 * water_count, list.RES.WATER)
 
 func warp_cost_change() -> int:
 	var delta = int(warp_count * warp_count * log(warp_count))

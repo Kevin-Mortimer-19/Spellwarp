@@ -41,25 +41,25 @@ var prod3: ResearchOption
 var options = []
 
 func _ready():
-	warp1 = research_option.new("Efficient Warp", 5000, warp1_b, null, null)
+	warp1 = research_option.new("Efficient Warp", 100, warp1_b, null, null)
 	if ResearchDB.warp_1(): warp1.buy()
-	warp2 = research_option.new("Distance Warp", 10000, warp2_b, null, null)
+	warp2 = research_option.new("Distance Warp", 1000, warp2_b, null, null)
 	if ResearchDB.warp_2(): warp2.buy()
-	warp3 = research_option.new("Prosperous Warp", 10000, warp3_b, warp1, warp2)
+	warp3 = research_option.new("Prosperous Warp", 1000, warp3_b, warp1, warp2)
 	if ResearchDB.warp_3(): warp3.buy()
 	
 	spell1 = research_option.new("Offensive Spells", 5000, spell1_b, null, null)
 	if ResearchDB.spell_1(): spell1.buy()
 	spell2 = research_option.new("Defensive Spells", 5000, spell2_b, null, null)
 	if ResearchDB.spell_2(): spell2.buy()
-	spell3 = research_option.new("Efficient Spells", 20000, spell3_b, spell1, spell2)
+	spell3 = research_option.new("Efficient Spells", 10000, spell3_b, spell1, spell2)
 	if ResearchDB.spell_3(): spell3.buy()
 	
-	prod1 = research_option.new("Advanced Production", 1000, prod1_b, null, null)
+	prod1 = research_option.new("Advanced Production", 100, prod1_b, null, null)
 	if ResearchDB.prod_1(): prod1.buy()
-	prod2 = research_option.new("Speedy Gremlins", 10000, prod2_b, prod1, null)
+	prod2 = research_option.new("Speedy Gremlins", 5000, prod2_b, prod1, null)
 	if ResearchDB.prod_2(): prod2.buy()
-	prod3 = research_option.new("Powerful Extractors", 10000, prod3_b, prod1, null)
+	prod3 = research_option.new("Powerful Extractors", 5000, prod3_b, prod1, null)
 	if ResearchDB.prod_3(): prod3.buy()
 	
 	options.append(warp1)

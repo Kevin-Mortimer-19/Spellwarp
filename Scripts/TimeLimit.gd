@@ -4,6 +4,8 @@ onready var main = get_node("..")
 
 onready var Fade = get_node("../UI/SceneTransitionRect")
 
+var time_is_almost_up = false
+
 # Time (in seconds) until the monster appears
 var start_time = 600
 
@@ -23,6 +25,10 @@ func _process(delta):
 		Display.set_text(str(minutes) + ":0" + str(seconds) + text)
 	else:
 		Display.set_text(str(minutes) + ":" + str(seconds) + text)
+	
+	if time_left < 60 && !time_is_almost_up:
+		time_is_almost_up = true
+		SoundPlayer.play_ost(SoundPlayer.MONSTERSONG)
 
 func reset():
 	stop()
@@ -37,6 +43,6 @@ func _time_is_up():
 
 func set_time():
 	if ResearchDB.warp_2():
-		wait_time = start_time * 1.5
+		wait_time = 900
 	else:
 		wait_time = start_time
