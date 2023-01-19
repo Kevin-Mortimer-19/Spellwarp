@@ -161,6 +161,7 @@ func _on_light_button_pressed():
 		if difference > 0:
 			SoundPlayer.play_sound(SoundPlayer.LIGHTSPELL1)
 			SoundPlayer.play_sound(SoundPlayer.LIGHTSPELL2)
+			sprite.hurt()
 			victory()
 		else:
 			game_over()

@@ -20,6 +20,11 @@ onready var prod3_b = $Prod/Production3
 
 onready var title = $Title
 
+const thousand = 1000
+const million = 1000000
+const billion = 1000000000
+const trillion = 1000000000000
+
 var warp1: ResearchOption
 var warp2: ResearchOption
 var warp3: ResearchOption
@@ -67,9 +72,10 @@ func _ready():
 	options.append(prod2)
 	options.append(prod3)
 	
-	var template = "%s (Cost: %s)"
+	#var template = "%s (Cost: )"
 	for o in options:
-		o.get_button().set_text(template % [o.get_name(), o.get_cost()])
+		display_cost(o.get_button(), o.get_name() + " (Cost: %s)", o.get_cost())
+		#o.get_button().set_text(template % [o.get_name(), o.get_cost()])
 	
 	title_check()
 	
@@ -137,3 +143,16 @@ func buy_research(option):
 func title_check():
 	if(ResearchDB.warp_1() && ResearchDB.warp_2() && ResearchDB.warp_3() && ResearchDB.spell_1() && ResearchDB.spell_2() && ResearchDB.spell_3() && ResearchDB.prod_1() && ResearchDB.prod_2() && ResearchDB.prod_3()):
 		title.visible = false
+
+func display_cost(button, s, count):
+	if count >= trillion:
+		button.text = s % (str(count / trillion) + "T")
+	elif count >= billion:
+		button.text = s % (str(count / billion) + "B")
+	elif count >= million:
+		button.text = s % (str(count / million) + "M")
+	elif count >= thousand:
+		button.text = s % (str(count / thousand) + "K")
+	else:
+		button.text = s % count
+
