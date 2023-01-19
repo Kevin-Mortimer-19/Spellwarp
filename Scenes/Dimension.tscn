@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/ResourceController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/TimeLimit.gd" type="Script" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://Themes/Spellbook.tres" type="Theme" id=8]
 [ext_resource path="res://Art/book.png" type="Texture" id=9]
 [ext_resource path="res://Art/black_square.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/IconTabSwitch.gd" type="Script" id=11]
+[ext_resource path="res://Art/air_icon.png" type="Texture" id=12]
+[ext_resource path="res://Art/light_icon.png" type="Texture" id=13]
+[ext_resource path="res://Art/fire_icon.png" type="Texture" id=14]
+[ext_resource path="res://Art/water_icon.png" type="Texture" id=15]
+[ext_resource path="res://Art/earth_icon.png" type="Texture" id=16]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -121,6 +127,7 @@ custom_constants/separation = 50
 [node name="Air" type="VBoxContainer" parent="Elements"]
 margin_right = 96.0
 margin_bottom = 50.0
+size_flags_horizontal = 0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Air"]
@@ -138,6 +145,7 @@ text = "Cloud Puffs: 0"
 margin_left = 146.0
 margin_right = 272.0
 margin_bottom = 50.0
+size_flags_horizontal = 0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Earth"]
@@ -155,6 +163,7 @@ text = "Obsidian Chunks: 0"
 margin_left = 322.0
 margin_right = 440.0
 margin_bottom = 50.0
+size_flags_horizontal = 0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Fire"]
@@ -172,6 +181,7 @@ text = "Glowing Roses: 0"
 margin_left = 490.0
 margin_right = 604.0
 margin_bottom = 50.0
+size_flags_horizontal = 0
 custom_constants/separation = 10
 
 [node name="Count" type="Label" parent="Elements/Water"]
@@ -189,6 +199,7 @@ text = "Coral Crystals: 0"
 margin_left = 654.0
 margin_right = 692.0
 margin_bottom = 50.0
+size_flags_horizontal = 0
 
 [node name="Count" type="Label" parent="Elements/Light"]
 margin_right = 38.0
@@ -206,14 +217,15 @@ rect_scale = Vector2( 1.3, 1.3 )
 texture = ExtResource( 9 )
 
 [node name="TabContainer" type="TabContainer" parent="."]
-self_modulate = Color( 1, 1, 1, 0.360784 )
-margin_left = 351.885
-margin_top = 108.226
-margin_right = 791.885
-margin_bottom = 398.226
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 352.0
+margin_top = 108.0
+margin_right = 792.0
+margin_bottom = 467.0
 theme = ExtResource( 8 )
 
 [node name="Air" type="ScrollContainer" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -248,6 +260,34 @@ hint_tooltip = "Construct a rudimentary machine to extract elemental energy from
 [node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive0"]
 
 [node name="Label0" type="Label" parent="TabContainer/Air/AirList"]
+margin_top = 72.0
+margin_right = 432.0
+margin_bottom = 86.0
+align = 1
+
+[node name="Passive02" type="Button" parent="TabContainer/Air/AirList" groups=["auto"]]
+margin_top = 48.0
+margin_right = 432.0
+margin_bottom = 68.0
+hint_tooltip = "Construct a rudimentary machine to extract elemental energy from the plane automatically."
+
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive02"]
+
+[node name="Label02" type="Label" parent="TabContainer/Air/AirList" groups=["auto"]]
+margin_top = 72.0
+margin_right = 432.0
+margin_bottom = 86.0
+align = 1
+
+[node name="Passive03" type="Button" parent="TabContainer/Air/AirList" groups=["auto"]]
+margin_top = 48.0
+margin_right = 432.0
+margin_bottom = 68.0
+hint_tooltip = "Construct a rudimentary machine to extract elemental energy from the plane automatically."
+
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive03"]
+
+[node name="Label03" type="Label" parent="TabContainer/Air/AirList" groups=["auto"]]
 margin_top = 72.0
 margin_right = 432.0
 margin_bottom = 86.0
@@ -360,7 +400,6 @@ margin_bottom = 422.0
 align = 1
 
 [node name="Earth" type="ScrollContainer" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -370,7 +409,7 @@ margin_bottom = -4.0
 
 [node name="EarthList" type="VBoxContainer" parent="TabContainer/Earth"]
 margin_right = 432.0
-margin_bottom = 422.0
+margin_bottom = 506.0
 rect_min_size = Vector2( 432, 0 )
 
 [node name="Button1" type="Button" parent="TabContainer/Earth/EarthList"]
@@ -400,110 +439,138 @@ margin_right = 432.0
 margin_bottom = 86.0
 align = 1
 
-[node name="Passive1" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
+[node name="Passive02" type="Button" parent="TabContainer/Earth/EarthList" groups=["auto"]]
 margin_top = 90.0
 margin_right = 432.0
 margin_bottom = 110.0
-hint_tooltip = "Enlist some of the plane's dirty denizens to aid you in collecting chunks of obsidian."
+hint_tooltip = "Construct a rudimentary machine to extract elemental energy from the plane automatically."
 
-[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive1"]
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive02"]
 
-[node name="Label1" type="Label" parent="TabContainer/Earth/EarthList" groups=["earth"]]
+[node name="Label02" type="Label" parent="TabContainer/Earth/EarthList" groups=["auto"]]
 margin_top = 114.0
 margin_right = 432.0
 margin_bottom = 128.0
 align = 1
 
-[node name="Passive2" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
+[node name="Passive03" type="Button" parent="TabContainer/Earth/EarthList" groups=["auto"]]
 margin_top = 132.0
 margin_right = 432.0
 margin_bottom = 152.0
-hint_tooltip = "Build a device to grind the obsidian chunks into earth magic."
+hint_tooltip = "Construct a rudimentary machine to extract elemental energy from the plane automatically."
 
-[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive2"]
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive03"]
 
-[node name="Label2" type="Label" parent="TabContainer/Earth/EarthList" groups=["earth"]]
+[node name="Label03" type="Label" parent="TabContainer/Earth/EarthList" groups=["auto"]]
 margin_top = 156.0
 margin_right = 432.0
 margin_bottom = 170.0
 align = 1
 
-[node name="Passive3" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
+[node name="Passive1" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
 margin_top = 174.0
 margin_right = 432.0
 margin_bottom = 194.0
+hint_tooltip = "Enlist some of the plane's dirty denizens to aid you in collecting chunks of obsidian."
 
-[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive3"]
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive1"]
 
-[node name="Label3" type="Label" parent="TabContainer/Earth/EarthList" groups=["earth"]]
+[node name="Label1" type="Label" parent="TabContainer/Earth/EarthList" groups=["earth"]]
 margin_top = 198.0
 margin_right = 432.0
 margin_bottom = 212.0
 align = 1
 
-[node name="Passive4" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
+[node name="Passive2" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
 margin_top = 216.0
 margin_right = 432.0
 margin_bottom = 236.0
+hint_tooltip = "Build a device to grind the obsidian chunks into earth magic."
 
-[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive4"]
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive2"]
 
-[node name="Label4" type="Label" parent="TabContainer/Earth/EarthList" groups=["earth"]]
+[node name="Label2" type="Label" parent="TabContainer/Earth/EarthList" groups=["earth"]]
 margin_top = 240.0
 margin_right = 432.0
 margin_bottom = 254.0
 align = 1
 
-[node name="Passive5" type="Button" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
+[node name="Passive3" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
 margin_top = 258.0
 margin_right = 432.0
 margin_bottom = 278.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive5"]
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive3"]
 
-[node name="Label5" type="Label" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
+[node name="Label3" type="Label" parent="TabContainer/Earth/EarthList" groups=["earth"]]
 margin_top = 282.0
 margin_right = 432.0
 margin_bottom = 296.0
 align = 1
 
-[node name="Passive6" type="Button" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
+[node name="Passive4" type="Button" parent="TabContainer/Earth/EarthList" groups=["earth"]]
 margin_top = 300.0
 margin_right = 432.0
 margin_bottom = 320.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive6"]
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive4"]
 
-[node name="Label6" type="Label" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
+[node name="Label4" type="Label" parent="TabContainer/Earth/EarthList" groups=["earth"]]
 margin_top = 324.0
 margin_right = 432.0
 margin_bottom = 338.0
 align = 1
 
-[node name="Passive7" type="Button" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
+[node name="Passive5" type="Button" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
 margin_top = 342.0
 margin_right = 432.0
 margin_bottom = 362.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive7"]
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive5"]
 
-[node name="Label7" type="Label" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
+[node name="Label5" type="Label" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
 margin_top = 366.0
 margin_right = 432.0
 margin_bottom = 380.0
 align = 1
 
-[node name="Passive8" type="Button" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
+[node name="Passive6" type="Button" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
 margin_top = 384.0
 margin_right = 432.0
 margin_bottom = 404.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive8"]
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive6"]
 
-[node name="Label8" type="Label" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
+[node name="Label6" type="Label" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
 margin_top = 408.0
 margin_right = 432.0
 margin_bottom = 422.0
+align = 1
+
+[node name="Passive7" type="Button" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
+margin_top = 426.0
+margin_right = 432.0
+margin_bottom = 446.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive7"]
+
+[node name="Label7" type="Label" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
+margin_top = 450.0
+margin_right = 432.0
+margin_bottom = 464.0
+align = 1
+
+[node name="Passive8" type="Button" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
+margin_top = 468.0
+margin_right = 432.0
+margin_bottom = 488.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Earth/EarthList/Passive8"]
+
+[node name="Label8" type="Label" parent="TabContainer/Earth/EarthList" groups=["advanced", "earth"]]
+margin_top = 492.0
+margin_right = 432.0
+margin_bottom = 506.0
 align = 1
 
 [node name="Fire" type="ScrollContainer" parent="TabContainer"]
@@ -542,6 +609,34 @@ hint_tooltip = "Construct a rudimentary machine to extract elemental energy from
 [node name="Timer" type="Timer" parent="TabContainer/Fire/FireList/Passive0"]
 
 [node name="Label0" type="Label" parent="TabContainer/Fire/FireList"]
+margin_top = 72.0
+margin_right = 432.0
+margin_bottom = 86.0
+align = 1
+
+[node name="Passive02" type="Button" parent="TabContainer/Fire/FireList" groups=["auto"]]
+margin_top = 48.0
+margin_right = 432.0
+margin_bottom = 68.0
+hint_tooltip = "Construct a rudimentary machine to extract elemental energy from the plane automatically."
+
+[node name="Timer" type="Timer" parent="TabContainer/Fire/FireList/Passive02"]
+
+[node name="Label02" type="Label" parent="TabContainer/Fire/FireList" groups=["auto"]]
+margin_top = 72.0
+margin_right = 432.0
+margin_bottom = 86.0
+align = 1
+
+[node name="Passive03" type="Button" parent="TabContainer/Fire/FireList" groups=["auto"]]
+margin_top = 48.0
+margin_right = 432.0
+margin_bottom = 68.0
+hint_tooltip = "Construct a rudimentary machine to extract elemental energy from the plane automatically."
+
+[node name="Timer" type="Timer" parent="TabContainer/Fire/FireList/Passive03"]
+
+[node name="Label03" type="Label" parent="TabContainer/Fire/FireList" groups=["auto"]]
 margin_top = 72.0
 margin_right = 432.0
 margin_bottom = 86.0
@@ -694,6 +789,34 @@ margin_right = 432.0
 margin_bottom = 86.0
 align = 1
 
+[node name="Passive02" type="Button" parent="TabContainer/Water/WaterList" groups=["auto"]]
+margin_top = 48.0
+margin_right = 432.0
+margin_bottom = 68.0
+hint_tooltip = "Construct a rudimentary machine to extract elemental energy from the plane automatically."
+
+[node name="Timer" type="Timer" parent="TabContainer/Water/WaterList/Passive02"]
+
+[node name="Label02" type="Label" parent="TabContainer/Water/WaterList" groups=["auto"]]
+margin_top = 72.0
+margin_right = 432.0
+margin_bottom = 86.0
+align = 1
+
+[node name="Passive03" type="Button" parent="TabContainer/Water/WaterList" groups=["auto"]]
+margin_top = 48.0
+margin_right = 432.0
+margin_bottom = 68.0
+hint_tooltip = "Construct a rudimentary machine to extract elemental energy from the plane automatically."
+
+[node name="Timer" type="Timer" parent="TabContainer/Water/WaterList/Passive03"]
+
+[node name="Label03" type="Label" parent="TabContainer/Water/WaterList" groups=["auto"]]
+margin_top = 72.0
+margin_right = 432.0
+margin_bottom = 86.0
+align = 1
+
 [node name="Passive1" type="Button" parent="TabContainer/Water/WaterList" groups=["water"]]
 margin_top = 90.0
 margin_right = 432.0
@@ -810,7 +933,7 @@ margin_bottom = -4.0
 
 [node name="LightList" type="VBoxContainer" parent="TabContainer/Light"]
 margin_right = 432.0
-margin_bottom = 62.0
+margin_bottom = 188.0
 rect_min_size = Vector2( 432, 0 )
 
 [node name="Button" type="Button" parent="TabContainer/Light/LightList"]
@@ -828,6 +951,45 @@ hint_tooltip = "Construct an apparatus to refract elements into light automatica
 [node name="Timer" type="Timer" parent="TabContainer/Light/LightList/Passive1"]
 
 [node name="Label1" type="Label" parent="TabContainer/Light/LightList"]
+margin_top = 48.0
+margin_right = 432.0
+margin_bottom = 62.0
+
+[node name="Passive2" type="Button" parent="TabContainer/Light/LightList"]
+margin_top = 24.0
+margin_right = 432.0
+margin_bottom = 44.0
+hint_tooltip = "Construct an apparatus to refract elements into light automatically."
+
+[node name="Timer" type="Timer" parent="TabContainer/Light/LightList/Passive2"]
+
+[node name="Label2" type="Label" parent="TabContainer/Light/LightList"]
+margin_top = 48.0
+margin_right = 432.0
+margin_bottom = 62.0
+
+[node name="Passive3" type="Button" parent="TabContainer/Light/LightList" groups=["advanced"]]
+margin_top = 24.0
+margin_right = 432.0
+margin_bottom = 44.0
+hint_tooltip = "Construct an apparatus to refract elements into light automatically."
+
+[node name="Timer" type="Timer" parent="TabContainer/Light/LightList/Passive3"]
+
+[node name="Label3" type="Label" parent="TabContainer/Light/LightList"]
+margin_top = 48.0
+margin_right = 432.0
+margin_bottom = 62.0
+
+[node name="Passive4" type="Button" parent="TabContainer/Light/LightList" groups=["advanced"]]
+margin_top = 24.0
+margin_right = 432.0
+margin_bottom = 44.0
+hint_tooltip = "Construct an apparatus to refract elements into light automatically."
+
+[node name="Timer" type="Timer" parent="TabContainer/Light/LightList/Passive4"]
+
+[node name="Label4" type="Label" parent="TabContainer/Light/LightList"]
 margin_top = 48.0
 margin_right = 432.0
 margin_bottom = 62.0
@@ -922,6 +1084,51 @@ margin_right = 432.0
 margin_bottom = 254.0
 align = 1
 
+[node name="Bookmarks" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 11 )
+
+[node name="Air" type="TextureButton" parent="Bookmarks"]
+margin_left = 405.0
+margin_top = 90.0
+margin_right = 445.0
+margin_bottom = 130.0
+texture_normal = ExtResource( 12 )
+expand = true
+
+[node name="Earth" type="TextureButton" parent="Bookmarks"]
+margin_left = 465.0
+margin_top = 90.0
+margin_right = 505.0
+margin_bottom = 130.0
+texture_normal = ExtResource( 16 )
+expand = true
+
+[node name="Fire" type="TextureButton" parent="Bookmarks"]
+margin_left = 525.0
+margin_top = 90.0
+margin_right = 565.0
+margin_bottom = 130.0
+texture_normal = ExtResource( 14 )
+expand = true
+
+[node name="Water" type="TextureButton" parent="Bookmarks"]
+margin_left = 585.0
+margin_top = 90.0
+margin_right = 625.0
+margin_bottom = 130.0
+texture_normal = ExtResource( 15 )
+expand = true
+
+[node name="Light" type="TextureButton" parent="Bookmarks"]
+margin_left = 645.0
+margin_top = 90.0
+margin_right = 685.0
+margin_bottom = 130.0
+texture_normal = ExtResource( 13 )
+expand = true
+
 [node name="WARP_SPEED" type="Button" parent="."]
 margin_left = 868.081
 margin_top = 196.995
@@ -999,6 +1206,10 @@ z_as_relative = false
 [connection signal="pressed" from="TabContainer/Air/AirList/Gather" to="Resource_Controller" method="_on_air_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Air/AirList/Passive0" to="PassiveController" method="_on_air_passive0_pressed"]
 [connection signal="timeout" from="TabContainer/Air/AirList/Passive0/Timer" to="PassiveController" method="_on_air_passive0_timeout"]
+[connection signal="pressed" from="TabContainer/Air/AirList/Passive02" to="PassiveController" method="_on_air_passive02_pressed"]
+[connection signal="timeout" from="TabContainer/Air/AirList/Passive02/Timer" to="PassiveController" method="_on_air_passive02_timeout"]
+[connection signal="pressed" from="TabContainer/Air/AirList/Passive03" to="PassiveController" method="_on_air_passive03_pressed"]
+[connection signal="timeout" from="TabContainer/Air/AirList/Passive03/Timer" to="PassiveController" method="_on_air_passive03_timeout"]
 [connection signal="pressed" from="TabContainer/Air/AirList/Passive1" to="PassiveController" method="_on_air_passive1_pressed"]
 [connection signal="timeout" from="TabContainer/Air/AirList/Passive1/Timer" to="PassiveController" method="_on_air_passive1_timeout"]
 [connection signal="pressed" from="TabContainer/Air/AirList/Passive2" to="PassiveController" method="_on_air_passive2_pressed"]
@@ -1019,6 +1230,10 @@ z_as_relative = false
 [connection signal="pressed" from="TabContainer/Earth/EarthList/Gather" to="Resource_Controller" method="_on_earth_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Earth/EarthList/Passive0" to="PassiveController" method="_on_earth_passive0_pressed"]
 [connection signal="timeout" from="TabContainer/Earth/EarthList/Passive0/Timer" to="PassiveController" method="_on_earth_passive0_timeout"]
+[connection signal="pressed" from="TabContainer/Earth/EarthList/Passive02" to="PassiveController" method="_on_earth_passive02_pressed"]
+[connection signal="timeout" from="TabContainer/Earth/EarthList/Passive02/Timer" to="PassiveController" method="_on_earth_passive02_timeout"]
+[connection signal="pressed" from="TabContainer/Earth/EarthList/Passive03" to="PassiveController" method="_on_earth_passive03_pressed"]
+[connection signal="timeout" from="TabContainer/Earth/EarthList/Passive03/Timer" to="PassiveController" method="_on_earth_passive03_timeout"]
 [connection signal="pressed" from="TabContainer/Earth/EarthList/Passive1" to="PassiveController" method="_on_earth_passive1_pressed"]
 [connection signal="timeout" from="TabContainer/Earth/EarthList/Passive1/Timer" to="PassiveController" method="_on_earth_passive1_timeout"]
 [connection signal="pressed" from="TabContainer/Earth/EarthList/Passive2" to="PassiveController" method="_on_earth_passive2_pressed"]
@@ -1039,6 +1254,10 @@ z_as_relative = false
 [connection signal="pressed" from="TabContainer/Fire/FireList/Gather" to="Resource_Controller" method="_on_fire_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Fire/FireList/Passive0" to="PassiveController" method="_on_fire_passive0_pressed"]
 [connection signal="timeout" from="TabContainer/Fire/FireList/Passive0/Timer" to="PassiveController" method="_on_fire_passive0_timeout"]
+[connection signal="pressed" from="TabContainer/Fire/FireList/Passive02" to="PassiveController" method="_on_fire_passive02_pressed"]
+[connection signal="timeout" from="TabContainer/Fire/FireList/Passive02/Timer" to="PassiveController" method="_on_fire_passive02_timeout"]
+[connection signal="pressed" from="TabContainer/Fire/FireList/Passive03" to="PassiveController" method="_on_fire_passive03_pressed"]
+[connection signal="timeout" from="TabContainer/Fire/FireList/Passive03/Timer" to="PassiveController" method="_on_fire_passive03_timeout"]
 [connection signal="pressed" from="TabContainer/Fire/FireList/Passive1" to="PassiveController" method="_on_fire_passive1_pressed"]
 [connection signal="timeout" from="TabContainer/Fire/FireList/Passive1/Timer" to="PassiveController" method="_on_fire_passive1_timeout"]
 [connection signal="pressed" from="TabContainer/Fire/FireList/Passive2" to="PassiveController" method="_on_fire_passive2_pressed"]
@@ -1059,6 +1278,10 @@ z_as_relative = false
 [connection signal="pressed" from="TabContainer/Water/WaterList/Gather" to="Resource_Controller" method="_on_water_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/Water/WaterList/Passive0" to="PassiveController" method="_on_water_passive0_pressed"]
 [connection signal="timeout" from="TabContainer/Water/WaterList/Passive0/Timer" to="PassiveController" method="_on_water_passive0_timeout"]
+[connection signal="pressed" from="TabContainer/Water/WaterList/Passive02" to="PassiveController" method="_on_water_passive02_pressed"]
+[connection signal="timeout" from="TabContainer/Water/WaterList/Passive02/Timer" to="PassiveController" method="_on_water_passive02_timeout"]
+[connection signal="pressed" from="TabContainer/Water/WaterList/Passive03" to="PassiveController" method="_on_water_passive03_pressed"]
+[connection signal="timeout" from="TabContainer/Water/WaterList/Passive03/Timer" to="PassiveController" method="_on_water_passive03_timeout"]
 [connection signal="pressed" from="TabContainer/Water/WaterList/Passive1" to="PassiveController" method="_on_water_passive1_pressed"]
 [connection signal="timeout" from="TabContainer/Water/WaterList/Passive1/Timer" to="PassiveController" method="_on_water_passive1_timeout"]
 [connection signal="pressed" from="TabContainer/Water/WaterList/Passive2" to="PassiveController" method="_on_water_passive2_pressed"]
@@ -1078,6 +1301,12 @@ z_as_relative = false
 [connection signal="pressed" from="TabContainer/Light/LightList/Button" to="." method="_on_light_button_pressed"]
 [connection signal="pressed" from="TabContainer/Light/LightList/Passive1" to="PassiveController" method="_on_light_passive1_pressed"]
 [connection signal="timeout" from="TabContainer/Light/LightList/Passive1/Timer" to="PassiveController" method="_on_light_passive1_timeout"]
+[connection signal="pressed" from="TabContainer/Light/LightList/Passive2" to="PassiveController" method="_on_light_passive2_pressed"]
+[connection signal="timeout" from="TabContainer/Light/LightList/Passive2/Timer" to="PassiveController" method="_on_light_passive2_timeout"]
+[connection signal="pressed" from="TabContainer/Light/LightList/Passive3" to="PassiveController" method="_on_light_passive3_pressed"]
+[connection signal="timeout" from="TabContainer/Light/LightList/Passive3/Timer" to="PassiveController" method="_on_light_passive3_timeout"]
+[connection signal="pressed" from="TabContainer/Light/LightList/Passive4" to="PassiveController" method="_on_light_passive4_pressed"]
+[connection signal="timeout" from="TabContainer/Light/LightList/Passive4/Timer" to="PassiveController" method="_on_light_passive4_timeout"]
 [connection signal="pressed" from="TabContainer/ScrollContainer/Air/Button1" to="." method="_on_air_button_pressed"]
 [connection signal="pressed" from="TabContainer/ScrollContainer/Air/Gather" to="Resource_Controller" method="_on_air_sub_gather_button_pressed"]
 [connection signal="pressed" from="TabContainer/ScrollContainer/Air/Passive0" to="PassiveController" method="_on_air_passive0_pressed"]
@@ -1090,6 +1319,11 @@ z_as_relative = false
 [connection signal="timeout" from="TabContainer/ScrollContainer/Air/Passive3/Timer" to="PassiveController" method="_on_air_passive3_timeout"]
 [connection signal="pressed" from="TabContainer/ScrollContainer/Air/Passive4" to="PassiveController" method="_on_air_passive4_pressed"]
 [connection signal="timeout" from="TabContainer/ScrollContainer/Air/Passive4/Timer" to="PassiveController" method="_on_air_passive4_timeout"]
+[connection signal="pressed" from="Bookmarks/Air" to="Bookmarks" method="_on_Air_pressed"]
+[connection signal="pressed" from="Bookmarks/Earth" to="Bookmarks" method="_on_Earth_pressed"]
+[connection signal="pressed" from="Bookmarks/Fire" to="Bookmarks" method="_on_Fire_pressed"]
+[connection signal="pressed" from="Bookmarks/Water" to="Bookmarks" method="_on_Water_pressed"]
+[connection signal="pressed" from="Bookmarks/Light" to="Bookmarks" method="_on_Light_pressed"]
 [connection signal="pressed" from="WARP_SPEED" to="." method="_on_warp_button_pressed"]
 [connection signal="timeout" from="WARP_SPEED/Timer" to="." method="_on_warp_timer_timeout"]
 [connection signal="timeout" from="TimeUntilTheEnd" to="TimeUntilTheEnd" method="_time_is_up"]

@@ -31,6 +31,7 @@ func reset():
 	start()
 
 func _time_is_up():
+	stop()
 	main.store_energy()
 	Fade.transition_to("res://Scenes/MonsterFight.tscn")
 

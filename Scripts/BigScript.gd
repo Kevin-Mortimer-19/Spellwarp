@@ -256,6 +256,7 @@ func advanced_check():
 
 func unlock_advanced():
 	Resource_Controller.research_unlock(current_dim.get_resource_1(), current_dim.get_resource_2(), current_dim.get_resource_3())
+	Passive_Controller.advanced_light()
 
 func lock_advanced():
 	for r in get_tree().get_nodes_in_group("advanced"):

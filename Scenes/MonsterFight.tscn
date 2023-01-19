@@ -1,10 +1,38 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/MidBattleWarp.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/BossFight.gd" type="Script" id=2]
 [ext_resource path="res://Art/space_bg.png" type="Texture" id=3]
 [ext_resource path="res://Art/final_boss.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/FadeAnimation.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/DamageAnimation.gd" type="Script" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Damage"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.25, 0.4, 0.5, 0.501, 0.6, 0.7, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 10, 0 ), Vector2( 0, 0 ), Vector2( -10, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 10, 0 ), Vector2( 0, 0 ), Vector2( -10, 0 ), Vector2( 0, 0 ) ]
+}
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -18,10 +46,14 @@ rect_scale = Vector2( 0.488, 0.4 )
 texture = ExtResource( 3 )
 
 [node name="Monster" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 2100.0
+margin_bottom = 1500.0
 rect_scale = Vector2( 0.488, 0.4 )
 texture = ExtResource( 4 )
+script = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Monster"]
+anims/Damage = SubResource( 1 )
 
 [node name="Elements" type="HBoxContainer" parent="."]
 anchor_right = 1.0
@@ -106,25 +138,25 @@ margin_bottom = 118.0
 alignment = 1
 
 [node name="FailButton" type="Button" parent="Menu/CombatRow"]
-margin_left = 130.0
-margin_right = 310.0
+margin_left = 185.0
+margin_right = 365.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 70, 20 )
 text = "Block it with your hands!"
 
 [node name="ElementButton" type="Button" parent="Menu/CombatRow"]
-margin_left = 314.0
-margin_right = 536.0
+margin_left = 369.0
+margin_right = 591.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 70, 20 )
 text = "Block it with a shield of water!"
 
 [node name="LightButton" type="Button" parent="Menu/CombatRow"]
-margin_left = 540.0
-margin_right = 720.0
+margin_left = 595.0
+margin_right = 665.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 70, 20 )
-text = "Block it with your hands!"
+text = "Light!"
 
 [node name="Advance" type="Button" parent="Menu/CombatRow"]
 visible = false

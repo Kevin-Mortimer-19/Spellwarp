@@ -105,6 +105,13 @@ func enable_resource(element: String):
 		else:
 			r.visible = true
 
+func enable_auto_extractors():
+	for r in get_tree().get_nodes_in_group("auto"):
+		if !ResearchDB.prod_1():
+			r.visible = false
+		else:
+			r.visible = true
+
 func add_sub_element(amount, element):
 	match element:
 		list.RES.AIR, list.RES.SUBAIR:
