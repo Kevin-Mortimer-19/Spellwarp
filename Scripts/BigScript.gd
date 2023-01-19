@@ -75,6 +75,10 @@ func _ready():
 	ElementUI.display_element(fire_label, "Fire: %s", fire_count)
 	ElementUI.display_element(water_label, "Water: %s", water_count)
 	ElementUI.display_element(light_label, "Light: %s", light_count)
+	
+	if ResearchDB.prod_1():
+		unlock_advanced()
+		Resource_Controller.enable_auto_extractors()
 
 func _process(_delta):
 	if light_count < warp_cost || !warp_ready: 

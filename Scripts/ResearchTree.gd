@@ -73,9 +73,9 @@ func _ready():
 	
 	title_check()
 	
-	if ResearchDB.prod_1():
-		main.unlock_advanced()
-		resource_controller.enable_auto_extractors()
+#	if ResearchDB.prod_1():
+#		main.unlock_advanced()
+#		resource_controller.enable_auto_extractors()
 
 func _process(delta):
 	for o in options:
