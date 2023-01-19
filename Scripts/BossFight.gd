@@ -12,6 +12,7 @@ onready var fire_label: Label = $Elements/Fire/Count
 onready var water_label: Label = $Elements/Water/Count
 onready var light_label: Label = $Elements/Light/Count
 onready var fade = $SceneTransitionRect
+onready var sprite = $Monster
 
 var AirAttack: MonsterEvent
 var AirDefend: MonsterEvent
@@ -89,6 +90,7 @@ func element_text_update():
 
 func next_turn(success):
 	if success:
+		sprite.hurt()
 		print("SUCCESS")
 		element_text_update()
 		match turn_count:

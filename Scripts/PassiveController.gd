@@ -11,6 +11,12 @@ onready var res = get_node("../Resource_Controller")
 onready var air_button_0 = get_node("../TabContainer/Air/AirList/Passive0")
 onready var air_timer_0 = get_node("../TabContainer/Air/AirList/Passive0/Timer")
 onready var air_label_0 = get_node("../TabContainer/Air/AirList/Label0")
+onready var air_button_02 = get_node("../TabContainer/Air/AirList/Passive02")
+onready var air_timer_02 = get_node("../TabContainer/Air/AirList/Passive02/Timer")
+onready var air_label_02 = get_node("../TabContainer/Air/AirList/Label02")
+onready var air_button_03 = get_node("../TabContainer/Air/AirList/Passive03")
+onready var air_timer_03 = get_node("../TabContainer/Air/AirList/Passive03/Timer")
+onready var air_label_03 = get_node("../TabContainer/Air/AirList/Label03")
 onready var air_button_1 = get_node("../TabContainer/Air/AirList/Passive1")
 onready var air_timer_1 = get_node("../TabContainer/Air/AirList/Passive1/Timer")
 onready var air_label_1 = get_node("../TabContainer/Air/AirList/Label1")
@@ -39,6 +45,12 @@ onready var air_label_8 = get_node("../TabContainer/Air/AirList/Label8")
 onready var earth_button_0 = get_node("../TabContainer/Earth/EarthList/Passive0")
 onready var earth_timer_0 = get_node("../TabContainer/Earth/EarthList/Passive0/Timer")
 onready var earth_label_0 = get_node("../TabContainer/Earth/EarthList/Label0")
+onready var earth_button_02 = get_node("../TabContainer/Earth/EarthList/Passive02")
+onready var earth_timer_02 = get_node("../TabContainer/Earth/EarthList/Passive02/Timer")
+onready var earth_label_02 = get_node("../TabContainer/Earth/EarthList/Label02")
+onready var earth_button_03 = get_node("../TabContainer/Earth/EarthList/Passive03")
+onready var earth_timer_03 = get_node("../TabContainer/Earth/EarthList/Passive03/Timer")
+onready var earth_label_03 = get_node("../TabContainer/Earth/EarthList/Label03")
 onready var earth_button_1 = get_node("../TabContainer/Earth/EarthList/Passive1")
 onready var earth_timer_1 = get_node("../TabContainer/Earth/EarthList/Passive1/Timer")
 onready var earth_label_1 = get_node("../TabContainer/Earth/EarthList/Label1")
@@ -67,6 +79,12 @@ onready var earth_label_8 = get_node("../TabContainer/Earth/EarthList/Label8")
 onready var fire_button_0 = get_node("../TabContainer/Fire/FireList/Passive0")
 onready var fire_timer_0 = get_node("../TabContainer/Fire/FireList/Passive0/Timer")
 onready var fire_label_0 = get_node("../TabContainer/Fire/FireList/Label0")
+onready var fire_button_02 = get_node("../TabContainer/Fire/FireList/Passive02")
+onready var fire_timer_02 = get_node("../TabContainer/Fire/FireList/Passive02/Timer")
+onready var fire_label_02 = get_node("../TabContainer/Fire/FireList/Label02")
+onready var fire_button_03 = get_node("../TabContainer/Fire/FireList/Passive03")
+onready var fire_timer_03 = get_node("../TabContainer/Fire/FireList/Passive03/Timer")
+onready var fire_label_03 = get_node("../TabContainer/Fire/FireList/Label03")
 onready var fire_button_1 = get_node("../TabContainer/Fire/FireList/Passive1")
 onready var fire_timer_1 = get_node("../TabContainer/Fire/FireList/Passive1/Timer")
 onready var fire_label_1 = get_node("../TabContainer/Fire/FireList/Label1")
@@ -95,6 +113,12 @@ onready var fire_label_8 = get_node("../TabContainer/Fire/FireList/Label8")
 onready var water_button_0 = get_node("../TabContainer/Water/WaterList/Passive0")
 onready var water_timer_0 = get_node("../TabContainer/Water/WaterList/Passive0/Timer")
 onready var water_label_0 = get_node("../TabContainer/Water/WaterList/Label0")
+onready var water_button_02 = get_node("../TabContainer/Water/WaterList/Passive02")
+onready var water_timer_02 = get_node("../TabContainer/Water/WaterList/Passive02/Timer")
+onready var water_label_02 = get_node("../TabContainer/Water/WaterList/Label02")
+onready var water_button_03 = get_node("../TabContainer/Water/WaterList/Passive03")
+onready var water_timer_03 = get_node("../TabContainer/Water/WaterList/Passive03/Timer")
+onready var water_label_03 = get_node("../TabContainer/Water/WaterList/Label03")
 onready var water_button_1 = get_node("../TabContainer/Water/WaterList/Passive1")
 onready var water_timer_1 = get_node("../TabContainer/Water/WaterList/Passive1/Timer")
 onready var water_label_1 = get_node("../TabContainer/Water/WaterList/Label1")
@@ -123,6 +147,15 @@ onready var water_label_8 = get_node("../TabContainer/Water/WaterList/Label8")
 onready var light_button_1 = get_node("../TabContainer/Light/LightList/Passive1")
 onready var light_timer_1 = get_node("../TabContainer/Light/LightList/Passive1/Timer")
 onready var light_label_1 = get_node("../TabContainer/Light/LightList/Label1")
+onready var light_button_2 = get_node("../TabContainer/Light/LightList/Passive2")
+onready var light_timer_2 = get_node("../TabContainer/Light/LightList/Passive2/Timer")
+onready var light_label_2 = get_node("../TabContainer/Light/LightList/Label2")
+onready var light_button_3 = get_node("../TabContainer/Light/LightList/Passive3")
+onready var light_timer_3 = get_node("../TabContainer/Light/LightList/Passive3/Timer")
+onready var light_label_3 = get_node("../TabContainer/Light/LightList/Label3")
+onready var light_button_4 = get_node("../TabContainer/Light/LightList/Passive4")
+onready var light_timer_4 = get_node("../TabContainer/Light/LightList/Passive4/Timer")
+onready var light_label_4 = get_node("../TabContainer/Light/LightList/Label4")
 
 # Passive income objects and the arrays in which they are contained are declared here
 
@@ -131,6 +164,8 @@ var gremlins = []
 var gremlin_research: bool = false
 
 var air_passive_0 :ResourceCreator
+var air_passive_02 :ResourceCreator
+var air_passive_03 :ResourceCreator
 var air_passive_1: ResourceCreator
 var air_passive_2 :ResourceCreator
 var air_passive_3: ResourceCreator
@@ -141,6 +176,8 @@ var air_passive_7: ResourceCreator
 var air_passive_8 :ResourceCreator
 
 var earth_passive_0: ResourceCreator
+var earth_passive_02: ResourceCreator
+var earth_passive_03: ResourceCreator
 var earth_passive_1: ResourceCreator
 var earth_passive_2: ResourceCreator
 var earth_passive_3: ResourceCreator
@@ -151,6 +188,8 @@ var earth_passive_7: ResourceCreator
 var earth_passive_8: ResourceCreator
 
 var fire_passive_0: ResourceCreator
+var fire_passive_02: ResourceCreator
+var fire_passive_03: ResourceCreator
 var fire_passive_1: ResourceCreator
 var fire_passive_2: ResourceCreator
 var fire_passive_3: ResourceCreator
@@ -161,6 +200,8 @@ var fire_passive_7: ResourceCreator
 var fire_passive_8: ResourceCreator
 
 var water_passive_0: ResourceCreator
+var water_passive_02: ResourceCreator
+var water_passive_03: ResourceCreator
 var water_passive_1: ResourceCreator
 var water_passive_2: ResourceCreator
 var water_passive_3: ResourceCreator
@@ -171,6 +212,9 @@ var water_passive_7: ResourceCreator
 var water_passive_8: ResourceCreator
 
 var light_passive_1: ResourceCreator
+var light_passive_2: ResourceCreator
+var light_passive_3: ResourceCreator
+var light_passive_4: ResourceCreator
 
 var cost_label = " (Cost: %s)"
 
@@ -188,6 +232,8 @@ func _ready():
 	# Type of resource produced
 	#
 	air_passive_0 = resource_creator.new(100, 1, 1, air_button_0, air_timer_0, air_label_0, "Air Auto Extractor", list.RES.AIR, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
+	air_passive_02 = resource_creator.new(1000, 10, 1, air_button_02, air_timer_02, air_label_02, "Air Auto Extractor Mk II", list.RES.AIR, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
+	air_passive_03 = resource_creator.new(10000, 100, 1, air_button_03, air_timer_03, air_label_03, "Air Auto Extractor Mk III", list.RES.AIR, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
 	air_passive_1 = resource_creator.new(20, 10, 10, air_button_1, air_timer_1, air_label_1, "Hire Lightweight Gremlins", list.RES.SUBAIR, "Recruit novice denizens of the plane to assist in bottling cloud puffs.")
 	air_passive_2 = resource_creator.new(40, 1, 1, air_button_2, air_timer_2, air_label_2, "Construct Puff Condenser", list.RES.AIR, "Build a simple machine that slowly squeezes cloud puffs into elemental air automatically.")
 	air_passive_3 = resource_creator.new(250, 100, 10, air_button_3, air_timer_3, air_label_3, "Hire Wing Gremlins", list.RES.SUBAIR, "Recruit skilled denizens of the plane to assist in bottling cloud puffs.")
@@ -196,9 +242,12 @@ func _ready():
 	air_passive_6 = resource_creator.new(6000, 100, 1, air_button_6, air_timer_6, air_label_6, "Construct Puff Swirler", list.RES.AIR, "Build an elaborate machine that swiftly squeezes cloud puffs into elemental air automatically.")
 	air_passive_7 = resource_creator.new(20000, 5000, 10, air_button_7, air_timer_7, air_label_7, "Hire Gravity Gremlins", list.RES.SUBAIR, "Recruit masterful denizens of the plane to assist in bottling cloud puffs.")
 	air_passive_8 = resource_creator.new(40000, 500, 1, air_button_8, air_timer_8, air_label_8, "Construct Puff Accelerator", list.RES.AIR, "Build an incomprehensible machine that rapidly squeezes cloud puffs into elemental air automatically.")
+
 	
 	
 	all_passives.append(air_passive_0)
+	all_passives.append(air_passive_02)
+	all_passives.append(air_passive_03)
 	all_passives.append(air_passive_1)
 	all_passives.append(air_passive_2)
 	all_passives.append(air_passive_3)
@@ -210,6 +259,9 @@ func _ready():
 	
 
 	earth_passive_0 = resource_creator.new(100, 1, 1, earth_button_0, earth_timer_0, earth_label_0, "Earth Auto Extractor", list.RES.EARTH, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
+
+	earth_passive_02 = resource_creator.new(1000, 10, 1, earth_button_02, earth_timer_02, earth_label_02, "Earth Auto Extractor Mk II", list.RES.EARTH, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
+	earth_passive_03 = resource_creator.new(10000, 100, 1, earth_button_03, earth_timer_03, earth_label_03, "Earth Auto Extractor Mk III", list.RES.EARTH, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
 	earth_passive_1 = resource_creator.new(20, 10, 10, earth_button_1, earth_timer_1, earth_label_1, "Hire Mining Gremlins", list.RES.SUBEARTH, "Recruit novice denizens of the plane to assist in mining obsidian chunks.")
 	earth_passive_2 = resource_creator.new(40, 1, 1, earth_button_2, earth_timer_2, earth_label_2, "Construct Chunk Breaker", list.RES.EARTH, "Build a simple machine that slowly grinds obsidian chunks into elemental earth automatically.")
 	earth_passive_3 = resource_creator.new(250, 100, 10, earth_button_3, earth_timer_3, earth_label_3, "Hire Crag Gremlins", list.RES.SUBEARTH, "Recruit skilled denizens of the plane to assist in mining obsidian chunks.")
@@ -218,8 +270,11 @@ func _ready():
 	earth_passive_6 = resource_creator.new(6000, 100, 1, earth_button_6, earth_timer_6, earth_label_6, "Construct Chunk Smasher", list.RES.EARTH, "Build an elaborate machine that swiftly grinds obsidian chunks into elemental earth automatically.")
 	earth_passive_7 = resource_creator.new(20000, 5000, 10, earth_button_7, earth_timer_7, earth_label_7, "Hire Mole Gremlins", list.RES.SUBEARTH, "Recruit masterful denizens of the plane to assist in mining obsidian chunks.")
 	earth_passive_8 = resource_creator.new(40000, 500, 1, earth_button_8, earth_timer_8, earth_label_8, "Construct Chunk Driller", list.RES.EARTH, "Build an incomprehensible machine that rapidly grinds obsidian chunks into elemental earth automatically.")
+
 	
 	all_passives.append(earth_passive_0)
+	all_passives.append(earth_passive_02)
+	all_passives.append(earth_passive_03)
 	all_passives.append(earth_passive_1)
 	all_passives.append(earth_passive_2)
 	all_passives.append(earth_passive_3)
@@ -230,6 +285,8 @@ func _ready():
 	all_passives.append(earth_passive_8)
 	
 	fire_passive_0 = resource_creator.new(100, 1, 1, fire_button_0, fire_timer_0, fire_label_0, "Fire Auto Extractor", list.RES.FIRE, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
+	fire_passive_02 = resource_creator.new(1000, 10, 1, fire_button_02, fire_timer_02, fire_label_02, "Fire Auto Extractor Mk II", list.RES.FIRE, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
+	fire_passive_03 = resource_creator.new(10000, 100, 1, fire_button_03, fire_timer_03, fire_label_03, "Fire Auto Extractor Mk III", list.RES.FIRE, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
 	fire_passive_1 = resource_creator.new(20, 10, 10, fire_button_1, fire_timer_1, fire_label_1,  "Hire Gathering Gremlins", list.RES.SUBFIRE, "Recruit novice denizens of the plane to assist in harvesting glowing roses.")
 	fire_passive_2 = resource_creator.new(40, 1, 1, fire_button_2, fire_timer_2, fire_label_2, "Construct Rose Mixer", list.RES.FIRE, "Build a simple machine that slowly blends glowing roses into elemental fire automatically.")
 	fire_passive_3 = resource_creator.new(250, 100, 10, fire_button_3, fire_timer_3, fire_label_3,  "Hire Thorny Gremlins", list.RES.SUBFIRE, "Recruit skilled denizens of the plane to assist in harvesting glowing roses.")
@@ -239,7 +296,10 @@ func _ready():
 	fire_passive_7 = resource_creator.new(20000, 5000, 10, fire_button_7, fire_timer_7, fire_label_7,  "Hire Lava Gremlins", list.RES.SUBFIRE, "Recruit masterful denizens of the plane to assist in harvesting glowing roses.")
 	fire_passive_8 = resource_creator.new(40000, 500, 1, fire_button_8, fire_timer_8, fire_label_8, "Construct Rose Disintegrator", list.RES.FIRE, "Build an incomprehensible machine that rapidly blends glowing roses into elemental fire automatically.")
 
+
 	all_passives.append(fire_passive_0)
+	all_passives.append(fire_passive_02)
+	all_passives.append(fire_passive_03)
 	all_passives.append(fire_passive_1)
 	all_passives.append(fire_passive_2)
 	all_passives.append(fire_passive_3)
@@ -250,6 +310,8 @@ func _ready():
 	all_passives.append(fire_passive_8)
 	
 	water_passive_0 = resource_creator.new(100, 1, 1, water_button_0, water_timer_0, water_label_0, "Water Auto Extractor", list.RES.WATER, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
+	water_passive_02 = resource_creator.new(1000, 10, 1, water_button_02, water_timer_02, water_label_02, "Water Auto Extractor Mk II", list.RES.WATER, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
+	water_passive_03 = resource_creator.new(10000, 100, 1, water_button_03, water_timer_03, water_label_03, "Water Auto Extractor Mk III", list.RES.WATER, "Construct a rudimentary machine to extract elemental energy from the plane automatically.")
 	water_passive_1 = resource_creator.new(20, 10, 10, water_button_1, water_timer_1, water_label_1, "Hire Snorkeling Gremlins", list.RES.SUBWATER, "Recruit novice denizens of the plane to assist in collecting coral crystals.")
 	water_passive_2 = resource_creator.new(40, 1, 1, water_button_2, water_timer_2, water_label_2, "Construct Crystal Crushers", list.RES.WATER, "Build a simple machine that slowly smashes coral crystals into elemental water automatically.")
 	water_passive_3 = resource_creator.new(250, 100, 10, water_button_3, water_timer_3, water_label_3, "Hire Fin Gremlins", list.RES.SUBWATER, "Recruit skilled denizens of the plane to assist in collecting coral crystals.")
@@ -258,8 +320,11 @@ func _ready():
 	water_passive_6 = resource_creator.new(6000, 100, 1, water_button_6, water_timer_6, water_label_6, "Construct Crystal Drainer", list.RES.WATER, "Build an elaborate machine that swiftly smashes coral crystals into elemental water automatically.")
 	water_passive_7 = resource_creator.new(20000, 5000, 10, water_button_7, water_timer_7, water_label_7, "Hire Shark Gremlins", list.RES.SUBWATER, "Recruit masterful denizens of the plane to assist in collecting coral crystals.")
 	water_passive_8 = resource_creator.new(40000, 500, 1, water_button_8, water_timer_8, water_label_8, "Construct Crystal Refinery", list.RES.WATER, "Build an incomprehensible machine that rapidly smashes coral crystals into elemental water automatically.")
+
   
 	all_passives.append(water_passive_0)
+	all_passives.append(water_passive_02)
+	all_passives.append(water_passive_03)
 	all_passives.append(water_passive_1)
 	all_passives.append(water_passive_2)
 	all_passives.append(water_passive_3)
@@ -270,8 +335,14 @@ func _ready():
 	all_passives.append(water_passive_8)
 	
 	light_passive_1 = resource_creator.new(50, 1, 1, light_button_1, light_timer_1, light_label_1, "Prism Altar", list.RES.LIGHT, "Construct an apparatus to refract elements into light automatically.")
+	light_passive_2 = resource_creator.new(500, 10, 1, light_button_2, light_timer_2, light_label_2, "Prism Shrine", list.RES.LIGHT, "Construct an apparatus to refract elements into light automatically.")
+	light_passive_3 = resource_creator.new(5000, 100, 1, light_button_3, light_timer_3, light_label_3, "Prism Tower", list.RES.LIGHT, "Construct an apparatus to refract elements into light automatically.")
+	light_passive_4 = resource_creator.new(50000, 1000, 1, light_button_4, light_timer_4, light_label_4, "Prism Satellite", list.RES.LIGHT, "Construct an apparatus to refract elements into light automatically.")
 	
 	all_passives.append(light_passive_1)
+	all_passives.append(light_passive_2)
+	all_passives.append(light_passive_3)
+	all_passives.append(light_passive_4)
 	
 	gremlins.append(air_passive_1)
 	gremlins.append(air_passive_3)
@@ -315,6 +386,20 @@ func _on_air_passive0_pressed():
 
 func _on_air_passive0_timeout():
 	auto_channel(payout(air_passive_0), list.RES.AIR)
+
+func _on_air_passive02_pressed():
+	buy_creator(air_passive_02)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
+
+func _on_air_passive02_timeout():
+	auto_channel(payout(air_passive_02), list.RES.AIR)
+
+func _on_air_passive03_pressed():
+	buy_creator(air_passive_03)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
+
+func _on_air_passive03_timeout():
+	auto_channel(payout(air_passive_03), list.RES.AIR)
 
 func _on_air_passive1_pressed():
 	buy_creator(air_passive_1)
@@ -376,6 +461,20 @@ func _on_air_passive8_timeout():
 
 func _on_earth_passive0_pressed():
 	buy_creator(earth_passive_0)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
+
+func _on_earth_passive02_timeout():
+	auto_channel(payout(earth_passive_02), list.RES.EARTH)
+
+func _on_earth_passive02_pressed():
+	buy_creator(earth_passive_02)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
+
+func _on_earth_passive03_timeout():
+	auto_channel(payout(earth_passive_03), list.RES.EARTH)
+
+func _on_earth_passive03_pressed():
+	buy_creator(earth_passive_03)
 	SoundPlayer.play_sound(SoundPlayer.CLICK2)
 
 func _on_earth_passive0_timeout():
@@ -446,6 +545,20 @@ func _on_fire_passive0_pressed():
 func _on_fire_passive0_timeout():
 	auto_channel(payout(fire_passive_0), list.RES.SUBFIRE)
 
+func _on_fire_passive02_pressed():
+	buy_creator(fire_passive_02)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
+
+func _on_fire_passive02_timeout():
+	auto_channel(payout(fire_passive_02), list.RES.SUBFIRE)
+
+func _on_fire_passive03_pressed():
+	buy_creator(fire_passive_03)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
+
+func _on_fire_passive03_timeout():
+	auto_channel(payout(fire_passive_03), list.RES.SUBFIRE)
+
 func _on_fire_passive1_pressed():
 	buy_creator(fire_passive_1)
 	SoundPlayer.play_category(SoundPlayer.GREMLINSOUNDS)
@@ -510,6 +623,20 @@ func _on_water_passive0_pressed():
 
 func _on_water_passive0_timeout():
 	auto_channel(payout(water_passive_0), list.RES.WATER)
+
+func _on_water_passive02_pressed():
+	buy_creator(water_passive_02)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
+
+func _on_water_passive02_timeout():
+	auto_channel(payout(water_passive_02), list.RES.WATER)
+
+func _on_water_passive03_pressed():
+	buy_creator(water_passive_03)
+	SoundPlayer.play_sound(SoundPlayer.CLICK2)
+
+func _on_water_passive03_timeout():
+	auto_channel(payout(water_passive_03), list.RES.WATER)
 
 func _on_water_passive1_pressed():
 	buy_creator(water_passive_1)
@@ -576,6 +703,27 @@ func _on_light_passive1_pressed():
 func _on_light_passive1_timeout():
 	main.combine(payout(light_passive_1))
 
+func _on_light_passive2_pressed():
+	buy_creator(light_passive_2)
+	SoundPlayer.play_category(SoundPlayer.LIGHTSOUNDS)
+
+func _on_light_passive2_timeout():
+	main.combine(payout(light_passive_2))
+
+func _on_light_passive3_pressed():
+	buy_creator(light_passive_3)
+	SoundPlayer.play_category(SoundPlayer.LIGHTSOUNDS)
+
+func _on_light_passive3_timeout():
+	main.combine(payout(light_passive_3))
+
+func _on_light_passive4_pressed():
+	buy_creator(light_passive_4)
+	SoundPlayer.play_category(SoundPlayer.LIGHTSOUNDS)
+
+func _on_light_passive4_timeout():
+	main.combine(payout(light_passive_4))
+
 # Helper functions
 
 func better_gremlins():
@@ -618,3 +766,8 @@ func reset():
 		p.set_amount(0)
 		p.reset_cost()
 		text_update(p)
+
+func advanced_light():
+	if ResearchDB.prod_1():
+		light_passive_3.get_button().visible = true
+		light_passive_4.get_button().visible = true
