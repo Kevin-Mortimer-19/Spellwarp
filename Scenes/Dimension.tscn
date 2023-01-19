@@ -225,7 +225,6 @@ margin_bottom = 467.0
 theme = ExtResource( 8 )
 
 [node name="Air" type="ScrollContainer" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -235,7 +234,7 @@ margin_bottom = -4.0
 
 [node name="AirList" type="VBoxContainer" parent="TabContainer/Air"]
 margin_right = 432.0
-margin_bottom = 422.0
+margin_bottom = 506.0
 rect_min_size = Vector2( 432, 0 )
 
 [node name="Button1" type="Button" parent="TabContainer/Air/AirList"]
@@ -266,140 +265,141 @@ margin_bottom = 86.0
 align = 1
 
 [node name="Passive02" type="Button" parent="TabContainer/Air/AirList" groups=["auto"]]
-margin_top = 48.0
+margin_top = 90.0
 margin_right = 432.0
-margin_bottom = 68.0
+margin_bottom = 110.0
 hint_tooltip = "Construct a rudimentary machine to extract elemental energy from the plane automatically."
 
 [node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive02"]
 
 [node name="Label02" type="Label" parent="TabContainer/Air/AirList" groups=["auto"]]
-margin_top = 72.0
-margin_right = 432.0
-margin_bottom = 86.0
-align = 1
-
-[node name="Passive03" type="Button" parent="TabContainer/Air/AirList" groups=["auto"]]
-margin_top = 48.0
-margin_right = 432.0
-margin_bottom = 68.0
-hint_tooltip = "Construct a rudimentary machine to extract elemental energy from the plane automatically."
-
-[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive03"]
-
-[node name="Label03" type="Label" parent="TabContainer/Air/AirList" groups=["auto"]]
-margin_top = 72.0
-margin_right = 432.0
-margin_bottom = 86.0
-align = 1
-
-[node name="Passive1" type="Button" parent="TabContainer/Air/AirList" groups=["air", "passive_button"]]
-margin_top = 90.0
-margin_right = 432.0
-margin_bottom = 110.0
-hint_tooltip = "Enlist some of the plane's floaty denizens to aid you in bottling puffs of clouds."
-
-[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive1"]
-
-[node name="Label1" type="Label" parent="TabContainer/Air/AirList" groups=["air"]]
 margin_top = 114.0
 margin_right = 432.0
 margin_bottom = 128.0
 align = 1
 
-[node name="Passive2" type="Button" parent="TabContainer/Air/AirList" groups=["air", "passive_button"]]
+[node name="Passive03" type="Button" parent="TabContainer/Air/AirList" groups=["auto"]]
 margin_top = 132.0
 margin_right = 432.0
 margin_bottom = 152.0
-hint_tooltip = "Build a device to squeeze the bottled clouds into air magic."
+hint_tooltip = "Construct a rudimentary machine to extract elemental energy from the plane automatically."
 
-[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive2"]
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive03"]
 
-[node name="Label2" type="Label" parent="TabContainer/Air/AirList" groups=["air"]]
+[node name="Label03" type="Label" parent="TabContainer/Air/AirList" groups=["auto"]]
 margin_top = 156.0
 margin_right = 432.0
 margin_bottom = 170.0
 align = 1
 
-[node name="Passive3" type="Button" parent="TabContainer/Air/AirList" groups=["air", "passive_button"]]
+[node name="Passive1" type="Button" parent="TabContainer/Air/AirList" groups=["air", "passive_button"]]
 margin_top = 174.0
 margin_right = 432.0
 margin_bottom = 194.0
+hint_tooltip = "Enlist some of the plane's floaty denizens to aid you in bottling puffs of clouds."
 
-[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive3"]
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive1"]
 
-[node name="Label3" type="Label" parent="TabContainer/Air/AirList" groups=["air"]]
+[node name="Label1" type="Label" parent="TabContainer/Air/AirList" groups=["air"]]
 margin_top = 198.0
 margin_right = 432.0
 margin_bottom = 212.0
 align = 1
 
-[node name="Passive4" type="Button" parent="TabContainer/Air/AirList" groups=["air", "passive_button"]]
+[node name="Passive2" type="Button" parent="TabContainer/Air/AirList" groups=["air", "passive_button"]]
 margin_top = 216.0
 margin_right = 432.0
 margin_bottom = 236.0
+hint_tooltip = "Build a device to squeeze the bottled clouds into air magic."
 
-[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive4"]
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive2"]
 
-[node name="Label4" type="Label" parent="TabContainer/Air/AirList" groups=["air"]]
+[node name="Label2" type="Label" parent="TabContainer/Air/AirList" groups=["air"]]
 margin_top = 240.0
 margin_right = 432.0
 margin_bottom = 254.0
 align = 1
 
-[node name="Passive5" type="Button" parent="TabContainer/Air/AirList" groups=["advanced", "air", "passive_button"]]
+[node name="Passive3" type="Button" parent="TabContainer/Air/AirList" groups=["air", "passive_button"]]
 margin_top = 258.0
 margin_right = 432.0
 margin_bottom = 278.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive5"]
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive3"]
 
-[node name="Label5" type="Label" parent="TabContainer/Air/AirList" groups=["advanced", "air"]]
+[node name="Label3" type="Label" parent="TabContainer/Air/AirList" groups=["air"]]
 margin_top = 282.0
 margin_right = 432.0
 margin_bottom = 296.0
 align = 1
 
-[node name="Passive6" type="Button" parent="TabContainer/Air/AirList" groups=["advanced", "air", "passive_button"]]
+[node name="Passive4" type="Button" parent="TabContainer/Air/AirList" groups=["air", "passive_button"]]
 margin_top = 300.0
 margin_right = 432.0
 margin_bottom = 320.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive6"]
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive4"]
 
-[node name="Label6" type="Label" parent="TabContainer/Air/AirList" groups=["advanced", "air"]]
+[node name="Label4" type="Label" parent="TabContainer/Air/AirList" groups=["air"]]
 margin_top = 324.0
 margin_right = 432.0
 margin_bottom = 338.0
 align = 1
 
-[node name="Passive7" type="Button" parent="TabContainer/Air/AirList" groups=["advanced", "air", "passive_button"]]
+[node name="Passive5" type="Button" parent="TabContainer/Air/AirList" groups=["advanced", "air", "passive_button"]]
 margin_top = 342.0
 margin_right = 432.0
 margin_bottom = 362.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive7"]
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive5"]
 
-[node name="Label7" type="Label" parent="TabContainer/Air/AirList" groups=["advanced", "air"]]
+[node name="Label5" type="Label" parent="TabContainer/Air/AirList" groups=["advanced", "air"]]
 margin_top = 366.0
 margin_right = 432.0
 margin_bottom = 380.0
 align = 1
 
-[node name="Passive8" type="Button" parent="TabContainer/Air/AirList" groups=["advanced", "air", "passive_button"]]
+[node name="Passive6" type="Button" parent="TabContainer/Air/AirList" groups=["advanced", "air", "passive_button"]]
 margin_top = 384.0
 margin_right = 432.0
 margin_bottom = 404.0
 
-[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive8"]
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive6"]
 
-[node name="Label8" type="Label" parent="TabContainer/Air/AirList" groups=["advanced", "air"]]
+[node name="Label6" type="Label" parent="TabContainer/Air/AirList" groups=["advanced", "air"]]
 margin_top = 408.0
 margin_right = 432.0
 margin_bottom = 422.0
 align = 1
 
+[node name="Passive7" type="Button" parent="TabContainer/Air/AirList" groups=["advanced", "air", "passive_button"]]
+margin_top = 426.0
+margin_right = 432.0
+margin_bottom = 446.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive7"]
+
+[node name="Label7" type="Label" parent="TabContainer/Air/AirList" groups=["advanced", "air"]]
+margin_top = 450.0
+margin_right = 432.0
+margin_bottom = 464.0
+align = 1
+
+[node name="Passive8" type="Button" parent="TabContainer/Air/AirList" groups=["advanced", "air", "passive_button"]]
+margin_top = 468.0
+margin_right = 432.0
+margin_bottom = 488.0
+
+[node name="Timer" type="Timer" parent="TabContainer/Air/AirList/Passive8"]
+
+[node name="Label8" type="Label" parent="TabContainer/Air/AirList" groups=["advanced", "air"]]
+margin_top = 492.0
+margin_right = 432.0
+margin_bottom = 506.0
+align = 1
+
 [node name="Earth" type="ScrollContainer" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -584,7 +584,7 @@ margin_bottom = -4.0
 
 [node name="FireList" type="VBoxContainer" parent="TabContainer/Fire"]
 margin_right = 432.0
-margin_bottom = 422.0
+margin_bottom = 506.0
 rect_min_size = Vector2( 432, 0 )
 
 [node name="Button1" type="Button" parent="TabContainer/Fire/FireList"]
@@ -759,7 +759,7 @@ margin_bottom = -4.0
 
 [node name="WaterList" type="VBoxContainer" parent="TabContainer/Water"]
 margin_right = 432.0
-margin_bottom = 422.0
+margin_bottom = 506.0
 rect_min_size = Vector2( 432, 0 )
 
 [node name="Button1" type="Button" parent="TabContainer/Water/WaterList"]

@@ -26,6 +26,17 @@ const PAGETURN3 = preload("res://Sounds/SFX/pageturn3.wav")
 const BOOP1 = preload("res://Sounds/SFX/boop1.wav")
 const BOOP2 = preload("res://Sounds/SFX/boop2.wav")
 const BOOP3 = preload("res://Sounds/SFX/boop3.wav")
+const AIRSPELL = preload("res://Sounds/SFX/windspell.wav")
+const EARTHSPELL = preload("res://Sounds/SFX/earthspell.wav")
+const FIRESPELL = preload("res://Sounds/SFX/firespell.wav")
+const WATERSPELL = preload("res://Sounds/SFX/waterspell.wav")
+const LIGHTSPELL1 = preload("res://Sounds/SFX/lightspell1.wav")
+const LIGHTSPELL2 = preload("res://Sounds/SFX/lightspell2.wav")
+const NEGATIVE = preload("res://Sounds/SFX/negative.wav")
+const DEATH = preload("res://Sounds/SFX/death.wav")
+const WARPSOUND1 = preload("res://Sounds/SFX/warpsound1.mp3")
+const WARPSOUND2 = preload("res://Sounds/SFX/warpsound2.wav")
+const WARPSOUND3 = preload("res://Sounds/SFX/warpsound3.wav")
 
 # categories
 var GREMLINSOUNDS = [GREMLIN1, GREMLIN2, GREMLIN3, GREMLIN4]
@@ -37,6 +48,7 @@ var LIGHTSOUNDS = [LIGHT1, LIGHT2, LIGHT3]
 var UNLOCKSOUNDS = [UNLOCK1, UNLOCK2]
 var PAGETURNSOUNDS = [PAGETURN1, PAGETURN2, PAGETURN3]
 var BOOPSOUNDS = [BOOP1, BOOP2, BOOP3]
+var LIGHTSPELLSOUNDS = [LIGHTSPELL1, LIGHTSPELL2]
 
 # ost
 const TITLESONG = preload("res://Sounds/OST/title.mp3")

@@ -1,9 +1,9 @@
 class_name Stored_Energy extends Node
 
-var air: int = 0
-var earth: int = 0
-var fire: int = 0
-var water: int = 0
+var air: int = 50000005000000
+var earth: int = 50000005000000
+var fire: int = 50000005000000
+var water: int = 50000005000000
 var light: int = 5000000500000
 var warp: int = 0
 

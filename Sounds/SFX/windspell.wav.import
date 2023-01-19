@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/windspell.wav-99ef23ed2a6f54fcc56efd612ff5d2be.sample"
+
+[deps]
+
+source_file="res://Sounds/SFX/windspell.wav"
+dest_files=[ "res://.import/windspell.wav-99ef23ed2a6f54fcc56efd612ff5d2be.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

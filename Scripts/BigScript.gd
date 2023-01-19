@@ -243,6 +243,9 @@ func warp():
 func _on_warp_button_pressed():
 	if light_count >= warp_cost:
 		add_element(-1 * warp_cost, list.RES.LIGHT)
+		SoundPlayer.play_sound(SoundPlayer.WARPSOUND1)
+		SoundPlayer.play_sound(SoundPlayer.WARPSOUND2)
+		SoundPlayer.play_sound(SoundPlayer.WARPSOUND3)
 		warp()
 
 func _on_warp_timer_timeout():
