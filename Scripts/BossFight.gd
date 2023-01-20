@@ -123,34 +123,34 @@ func _on_fail_button_pressed():
 func _on_element_button_pressed():
 	match active_element:
 		ResourceList.RES.AIR:
-			var difference = StoredEnergy.air - AIR
-			if difference > 0:
-				StoredEnergy.air = difference
-				SoundPlayer.play_sound(SoundPlayer.AIRSPELL)
-				next_turn(true)
-			else:
-				next_turn(false)
-		ResourceList.RES.EARTH:
-			var difference = StoredEnergy.earth - EARTH
+			var difference = StoredEnergy.earth - AIR
 			if difference > 0:
 				StoredEnergy.earth = difference
 				SoundPlayer.play_sound(SoundPlayer.EARTHSPELL)
 				next_turn(true)
 			else:
 				next_turn(false)
-		ResourceList.RES.FIRE:
-			var difference = StoredEnergy.fire - FIRE
+		ResourceList.RES.EARTH:
+			var difference = StoredEnergy.air - EARTH
 			if difference > 0:
-				StoredEnergy.fire = difference
-				SoundPlayer.play_sound(SoundPlayer.FIRESPELL)
+				StoredEnergy.air = difference
+				SoundPlayer.play_sound(SoundPlayer.AIRSPELL)
+				next_turn(true)
+			else:
+				next_turn(false)
+		ResourceList.RES.FIRE:
+			var difference = StoredEnergy.water - FIRE
+			if difference > 0:
+				StoredEnergy.water = difference
+				SoundPlayer.play_sound(SoundPlayer.WATERSPELL)
 				next_turn(true)
 			else:
 				next_turn(false)
 		ResourceList.RES.WATER:
-			var difference = StoredEnergy.water - WATER
+			var difference = StoredEnergy.fire - WATER
 			if difference > 0:
-				StoredEnergy.water = difference
-				SoundPlayer.play_sound(SoundPlayer.WATERSPELL)
+				StoredEnergy.fire = difference
+				SoundPlayer.play_sound(SoundPlayer.FIRESPELL)
 				next_turn(true)
 			else:
 				next_turn(false)
